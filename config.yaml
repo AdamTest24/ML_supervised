@@ -8,10 +8,10 @@
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
 # incubator: The Carpentries Incubator
-carpentry: incubator
+carpentry: l2d
 
 # Overall title for pages.
-title: Lesson Title
+title: Machine Learning - Supervised
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: ~
@@ -58,7 +58,10 @@ contact: team@carpentries.org
 # - another-learner.md
 
 # Order of episodes in your lesson 
-episodes: 
+episodes:
+  - 01-classification_intro.Rmd
+  - 02-improvement.Rmd
+  - 03-refinement.Rmd
 
 # Information for Learners
 learners: 
