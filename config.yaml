@@ -9,6 +9,8 @@
 # cp: Carpentries (to use for instructor traning for instance)
 # incubator: The Carpentries Incubator
 carpentry: l2d
+varnish: LearnToDiscover/varnish
+sandpaper: LearnToDiscover/sandpaper@l2d
 
 # Overall title for pages.
 title: Machine Learning - Supervised
