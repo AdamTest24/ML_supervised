@@ -72,7 +72,7 @@ classifiers = {
 ```{python, results = "hold"}
 seed(RANDOM_STATE)
 
-X, y = make_circles(n_samples=500, factor=0.5, noise=.3, random_state=RANDOM_STATE)
+X, y = make_circles(n_samples=50, factor=0.5, noise=.3, random_state=RANDOM_STATE)
 
 feature_1, feature_2 = 0, 1
 ft_min, ft_max = X.min(), X.max()
@@ -104,7 +104,7 @@ fig, axes = subplots(figsize=[16, 12], ncols=4, nrows=2, sharey=True, sharex=Tru
 
 for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
 
-    score, permutation_scores, pvalue = permutation_test_score(clf, X, y, scoring="accuracy", n_jobs=-1,n_permutations=100) 
+    score, permutation_scores, pvalue = permutation_test_score(clf, X, y, scoring="accuracy",n_permutations=10) 
                                                                
     score_label = 'Score: {:.3f}, (p={:.4f})'.format(score, pvalue)
    
