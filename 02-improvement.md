@@ -4,6 +4,13 @@ teaching: 10
 exercises: 2
 ---
 
+[**Download Chapter pdf**](02-improvement.md.pdf)
+
+[**Download Chapter notebook (ipynb)**](02-improvement.ipynb)
+
+[<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
+
+
 :::::::::::::::::::::::::::::::::::::: questions 
 
 -
@@ -1005,6 +1012,8 @@ Feature 1: 31.4%; Feature 2: 33.9%; Feature 3: 34.7%
 ```
 
 <img src="fig/02-improvement-rendered-unnamed-chunk-25-29.png" width="672" style="display: block; margin: auto;" />
+
+The three features contribute similarly to the outcome.
 :::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::
 
