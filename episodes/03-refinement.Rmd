@@ -635,6 +635,467 @@ One way to address this problem is to split our original data into 3 different d
 
 See for example the discussion in part 2 of this [paper on predictive modelling for brain stimulation](https://www.brainstimjrnl.com/article/S1935-861X(21)00236-9/fulltext). The above leaking is there referred to as "snooping".  
 
+## Exercises
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+#### End of chapter Exercises
+
+As a suggestion, take the [breast cancer dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer). 
+
+1. Using all features create a summary boxplot to see the medians and distributions of the features.
+
+2. Train the above introduced classifiers using the train_test split to generate testing and training data and pick a small training set of e.g. 10% to make the classification task difficult. Obtain the recall scores to compare classifiers.
+
+3. Plot the confusion matrix for each case.
+
+4. Do a permutation test with default settings to get the p-values to reject the null hypothesis that the scores are compatible with random predictions. If it takes too long, reduce `n_permutations`.
+
+5. Repeat the workflow with normalised data and compare the results. 
+
+6. Perform a hyperparameter tuning with the Random Forest classifier. For the optimal parameter settings, re-run the training and plot the feature importances to see the contributions of each feature to the outcome. 
+
+
+The breast cancer data can be imported from the `scikit-learn`.
+
+```{python}
+from sklearn.datasets import load_breast_cancer
+
+data = load_breast_cancer()
+
+X = data.data
+y = data.target
+
+```
+
+Feel free to try and do any other testing or plotting that you find important. This assignment is not meant to get a correct answer. It should help you to increase flexibility when facing a difficult machine learning problem. 
+
+
+
+::::::::::::::::::::: solution
+
+## Please check these solutions only after submitting the assignments.
+
+```{python, eval=FALSE}
+from numpy import mgrid, linspace, c_, arange, mean, array
+from numpy.random import uniform, seed
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from mpl_toolkits import mplot3d
+from matplotlib.pyplot import subplots, axes, scatter, xticks
+
+from sklearn.datasets import load_breast_cancer
+from sklearn.datasets import make_circles
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import recall_score
+
+from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier, AdaBoostClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC, LinearSVC
+from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import KNeighborsClassifier
+
+from sklearn.model_selection import permutation_test_score
+
+from sklearn.model_selection import StratifiedShuffleSplit 
+from sklearn.model_selection import GridSearchCV
+
+RANDOM_STATE = 111
+
+classifiers = {
+    'Random Forest': RandomForestClassifier(random_state=RANDOM_STATE),
+    'AdaBoost (Random Forest)': AdaBoostClassifier(RandomForestClassifier(random_state=RANDOM_STATE)),
+    'Extra Trees': ExtraTreesClassifier(random_state=RANDOM_STATE),
+    'AdaBoost (Extra Tree)': AdaBoostClassifier(ExtraTreesClassifier(random_state=RANDOM_STATE)),
+    'Decision Tree': DecisionTreeClassifier(random_state=RANDOM_STATE),
+    'SVC (RBF)': SVC(random_state=RANDOM_STATE),
+    'SVC (Linear)': LinearSVC(random_state=RANDOM_STATE, dual=False),
+    'Multi-layer Perceptron': MLPClassifier(max_iter=5000, random_state=RANDOM_STATE)
+    }
+```
+
+Notice that the linear Support Vector classifier is imported with the keyword argument `dual=False`. This is to reduce the number of (pink) warnings that occur when the classifier struggles to find a good solution. 
+
+## Q1
+
+```{python, eval=FALSE}
+data = load_breast_cancer()
+
+X = data.data
+y = data.target
+
+print(X.shape, y.shape)
+```
+
+To get the feature names, you can access them as follows:
+
+```{python}
+data.feature_names
+```
+
+```{python}
+from pandas import DataFrame
+
+df = DataFrame(X)
+
+df.boxplot();
+```
+
+Data are differently distributed. Features with indices 3 and 23 have largest medians and variances. 
+
+## Q2 Train-test split and classification of original data
+
+Only a small training set is used.
+```{python, eval=FALSE}
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.9, random_state=RANDOM_STATE, shuffle=True)
+
+print(X_train.shape, X_test.shape)
+```
+
+```{python, eval=FALSE}
+fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
+
+for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
+    # Training the model using training data:     
+    clf.fit(X_train, y_train)
+
+    y_predicted = clf.predict(X_test)
+
+    # Evaluating the score using test data:
+    score = clf.score(X_test, y_test)
+    recall = recall_score(y_test, y_predicted)
+
+    # Scattering two features of test data only:     
+    ax.scatter(X_test[:, 0], X_test[:, 1], c=y_test, s=4, cmap='bwr', marker='.')
+
+    label = '{} - Recall Score: {:.2f}'.format(name, recall)
+    ax.set_title(label , fontsize=10);
+
+show()
+```
+
+## Q3 Confusion Matrix
+```{python, eval=FALSE}
+def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None): 
+    """
+    This function prints and plots the confusion matrix.
+    y_test (array)
+    y_pred (array)
+    classes (array)
+    normalize (bool) Normalize the results (True), or show them as integer numbers (False).
+    ax Visualization axis.
+    The function is an adaptation of a SciKit Learn example. 
+    """
+    
+    from itertools import product
+    from numpy import asarray, newaxis
+
+    from sklearn.metrics import confusion_matrix
+    cm = confusion_matrix(y_test, y_pred)
+    n_classes = len(classes)
+    
+    if normalize:
+        cm = asarray(cm).astype('float32') / cm.sum(axis=1)[:, newaxis]
+
+    if not ax:
+        from matplotlib.pyplot import subplots
+        fig, ax = subplots()
+        
+    ticks = range(n_classes)
+    ax.imshow(cm, interpolation='nearest', cmap='Blues')
+    ax.set_xticks(ticks)
+    ax.set_xticklabels(classes, rotation=90)
+    ax.set_yticks(ticks)
+    ax.set_yticklabels(classes)
+    fmt = '.2f' if normalize else 'd'
+    thresh = 3*cm.max() / 4
+    cm_dim = cm.shape
+    
+    # Matrix indices:
+    indices_a = range(cm_dim[0])
+    indices_b = range(cm_dim[1])
+    # Cartesian product of matrix indices:
+    indices = product(indices_a, indices_b)
+    fmt = '.2f' if normalize else 'd'
+    
+    for ind_a, ind_b in indices:
+        label = format(cm[ind_a, ind_b], fmt)
+        color = "white" if cm[ind_a, ind_b] > thresh else "black"
+        ax.text(ind_b, ind_a, label, ha="center", color=color)
+    ax.set_ylabel('True label')
+    ax.set_xlabel('Predicted label')
+    
+    return ax
+  
+```
+
+```{python, eval=FALSE}
+class_names = ('False (0)', 'True (1)')
+
+fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
+
+for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
+    
+    clf.fit(X_train, y_train)
+    
+    y_pred = clf.predict(X_test)
+    
+    plot_confusion_matrix(y_test, y_pred, classes=class_names, normalize=True, ax=ax)
+
+    ax.set_title(name, fontsize=10);
+    
+show()    
+```
+
+## Q4 Permutation Test Score
+```{python, eval=FALSE}
+n_classes = 2
+chance = 1 / n_classes
+
+fig, axes = subplots(figsize=[16, 12], ncols=4, nrows=2, sharey=True, sharex=True) 
+
+for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
+
+    score, permutation_scores, pvalue = permutation_test_score(clf, X, y, 
+                                                               scoring="accuracy", 
+                                                               n_jobs=-1,
+                                                               n_permutations=100) 
+                                                               
+    score_label = 'Score: {:.3f}, (p={:.4f})'.format(score, pvalue)
+
+    chance_label = 'Chance: {:.3f}'.format(chance)
+    
+    ax.hist(permutation_scores) 
+    ax.set_ylim(0, 30)
+    ax.axvline(score,  c='g', label=score_label,  linewidth=3.0) 
+    ax.axvline(chance, c='r', label=chance_label, linewidth=3.0)
+    ax.set_title(name, fontsize=10) 
+    ax.legend(fontsize=8)
+
+show()
+```
+
+The classification result is good in that the green score for the data is separate from the score distribution of permutated data. However, the permutated data are distributed systematically above 0.5. This is presumably due to the strongly skewed distributions of some of the features (see the boxplots above). For both SVCs, there are cases where the classifier fails to converge, and thus data are missing. (There would have been many warnings, but warnings were switched off (see abvove under 'Import Functions').
+
+## Q5 Normalisation
+
+The code for three common scalers is shown below. Figures were obtained with the `Normaliser`. Note that this changes the y-scale of the data, but does not affect the skewness of the distribution.
+
+```{python, eval=FALSE}
+from sklearn.preprocessing import Normalizer
+
+norm_skl       = Normalizer()
+X_normed = norm_skl.fit_transform(X)
+
+X_normed.shape
+
+from pandas import DataFrame
+
+df = DataFrame(X_normed)
+
+df.boxplot();
+
+```
+
+## Train-test split and classification of normalised data
+```{python, eval=FALSE}
+X_normed_train, X_normed_test, y_train, y_test = train_test_split(X_normed, y, test_size=.9, random_state=RANDOM_STATE, shuffle=True)
+
+print(X_normed_train.shape, X_normed_test.shape)
+```
+
+```{python, eval=FALSE}
+fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
+
+for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
+    # Training the model using trainiang data:     
+    clf.fit(X_normed_train, y_train)
+
+    y_predicted = clf.predict(X_normed_test)
+
+    # Evaluating the score using test data:
+    score = clf.score(X_normed_test, y_test)
+    recall = recall_score(y_test, y_predicted)
+
+    # Scattering two features of test data only:     
+    ax.scatter(X_normed_test[:, 0], X_normed_test[:, 1], c=y_test, s=4, cmap='bwr', marker='.')
+
+    label = '{} - Recall Score: {:.2f}'.format(name, recall)
+    ax.set_title(label , fontsize=10);
+    
+show()    
+```
+In the normalised data, the recall score is high. The SVCs even achieve scores of 1.0. The Recall is the ability of the classifier to find all the positive samples.
+
+## Confusion Matrix
+```{python, eval=FALSE}
+class_names = ('False (0)', 'True (1)')
+
+fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
+
+for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
+    
+    clf.fit(X_normed_train, y_train)
+    
+    y_pred = clf.predict(X_normed_test)
+    
+    plot_confusion_matrix(y_test, y_pred, classes=class_names, normalize=True, ax=ax)
+
+    ax.set_title(name, fontsize=10);
+    
+show()    
+```
+
+Notice how both SVC perform badly! All true positive were found (see above) but they struggled to detect the false negatives. In this specific case, the single recall score would be quite misleading. 
+
+If instead of the Normaliser, we apply the Standard Scaler, yielding mean 0 and variance 1 for all features, the results look a bit better.
+
+```{python, eval=FALSE}
+from sklearn.preprocessing import StandardScaler
+
+std_skl       = StandardScaler()
+X_normed = std_skl.fit_transform(X)
+
+df = DataFrame(X_normed)
+
+df.boxplot();
+
+
+X_normed.shape
+```
+
+```{python, eval=FALSE}
+X_normed_train, X_normed_test, y_train, y_test = train_test_split(X_normed, y, test_size=.9, random_state=RANDOM_STATE, shuffle=True)
+
+print(X_normed_train.shape, X_normed_test.shape)
+
+fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
+
+for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
+    # Training the model using trainiang data:     
+    clf.fit(X_normed_train, y_train)
+
+    y_predicted = clf.predict(X_normed_test)
+
+    # Evaluating the score using test data:
+    score = clf.score(X_normed_test, y_test)
+    recall = recall_score(y_test, y_predicted)
+
+    # Scattering two features of test data only:     
+    ax.scatter(X_normed_test[:, 0], X_normed_test[:, 1], c=y_test, s=4, cmap='bwr', marker='.')
+
+    label = '{} - Recall Score: {:.2f}'.format(name, recall)
+    ax.set_title(label , fontsize=10);
+
+show()
+
+```
+
+```{python, eval=FALSE}
+class_names = ('False (0)', 'True (1)')
+
+fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
+
+for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
+    
+    clf.fit(X_normed_train, y_train)
+    
+    y_pred = clf.predict(X_normed_test)
+    
+    plot_confusion_matrix(y_test, y_pred, classes=class_names, normalize=True, ax=ax)
+
+    ax.set_title(name, fontsize=10);
+    
+show()    
+```
+
+## Q6 Hyperparameter Tuning
+```{python, eval=FALSE}
+clf = RandomForestClassifier(random_state=RANDOM_STATE)
+
+clf.fit(X_train, y_train)
+
+score = clf.score(X_test, y_test)
+
+print('Score: {:.2f}'.format(score))
+```
+
+```{python, eval=FALSE}
+param_grid = dict(
+    n_estimators=[30, 50, 70, 90],
+    max_features=[None, 'auto', 'sqrt', 'log2'],
+    min_samples_split=[2, 3, 4],
+    max_depth=[2, 3, 4, 5, 6]
+)
+
+cv = StratifiedShuffleSplit(test_size=0.9, random_state=RANDOM_STATE)
+
+clf = RandomForestClassifier(random_state=RANDOM_STATE)
+
+grid = GridSearchCV(clf, param_grid=param_grid, cv=cv, n_jobs=-1)
+
+grid.fit(X, y)
+
+print("ORIGINAL data: Best parameters {}   Score: {:.2f}".format(grid.best_params_, grid.best_score_))
+print('')
+
+grid.fit(X_normed, y)
+
+print("NORMED data:   Best parameters {}    Score {:.2f}".format(grid.best_params_, grid.best_score_))
+print('')
+
+```
+
+```{python, eval=FALSE}
+clf = RandomForestClassifier(max_depth=4, 
+                             max_features=None, 
+                             min_samples_split=2, 
+                             n_estimators=50, 
+                             random_state=RANDOM_STATE)
+
+clf.fit(X_train, y_train)
+
+score = clf.score(X_test, y_test)
+
+print('Random Forest Score: {:.2f}'.format(score))
+
+```
+
+Arbitrary parameter searches do not necessarily lead to improved performance. The reason our score differs from the score reported in the grid search is that the grid search used 10 splits into different train and test data. 
+
+## Feature Importances
+```{python, eval=FALSE}
+importances = clf.feature_importances_
+
+bins = arange(importances.shape[0])
+
+fig, ax = subplots()
+
+ax.bar(bins, importances);
+ax.set_ylabel('Feature Importance', fontsize=16);
+
+show()
+```
+
+```{python, eval=FALSE}
+# Most important features
+threshold = 0.1
+
+feature_indices = bins[importances > threshold]
+
+feature_names = data.feature_names[feature_indices]
+
+print('Indices of features with importance above ', threshold, ':', sep='')
+print(list(feature_indices))
+print('Feature Name(s):', feature_names)
+
+```
+
+It turns out that with the used settings, the classification is dominated by a single feature.
+
+
+
+:::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::: 
+
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
