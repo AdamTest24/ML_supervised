@@ -4,6 +4,13 @@ teaching: 10
 exercises: 2
 ---
 
+[**Download Chapter pdf**](02-improvement.md.pdf)
+
+[**Download Chapter notebook (ipynb)**](02-improvement.ipynb)
+
+[<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
+
+
 :::::::::::::::::::::::::::::::::::::: questions 
 
 -
@@ -938,6 +945,8 @@ xticks(bins, ('Feature 1', 'Feature 2', 'Feature 3'), fontsize=16);
 
 show()
 ```
+
+The three features contribute similarly to the outcome.
 :::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::
 
