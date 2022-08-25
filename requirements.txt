@@ -1,5 +1,5 @@
 pandas
 matplotlib
-sklearn
+scikit-learn
 jupytext
 nibabel
