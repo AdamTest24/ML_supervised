@@ -12,21 +12,21 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How to prepare data for classification problem?
+- How to prepare data for classification?
 - Why do we need to train a model?
-- What does state space plot represent?
-- How prediction probabilities are calculated?
-- Can we find important features among all?
+- What does a state space plot represent?
+- How to obtain prediction probabilities?
+- What are the important features?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Understanding classification challenge.
-- Learning to train a classifier model.
-- Understanding state space plot of the model predictions.
-- Explaining prediction probabilities.
-- Improving model by finding important features.
+- Understanding the classification challenge.
+- Training a classifier model.
+- Understanding the state space plot of model predictions.
+- Obtaining prediction probabilities.
+- Finding important features.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -98,10 +98,10 @@ I am given a set of data from a single subject and feed them to a computational 
 The act of classification is to assign labels to unlabelled data after model exposure to previously labelled data (e.g. based on medical knowledge in the case of disease data). 
 </p>
 <p style='text-align: justify;'>
-In contrast, in _unsupervised machine learning_ the assignment is done based on exposure to unlabelled data following a search for distinctive feastures or 'structure' in the data.
+In contrast, in _unsupervised machine learning_ the assignment is done based on exposure to unlabelled data following a search for distinctive features or 'structure' in the data.
 </p>
 <p style='text-align: justify;'>
-We can first check if we are able to distinguish classes visually. For this, we scatter the data of two columns of our dataframe using the column names. That is, we look at the distribution of points in a plane. Then we use the class __label__ to color each point in the plane according to the class it belongs to. String labels like 'male' / 'female' first need to be converted to Boolean (binary). 0/1 labels as in the 'smokers/non-smokers' column can be used directly. 
+We can first check if we are able to distinguish classes visually. For this, we scatter the data of two columns of a dataframe using the column names. That is, we look at the distribution of points in a plane. Then we use the class __label__ to color each point in the plane according to the class it belongs to. String labels like 'male' / 'female' first need to be converted to Boolean (binary). 0/1 labels as in the 'smokers/non-smokers' column can be used directly. 
 </p>
 
 Let us plot the height-weight data and label them for both cases. 
@@ -163,7 +163,7 @@ We will import our machine learning functionality from the [SciKit Learn library
 :::::::::::::::::: callout
 ## SciKit Learn
 <p style='text-align: justify;'>
-SciKit Learn is a renowned open source application programming interface (API) for machine learning. It enjoys a vibrant community and is extremely well- maintained. It is always beneficial to use the official documentations for every API. SciKit Learn provides an exceptional documentation with detailed explanations and examples at every level.
+SciKit Learn is a renowned open source application programming interface (API) for machine learning. It enjoys a vibrant community and is well maintained. It is always beneficial to use the official documentations for every API. SciKit Learn provides an exceptional documentation with detailed explanations and examples at every level.
 </p>
 
 ::::::::::::::::::
@@ -179,7 +179,7 @@ Unlike functions that perform a specific task and return the results, in OOP, we
 
 ### **Prepare data with labels**
 <p style='text-align: justify;'>
-The terminology that is widely used in Machine Learning (including Scikit Learn) refers to data points as __samples__, and the different types of recordings(columns in our case) are referred to as __features__. In `numpy` notation, samples are organised in rows, features in columns.
+The terminology that is widely used in Machine Learning (including Scikit Learn) refers to data points as __samples__, and the different types of recordings(columns in our case) are referred to as __features__. In `Numpy` notation, samples are organised in rows, features in columns.
 </p>
 <p style='text-align: justify;'>
 We can use the function `uniform` from numpy.random to generate uniformly distributed random data. Here we create 100 samples of two features (as in the visualisation above). We decide to have values distributed between 0 and 100.
@@ -286,7 +286,7 @@ clf = RandomForestClassifier(random_state=RANDOM_SEED)
 ```
 
 <p style='text-align: justify;'>
-where `clf` now represents an _instance_ of class `RandomForestClassifier`. Note that we have set the keyword argument `random_state` to a number. This is to assure reproducibility of the results. (It dooes not have to be the same as above, pick any integer).
+where `clf` now represents an _instance_ of class `RandomForestClassifier`. Note that we have set the keyword argument `random_state` to a number. This is to assure reproducibility of the results. (It does not have to be the same as above, pick any integer).
 </p>
 
 The instance of a class is typically referred to as an object, whose type is the class that it represents:
@@ -314,7 +314,7 @@ clf.fit(X, y)
 
 ```
 
-And that's it. All the machine learning magic done. `clf` is now a trained model with opotimised parameters which we can use to predict new data.
+And that's it. All the machine learning magic done. `clf` is now a trained model with optimised parameters which we can use to predict new data.
 
 
 ### **Predict Test Data**
@@ -460,11 +460,12 @@ show()
 ```
 
 <p style='text-align: justify;'>
-Even though the sample is from the region that (according to the creation of the data) is in the 'True' region, it is labelled as false. The reason is, that there were few or no training data points in that specific region.
+Even though the sample is from the region that (according to the creation of the data) is in the 'True' region, it is labelled as false. The reason is that there were few or no training data points in that specific region.
 </p>
 <p style='text-align: justify;'>
-Here is a plot of the probability for the state space. White represents False and Black represents True, the values in between are gray coded. Note that the probablity values are complimentary. We only need the probabilities for one of our classes
+Here is a plot of the probability for the state space. White represents False and Black represents True, the values in between are gray coded. Note that the probability values are complementary. We only need the probabilities for one of our classes.
 </p>
+
 ```{python, results='hide', collapse=TRUE}
 state_space_proba = clf.predict_proba(XY_statespace)
 
@@ -703,7 +704,7 @@ show()
 This shows that the predicted label is female but the probability is less than 70 % and, e.g. if a clinical decision was to be taken based on the outcome of the classification, it might suggest looking for additional evidence before the decision is made.
 </p>
 
-### **Feature importances**
+### **Feature Importances**
 
 ```{python, results = "hold"}
 importances = clf.feature_importances_
@@ -729,7 +730,7 @@ Feature Height contributes about one third and feature Weight about two thirds t
 Feature importances can be used in data sets with many features, e.g. to reduce the number of features used for classification. Some features might not contribute to the classification and could therefore be left out of the process. 
 </p> 
 
-In the next class, we are going to test multiple classifiers and quantify their performance to improve the outcome of the classification. 
+In the next lesson, we are going to test multiple classifiers and quantify their performance to improve the outcome of the classification. 
 
 ## Exercises
 :::::::::::::::::::::::::::::::::::::::: challenge
