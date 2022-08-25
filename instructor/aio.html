@@ -2287,7 +2287,7 @@ Average scores:
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2577,7 +2577,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-refinement"><p>Content from <a href="03-refinement.html">Refinement</a></p>
 <hr>
-<p> Last updated on 2022-08-04 | <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-refinement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p> Last updated on 2022-08-25 | <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-refinement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 12 minutes </p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -2836,9 +2836,6 @@ any links that you are not going to use.
 </div>
 <p>When possible, SciKit Learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the <code>n_jobs</code> argument of a function or a class to the number of CPU cores we wish to use. Conveniently, we can set <code>n_jobs=-1</code> to use all available CPU cores (see e.g. below under Hyperparameter Tuning.)</p>
 <p>Keyword argument <code>n_permutations</code> is set to 100 by default. You can speed the cross-validation up by choosing a smaller number.</p>
-<blockquote>
-<p>Place of python code issue</p>
-</blockquote>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2852,7 +2849,7 @@ any links that you are not going to use.
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (name, clf) <span class="kw">in</span> <span class="bu">zip</span>(axes.ravel(), classifiers.items()):</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    score, permutation_scores, pvalue <span class="op">=</span> permutation_test_score(clf, X, y, scoring<span class="op">=</span><span class="st">"accuracy"</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>,n_permutations<span class="op">=</span><span class="dv">100</span>) </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    score, permutation_scores, pvalue <span class="op">=</span> permutation_test_score(clf, X, y, scoring<span class="op">=</span><span class="st">"accuracy"</span>, n_jobs<span class="op">=</span><span class="dv">1</span>,n_permutations<span class="op">=</span><span class="dv">100</span>) </span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                                                               </span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    score_label <span class="op">=</span> <span class="st">'Score: </span><span class="sc">{:.3f}</span><span class="st">, (p=</span><span class="sc">{:.4f}</span><span class="st">)'</span>.<span class="bu">format</span>(score, pvalue)</span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">""</span>)</span>
@@ -2866,7 +2863,7 @@ any links that you are not going to use.
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>show()    </span></code></pre>
 </div>
-<figure><img src="../fig/output_13_0.png" class="figure mx-auto d-block"></figure><p>Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). The p-values are below 0.01.</p>
+<p>Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). The p-values are below 0.01.</p>
 <p>Here is a <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_permutation_tests_for_classification.html#sphx-glr-auto-examples-model-selection-plot-permutation-tests-for-classification-py" class="external-link">scikit-learn example using permutations with the Iris data</a>.</p>
 </section><section id="confusion-matrix"><h2 class="section-heading">Confusion Matrix</h2>
 <hr class="half-width">
@@ -3183,17 +3180,15 @@ any links that you are not going to use.
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>cv <span class="op">=</span> StratifiedShuffleSplit(n_splits<span class="op">=</span><span class="dv">5</span>, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span>RANDOM_STATE) </span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> SVC(kernel<span class="op">=</span><span class="st">'rbf'</span>, random_state<span class="op">=</span>RANDOM_STATE)</span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> GridSearchCV(clf, param_grid<span class="op">=</span>param_grid, cv<span class="op">=</span>cv, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> GridSearchCV(clf, param_grid<span class="op">=</span>param_grid, cv<span class="op">=</span>cv, n_jobs<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>grid.fit(X, y)</span>
 <span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ORIGINAL: Best parameters </span><span class="sc">{}</span><span class="st">   Score: </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">''</span>)</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>grid.fit(X_normed, y)</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NORMED:   Best parameters </span><span class="sc">{}</span><span class="st">    Score </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">''</span>)</span></code></pre>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>grid.fit(X_normed, y)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NORMED:   Best parameters </span><span class="sc">{}</span><span class="st">    Score </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span></code></pre>
 </div>
 <pre><code>ORIGINAL: Best parameters {'C': 0.0001, 'gamma': 1000, 'tol': 0.0001}   Score: 0.65
 
@@ -3243,17 +3238,15 @@ NORMED:   Best parameters {'C': 1, 'gamma': 100, 'tol': 0.0001}    Score 0.75</c
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span>RANDOM_STATE)</span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> GridSearchCV(clf, param_grid<span class="op">=</span>param_grid, cv<span class="op">=</span>cv, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> GridSearchCV(clf, param_grid<span class="op">=</span>param_grid, cv<span class="op">=</span>cv, n_jobs<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>grid.fit(X, y)</span>
 <span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ORIGINAL: Best parameters </span><span class="sc">{}</span><span class="st">   Score: </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">''</span>)</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>grid.fit(X_normed, y)</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NORMED:   Best parameters </span><span class="sc">{}</span><span class="st">    Score </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">''</span>)</span></code></pre>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>grid.fit(X_normed, y)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NORMED:   Best parameters </span><span class="sc">{}</span><span class="st">    Score </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span></code></pre>
 </div>
 <pre><code>ORIGINAL: Best parameters {'max_depth': 4, 'max_features': None, 'min_samples_split': 2, 'n_estimators': 15}   Score: 0.84
 
@@ -3521,7 +3514,7 @@ NORMED:   Best parameters {'max_depth': 3, 'max_features': 'auto', 'min_samples_
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    score, permutation_scores, pvalue <span class="op">=</span> permutation_test_score(clf, X, y, </span>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>                                                               scoring<span class="op">=</span><span class="st">"accuracy"</span>, </span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>                                                               n_jobs<span class="op">=-</span><span class="dv">1</span>,</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>                                                               n_jobs<span class="op">=</span><span class="dv">1</span>,</span>
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>                                                               n_permutations<span class="op">=</span><span class="dv">100</span>) </span>
 <span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>                                                               </span>
 <span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    score_label <span class="op">=</span> <span class="st">'Score: </span><span class="sc">{:.3f}</span><span class="st">, (p=</span><span class="sc">{:.4f}</span><span class="st">)'</span>.<span class="bu">format</span>(score, pvalue)</span>
@@ -3709,17 +3702,15 @@ NORMED:   Best parameters {'max_depth': 3, 'max_features': 'auto', 'min_samples_
 <span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span>RANDOM_STATE)</span>
 <span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> GridSearchCV(clf, param_grid<span class="op">=</span>param_grid, cv<span class="op">=</span>cv, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> GridSearchCV(clf, param_grid<span class="op">=</span>param_grid, cv<span class="op">=</span>cv, n_jobs<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>grid.fit(X, y)</span>
 <span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ORIGINAL data: Best parameters </span><span class="sc">{}</span><span class="st">   Score: </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span>
-<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">''</span>)</span>
-<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>grid.fit(X_normed, y)</span>
-<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NORMED data:   Best parameters </span><span class="sc">{}</span><span class="st">    Score </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span>
-<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">''</span>)</span></code></pre>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>grid.fit(X_normed, y)</span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NORMED data:   Best parameters </span><span class="sc">{}</span><span class="st">    Score </span><span class="sc">{:.2f}</span><span class="st">"</span>.<span class="bu">format</span>(grid.best_params_, grid.best_score_))</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
