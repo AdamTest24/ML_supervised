@@ -248,7 +248,6 @@ When possible, SciKit Learn provides us the with ability to use multiple CPU cor
 
 Keyword argument `n_permutations` is set to 100 by default. You can speed the cross-validation up by choosing a smaller number. 
 
-> Place of python code issue
 
 ```{python, eval=FALSE}
 from sklearn.model_selection import permutation_test_score
@@ -261,7 +260,7 @@ fig, axes = subplots(figsize=[16, 12], ncols=4, nrows=2, sharey=True, sharex=Tru
 
 for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
 
-    score, permutation_scores, pvalue = permutation_test_score(clf, X, y, scoring="accuracy", n_jobs=-1,n_permutations=100) 
+    score, permutation_scores, pvalue = permutation_test_score(clf, X, y, scoring="accuracy", n_jobs=1,n_permutations=100) 
                                                                
     score_label = 'Score: {:.3f}, (p={:.4f})'.format(score, pvalue)
     print("")
@@ -276,8 +275,6 @@ for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
 show()    
 
 ```
-
-![](fig/output_13_0.png)
 
 
 Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). The p-values are below 0.01.
@@ -552,17 +549,15 @@ param_grid = dict(C=[1e-4, 1e-3, 1e-2, 1e-1, 1, 10],
 cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=RANDOM_STATE) 
 clf = SVC(kernel='rbf', random_state=RANDOM_STATE)
 
-grid = GridSearchCV(clf, param_grid=param_grid, cv=cv, n_jobs=-1)
+grid = GridSearchCV(clf, param_grid=param_grid, cv=cv, n_jobs=1)
 
 grid.fit(X, y)
 
 print("ORIGINAL: Best parameters {}   Score: {:.2f}".format(grid.best_params_, grid.best_score_))
-print('')
 
 grid.fit(X_normed, y)
 
 print("NORMED:   Best parameters {}    Score {:.2f}".format(grid.best_params_, grid.best_score_))
-print('')
 
 ```
 
@@ -604,17 +599,15 @@ cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=RANDOM_STATE
 
 clf = RandomForestClassifier(random_state=RANDOM_STATE)
 
-grid = GridSearchCV(clf, param_grid=param_grid, cv=cv, n_jobs=-1)
+grid = GridSearchCV(clf, param_grid=param_grid, cv=cv, n_jobs=1)
 
 grid.fit(X, y)
 
 print("ORIGINAL: Best parameters {}   Score: {:.2f}".format(grid.best_params_, grid.best_score_))
-print('')
 
 grid.fit(X_normed, y)
 
 print("NORMED:   Best parameters {}    Score {:.2f}".format(grid.best_params_, grid.best_score_))
-print('')
 
 ```
 
@@ -856,7 +849,7 @@ for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
 
     score, permutation_scores, pvalue = permutation_test_score(clf, X, y, 
                                                                scoring="accuracy", 
-                                                               n_jobs=-1,
+                                                               n_jobs=1,
                                                                n_permutations=100) 
                                                                
     score_label = 'Score: {:.3f}, (p={:.4f})'.format(score, pvalue)
@@ -1030,17 +1023,15 @@ cv = StratifiedShuffleSplit(test_size=0.9, random_state=RANDOM_STATE)
 
 clf = RandomForestClassifier(random_state=RANDOM_STATE)
 
-grid = GridSearchCV(clf, param_grid=param_grid, cv=cv, n_jobs=-1)
+grid = GridSearchCV(clf, param_grid=param_grid, cv=cv, n_jobs=1)
 
 grid.fit(X, y)
 
 print("ORIGINAL data: Best parameters {}   Score: {:.2f}".format(grid.best_params_, grid.best_score_))
-print('')
 
 grid.fit(X_normed, y)
 
 print("NORMED data:   Best parameters {}    Score {:.2f}".format(grid.best_params_, grid.best_score_))
-print('')
 
 ```
 
