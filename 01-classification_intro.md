@@ -12,21 +12,21 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How to prepare data for classification problem?
+- How to prepare data for classification?
 - Why do we need to train a model?
-- What does state space plot represent?
-- How prediction probabilities are calculated?
-- Can we find important features among all?
+- What does a state space plot represent?
+- How to obtain prediction probabilities?
+- What are the important features?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Understanding classification challenge.
-- Learning to train a classifier model.
-- Understanding state space plot of the model predictions.
-- Explaining prediction probabilities.
-- Improving model by finding important features.
+- Understanding the classification challenge.
+- Training a classifier model.
+- Understanding the state space plot of model predictions.
+- Obtaining prediction probabilities.
+- Finding important features.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -50,10 +50,6 @@ from numpy import arange, asarray, linspace, c_, meshgrid, zeros, ones
 from numpy.random import uniform, seed
 
 from matplotlib.pyplot import subplots, scatter, xlabel, ylabel, xticks, show
-```
-
-```{.output}
-Matplotlib is building the font cache; this may take a moment.
 ```
 
 ## Example: Visual Classification
@@ -107,10 +103,10 @@ I am given a set of data from a single subject and feed them to a computational 
 The act of classification is to assign labels to unlabelled data after model exposure to previously labelled data (e.g. based on medical knowledge in the case of disease data). 
 </p>
 <p style='text-align: justify;'>
-In contrast, in _unsupervised machine learning_ the assignment is done based on exposure to unlabelled data following a search for distinctive feastures or 'structure' in the data.
+In contrast, in _unsupervised machine learning_ the assignment is done based on exposure to unlabelled data following a search for distinctive features or 'structure' in the data.
 </p>
 <p style='text-align: justify;'>
-We can first check if we are able to distinguish classes visually. For this, we scatter the data of two columns of our dataframe using the column names. That is, we look at the distribution of points in a plane. Then we use the class __label__ to color each point in the plane according to the class it belongs to. String labels like 'male' / 'female' first need to be converted to Boolean (binary). 0/1 labels as in the 'smokers/non-smokers' column can be used directly. 
+We can first check if we are able to distinguish classes visually. For this, we scatter the data of two columns of a dataframe using the column names. That is, we look at the distribution of points in a plane. Then we use the class __label__ to color each point in the plane according to the class it belongs to. String labels like 'male' / 'female' first need to be converted to Boolean (binary). 0/1 labels as in the 'smokers/non-smokers' column can be used directly. 
 </p>
 
 Let us plot the height-weight data and label them for both cases. 
@@ -175,7 +171,7 @@ We will import our machine learning functionality from the [SciKit Learn library
 :::::::::::::::::: callout
 ## SciKit Learn
 <p style='text-align: justify;'>
-SciKit Learn is a renowned open source application programming interface (API) for machine learning. It enjoys a vibrant community and is extremely well- maintained. It is always beneficial to use the official documentations for every API. SciKit Learn provides an exceptional documentation with detailed explanations and examples at every level.
+SciKit Learn is a renowned open source application programming interface (API) for machine learning. It enjoys a vibrant community and is well maintained. It is always beneficial to use the official documentations for every API. SciKit Learn provides an exceptional documentation with detailed explanations and examples at every level.
 </p>
 
 ::::::::::::::::::
@@ -191,7 +187,7 @@ Unlike functions that perform a specific task and return the results, in OOP, we
 
 ### **Prepare data with labels**
 <p style='text-align: justify;'>
-The terminology that is widely used in Machine Learning (including Scikit Learn) refers to data points as __samples__, and the different types of recordings(columns in our case) are referred to as __features__. In `numpy` notation, samples are organised in rows, features in columns.
+The terminology that is widely used in Machine Learning (including Scikit Learn) refers to data points as __samples__, and the different types of recordings(columns in our case) are referred to as __features__. In `Numpy` notation, samples are organised in rows, features in columns.
 </p>
 <p style='text-align: justify;'>
 We can use the function `uniform` from numpy.random to generate uniformly distributed random data. Here we create 100 samples of two features (as in the visualisation above). We decide to have values distributed between 0 and 100.
@@ -319,7 +315,7 @@ clf = RandomForestClassifier(random_state=RANDOM_SEED)
 ```
 
 <p style='text-align: justify;'>
-where `clf` now represents an _instance_ of class `RandomForestClassifier`. Note that we have set the keyword argument `random_state` to a number. This is to assure reproducibility of the results. (It dooes not have to be the same as above, pick any integer).
+where `clf` now represents an _instance_ of class `RandomForestClassifier`. Note that we have set the keyword argument `random_state` to a number. This is to assure reproducibility of the results. (It does not have to be the same as above, pick any integer).
 </p>
 
 The instance of a class is typically referred to as an object, whose type is the class that it represents:
@@ -355,7 +351,7 @@ clf.fit(X, y)
 <style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(random_state=1234)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestClassifier</label><div class="sk-toggleable__content"><pre>RandomForestClassifier(random_state=1234)</pre></div></div></div></div></div>
 ```
 
-And that's it. All the machine learning magic done. `clf` is now a trained model with opotimised parameters which we can use to predict new data.
+And that's it. All the machine learning magic done. `clf` is now a trained model with optimised parameters which we can use to predict new data.
 
 
 ### **Predict Test Data**
@@ -543,11 +539,12 @@ show()
 <img src="fig/01-classification_intro-rendered-unnamed-chunk-19-7.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-Even though the sample is from the region that (according to the creation of the data) is in the 'True' region, it is labelled as false. The reason is, that there were few or no training data points in that specific region.
+Even though the sample is from the region that (according to the creation of the data) is in the 'True' region, it is labelled as false. The reason is that there were few or no training data points in that specific region.
 </p>
 <p style='text-align: justify;'>
-Here is a plot of the probability for the state space. White represents False and Black represents True, the values in between are gray coded. Note that the probablity values are complimentary. We only need the probabilities for one of our classes
+Here is a plot of the probability for the state space. White represents False and Black represents True, the values in between are gray coded. Note that the probability values are complementary. We only need the probabilities for one of our classes.
 </p>
+
 
 ```python
 state_space_proba = clf.predict_proba(XY_statespace)
@@ -870,7 +867,7 @@ Probability: 0.66
 This shows that the predicted label is female but the probability is less than 70 % and, e.g. if a clinical decision was to be taken based on the outcome of the classification, it might suggest looking for additional evidence before the decision is made.
 </p>
 
-### **Feature importances**
+### **Feature Importances**
 
 
 ```python
@@ -904,7 +901,7 @@ Feature Height contributes about one third and feature Weight about two thirds t
 Feature importances can be used in data sets with many features, e.g. to reduce the number of features used for classification. Some features might not contribute to the classification and could therefore be left out of the process. 
 </p> 
 
-In the next class, we are going to test multiple classifiers and quantify their performance to improve the outcome of the classification. 
+In the next lesson, we are going to test multiple classifiers and quantify their performance to improve the outcome of the classification. 
 
 ## Exercises
 :::::::::::::::::::::::::::::::::::::::: challenge
