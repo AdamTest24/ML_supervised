@@ -251,21 +251,22 @@
 </ul></section><section id="02-improvement"><h2 class="section-heading"><a href="02-improvement.html">Improvement</a></h2>
 <hr class="half-width">
 <ul>
+<li>Different classification algorithms approach problems differently.</li>
 <li>
-</li>
+<code>train_test_split</code> function tries to preserve the ratio of labels in the split</li>
+<li>Increasing the level of noise in the data makes the task more complicated.</li>
+<li>The potential bias due to splitting could be avoid using stratified shuffle split.</li>
 <li>
-</li>
-<li>
-</li>
+<code>StratifiedShuffleSplit</code> is a method that uses <code>n_splits</code> and <code>test_size</code> parameters.</li>
 </ul></section><section id="03-refinement"><h2 class="section-heading"><a href="03-refinement.html">Refinement</a></h2>
 <hr class="half-width">
 <ul>
+<li>The function <code>permutation_test_score</code> evaluates the significance of a cross-validated score with permutations.</li>
+<li>Confusion matrix demonstrates the number of correctly predicted labels against the incorrect ones.</li>
+<li>Adjustment of hyper-parameters of the algorithms may improve the results.</li>
 <li>
-</li>
-<li>
-</li>
-<li>
-</li>
+<code>GridSearchCV</code> is a tool to simultaneously define different values for different parameters.</li>
+<li>Progressive adjustments may lead to model over-fitting.</li>
 </ul></section>
 </div>
     </main>
@@ -308,7 +309,7 @@
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/instructor/key-points.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/instructor/key-points.html",
-  "dateCreated": "2022-08-25",
+  "dateCreated": "2022-09-06",
   "dateModified": "2022-09-06",
   "datePublished": "2022-09-06"
 }

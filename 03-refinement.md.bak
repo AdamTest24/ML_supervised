@@ -12,19 +12,21 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
--
--
--
+- How do multiple evaluation metrics differ?
+- What techniques are used to avoid chance prediction?
+- What are limitations of a confusion matrix?
+- How can we improve the performance of an algorithm?
+- Can normalisation and Hyperparameter tuning improve the results?
+- How could test data leakage be overcome?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
-- Metrics
-- Permutation Score
-- Confusion Matrix
-- Normalisation
-- Hyperparameters
-- Leakage
+- Explaining different types of metrics for model evaluation.
+- Understanding permutation score.
+- Illustrating model evaluation using confusion matrix.
+- Understanding different ways of normalisation and hyperparameter tuning.
+- Knowledge of progressive adjustment.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -273,7 +275,7 @@ Now that we know about evaluation metrics, we are set to properly begin the eval
 The process of cross-validation is computationally expensive, as is the process of repeatedly permuting, fitting, and testing our models. In this context, we will be using both processes to complement each other. This makes the operation time-consuming and slow.
 :::::::::::::::
 
-When possible, SciKit Learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the `n_jobs`  argument of a function or a class to the number of CPU cores we wish to use. Conveniently, we can set `n_jobs=-1`  to use all available CPU cores (see e.g. below under Hyperparameter Tuning.)
+When possible, SciKit Learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the `n_jobs`  argument of a function or a class to the number of CPU cores we wish to use. Conveniently, it can be set to `n_jobs=-1` to use all available CPU cores (see e.g. below under Hyperparameter Tuning). Here, we have shown the use of only one core with `n_jobs=1` which is computationally slow but can be adjusted according to the machine you are using to make it faster. 
 
 Keyword argument `n_permutations` is set to 100 by default. You can speed the cross-validation up by choosing a smaller number. 
 
@@ -304,6 +306,8 @@ for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
     
 show()    
 ```
+
+<img src="fig/03-refinement-rendered-unnamed-chunk-7-7.png" width="1536" style="display: block; margin: auto;" />
 
 
 Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). The p-values are below 0.01.
@@ -390,7 +394,7 @@ for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
 show()
 ```
 
-<img src="fig/03-refinement-rendered-unnamed-chunk-9-7.png" width="1632" style="display: block; margin: auto;" />
+<img src="fig/03-refinement-rendered-unnamed-chunk-9-9.png" width="1632" style="display: block; margin: auto;" />
 
 
 Ideally, the diagonal fields are both white and the off-diagonal fields maximaly dark. 
@@ -427,7 +431,7 @@ ax.set_ylabel('Count')
 show()
 ```
 
-<img src="fig/03-refinement-rendered-unnamed-chunk-10-9.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/03-refinement-rendered-unnamed-chunk-10-11.png" width="672" style="display: block; margin: auto;" />
 
 
 
@@ -440,7 +444,7 @@ ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=y, s=5, cmap='bwr');
 show()
 ```
 
-<img src="fig/03-refinement-rendered-unnamed-chunk-11-11.png" width="960" style="display: block; margin: auto;" />
+<img src="fig/03-refinement-rendered-unnamed-chunk-11-13.png" width="960" style="display: block; margin: auto;" />
 
 ```python
 fig, axes = subplots(figsize=(12, 3), ncols=3, sharex=True, sharey=True)
@@ -452,7 +456,7 @@ axes[2].scatter(X[:, 1], X[:, 2], c=y, s=2, cmap='bwr');
 show()
 ```
 
-<img src="fig/03-refinement-rendered-unnamed-chunk-11-12.png" width="1152" style="display: block; margin: auto;" />
+<img src="fig/03-refinement-rendered-unnamed-chunk-11-14.png" width="1152" style="display: block; margin: auto;" />
 
 ::::::::::::::::: callout
 ## Note
@@ -524,7 +528,7 @@ Normalised data:
 (0.0, 4.4)
 ```
 
-<img src="fig/03-refinement-rendered-unnamed-chunk-13-15.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/03-refinement-rendered-unnamed-chunk-13-17.png" width="672" style="display: block; margin: auto;" />
 
 
 Effectively, all normalised data are positioned on a circle around the origin with radius 1. Depending on correlations existing between the features this leads to different distortions of the original data. 
@@ -544,7 +548,7 @@ ax.view_init(30, 50);
 show()
 ```
 
-<img src="fig/03-refinement-rendered-unnamed-chunk-14-17.png" width="768" style="display: block; margin: auto;" />
+<img src="fig/03-refinement-rendered-unnamed-chunk-14-19.png" width="768" style="display: block; margin: auto;" />
 
 ```python
 fig, axes = subplots(figsize=(10, 3), ncols=3, sharex=True, sharey=True)
@@ -556,7 +560,7 @@ axes[2].scatter(X_normed[:, 1], X_normed[:, 2], c=y, s=2, cmap='bwr');
 show()
 ```
 
-<img src="fig/03-refinement-rendered-unnamed-chunk-14-18.png" width="960" style="display: block; margin: auto;" />
+<img src="fig/03-refinement-rendered-unnamed-chunk-14-20.png" width="960" style="display: block; margin: auto;" />
 
 And now we can do the training on the normalised data:
 
@@ -1205,9 +1209,11 @@ It turns out that with the used settings, the classification is dominated by a s
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
--
--
--
+- The function `permutation_test_score` evaluates the significance of a cross-validated score with permutations.
+- Confusion matrix demonstrates the number of correctly predicted labels against the incorrect ones.
+- Adjustment of hyper-parameters of the algorithms may improve the results. 
+- `GridSearchCV` is a tool to simultaneously define different values for different parameters. 
+- Progressive adjustments may lead to model over-fitting.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

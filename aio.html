@@ -1499,7 +1499,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-02-improvement"><p>Content from <a href="02-improvement.html">Improvement</a></p>
 <hr>
-<p> Last updated on 2022-08-04 | <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-improvement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p> Last updated on 2022-09-06 | <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-improvement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -1514,12 +1514,11 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>
-</li>
-<li>
-</li>
-<li>
-</li>
+<li>How to deal with complex topology data?</li>
+<li>Why is it important to use different classification algorithms initially?</li>
+<li>What is the best way to find optimal classifier?</li>
+<li>How can we avoid over-fitting of data?</li>
+<li>How to evaluate performance of a classifier?</li>
 </ul>
 </div>
 </div>
@@ -1529,11 +1528,10 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Complex training and testing data</li>
-<li>Comparison of different model classes</li>
-<li>Scoring</li>
-<li>Stratified shuffle split</li>
-<li>ROC and AUC</li>
+<li>Understanding complex training and testing data.</li>
+<li>Comparison of different model classes.</li>
+<li>Explaining the stratified shuffle split</li>
+<li>Evaluation of classifier - ROC and AUC</li>
 </ul>
 </div>
 </div>
@@ -1878,7 +1876,7 @@ any links that you are not going to use.
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/02-improvement-rendered-unnamed-chunk-7-5.png" width="1440" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflexts the original data distribution more closely. One classifier simply fails: SVC (linear): it tries to fit a straight line to separate the classes which in this case is impossible.</p>
+<figure><img src="fig/02-improvement-rendered-unnamed-chunk-7-5.png" width="1440" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflects the original data distribution more closely. One classifier simply fails: SVC (linear): it tries to fit a straight line to separate the classes which in this case is impossible.</p>
 </div>
 <div class="section level3">
 <h3 id="the-train-test-split">
@@ -2559,12 +2557,13 @@ Average scores:
 <h3 class="callout-title">Keypoints</h3>
 <div class="callout-content">
 <ul>
+<li>Different classification algorithms approach problems differently.</li>
 <li>
-</li>
+<code>train_test_split</code> function tries to preserve the ratio of labels in the split</li>
+<li>Increasing the level of noise in the data makes the task more complicated.</li>
+<li>The potential bias due to splitting could be avoid using stratified shuffle split.</li>
 <li>
-</li>
-<li>
-</li>
+<code>StratifiedShuffleSplit</code> is a method that uses <code>n_splits</code> and <code>test_size</code> parameters.</li>
 </ul>
 </div>
 </div>
@@ -2575,7 +2574,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-refinement"><p>Content from <a href="03-refinement.html">Refinement</a></p>
 <hr>
-<p> Last updated on 2022-08-25 | <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-refinement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p> Last updated on 2022-09-06 | <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-refinement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -2590,12 +2589,12 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>
-</li>
-<li>
-</li>
-<li>
-</li>
+<li>How do multiple evaluation metrics differ?</li>
+<li>What techniques are used to avoid chance prediction?</li>
+<li>What are limitations of a confusion matrix?</li>
+<li>How can we improve the performance of an algorithm?</li>
+<li>Can normalisation and Hyperparameter tuning improve the results?</li>
+<li>How could test data leakage be overcome?</li>
 </ul>
 </div>
 </div>
@@ -2605,12 +2604,11 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Metrics</li>
-<li>Permutation Score</li>
-<li>Confusion Matrix</li>
-<li>Normalisation</li>
-<li>Hyperparameters</li>
-<li>Leakage</li>
+<li>Explaining different types of metrics for model evaluation.</li>
+<li>Understanding permutation score.</li>
+<li>Illustrating model evaluation using confusion matrix.</li>
+<li>Understanding different ways of normalisation and hyperparameter tuning.</li>
+<li>Knowledge of progressive adjustment.</li>
 </ul>
 </div>
 </div>
@@ -2831,7 +2829,7 @@ any links that you are not going to use.
 </div>
 </div>
 </div>
-<p>When possible, SciKit Learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the <code>n_jobs</code> argument of a function or a class to the number of CPU cores we wish to use. Conveniently, we can set <code>n_jobs=-1</code> to use all available CPU cores (see e.g. below under Hyperparameter Tuning.)</p>
+<p>When possible, SciKit Learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the <code>n_jobs</code> argument of a function or a class to the number of CPU cores we wish to use. Conveniently, it can be set to <code>n_jobs=-1</code> to use all available CPU cores (see e.g. below under Hyperparameter Tuning). Here, we have shown the use of only one core with <code>n_jobs=1</code> which is computationally slow but can be adjusted according to the machine you are using to make it faster.</p>
 <p>Keyword argument <code>n_permutations</code> is set to 100 by default. You can speed the cross-validation up by choosing a smaller number.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2860,7 +2858,7 @@ any links that you are not going to use.
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>show()    </span></code></pre>
 </div>
-<p>Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). The p-values are below 0.01.</p>
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-7-7.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). The p-values are below 0.01.</p>
 <p>Here is a <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_permutation_tests_for_classification.html#sphx-glr-auto-examples-model-selection-plot-permutation-tests-for-classification-py" class="external-link">scikit-learn example using permutations with the Iris data</a>.</p>
 </section><section id="confusion-matrix"><h2 class="section-heading">Confusion Matrix</h2>
 <hr class="half-width">
@@ -2940,7 +2938,7 @@ any links that you are not going to use.
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-9-7.png" width="1632" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Ideally, the diagonal fields are both white and the off-diagonal fields maximaly dark.</p>
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-9-9.png" width="1632" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Ideally, the diagonal fields are both white and the off-diagonal fields maximaly dark.</p>
 </section><section id="further-refinements"><h2 class="section-heading">Further Refinements</h2>
 <hr class="half-width">
 <p>Once we decide what algorithm to use, we start by training that algorithm with its default settings and evaluate the results. If not satisfied, we can make further adjustments to the <strong>hyper-parameters</strong> of the algorithm to improve the results. As always in machine learning, it is of great importance that we avoid overfitting, i.e. maintain the generalisability of the model whilst improving its performance.</p>
@@ -2971,7 +2969,7 @@ any links that you are not going to use.
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-10-9.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb13">
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-10-11.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
@@ -2981,7 +2979,7 @@ any links that you are not going to use.
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], X[:, <span class="dv">2</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">5</span>, cmap<span class="op">=</span><span class="st">'bwr'</span>)<span class="op">;</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-11-11.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb14">
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-11-13.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">3</span>), ncols<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
@@ -2992,7 +2990,7 @@ any links that you are not going to use.
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-11-12.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="callout3" class="callout callout">
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-11-14.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="callout3" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -3073,7 +3071,7 @@ any links that you are not going to use.
 (0.0, 4.4)
 (0.0, 4.4)</code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-13-15.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Effectively, all normalised data are positioned on a circle around the origin with radius 1. Depending on correlations existing between the features this leads to different distortions of the original data.</p>
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-13-17.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Effectively, all normalised data are positioned on a circle around the origin with radius 1. Depending on correlations existing between the features this leads to different distortions of the original data.</p>
 <p>Let us now apply this normalisation to our artificial data set.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3088,7 +3086,7 @@ any links that you are not going to use.
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>ax.view_init(<span class="dv">30</span>, <span class="dv">50</span>)<span class="op">;</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-14-17.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb19">
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-14-19.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">3</span>), ncols<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
@@ -3099,7 +3097,7 @@ any links that you are not going to use.
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-14-18.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>And now we can do the training on the normalised data:</p>
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-14-20.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>And now we can do the training on the normalised data:</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3299,7 +3297,7 @@ NORMED:   Best parameters {'max_depth': 3, 'max_features': 'auto', 'min_samples_
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3771,12 +3769,12 @@ NORMED:   Best parameters {'max_depth': 3, 'max_features': 'auto', 'min_samples_
 <h3 class="callout-title">Keypoints</h3>
 <div class="callout-content">
 <ul>
+<li>The function <code>permutation_test_score</code> evaluates the significance of a cross-validated score with permutations.</li>
+<li>Confusion matrix demonstrates the number of correctly predicted labels against the incorrect ones.</li>
+<li>Adjustment of hyper-parameters of the algorithms may improve the results.</li>
 <li>
-</li>
-<li>
-</li>
-<li>
-</li>
+<code>GridSearchCV</code> is a tool to simultaneously define different values for different parameters.</li>
+<li>Progressive adjustments may lead to model over-fitting.</li>
 </ul>
 </div>
 </div>
@@ -3827,7 +3825,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/aio.html",
-  "dateCreated": "2022-08-25",
+  "dateCreated": "2022-09-06",
   "dateModified": "2022-09-06",
   "datePublished": "2022-09-06"
 }

@@ -131,8 +131,8 @@
         
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#data-sets">Data Sets</a></li>
-<li><a href="#software-setup">Software Setup</a></li>
+        <ul><li><a href="#setting-up-virtual-environment">Setting up virtual environment</a></li>
+<li><a href="#dataset">Dataset</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -207,7 +207,7 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Setup</h1>
       
 
-<p>This is a new lesson built with <a href="https://carpentries.github.io/sandpaper-docs" class="external-link">The Carpentries Workbench</a>.</p>
+<p>In this section we will focus on setting up the computer to get started with Python.</p>
 <!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
@@ -216,68 +216,27 @@ any links that you are not going to use.
 
       
 
-<p>Setup instructions live in this document. Please specify the tools and the data sets the Learner needs to have installed.</p>
-<section id="data-sets"><h2 class="section-heading">Data Sets</h2>
-<hr class="half-width"><p>Download the <a href="data/data.zip">data zip file</a> and unzip it to your Desktop</p>
-</section><section id="software-setup"><h2 class="section-heading">Software Setup</h2>
-<hr class="half-width"><div id="discussion1" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<div id="details" class="callout-inner">
-<h3 class="callout-title">Details</h3>
-<div class="callout-content">
-<p>Setup for different systems can be presented in dropdown menus via a <code>solution</code> tag. They will join to this discussion block, so you can give a general overview of the software used in this lesson here and fill out the individual operating systems (and potentially add more, e.g. online setup) in the solutions blocks.</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Windows
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<p>Use PuTTY</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  MacOS
-  </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>Use Terminal.app</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Linux
-  </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
-<div class="accordion-body">
-<p>Use Terminal</p>
-</div>
-</div>
-</div>
-</div>
-<!-- 
+<section id="setting-up-virtual-environment"><h2 class="section-heading">Setting up virtual environment</h2>
+<hr class="half-width"><p>In Python, the use of virtual environments allows you to avoid installing Python packages globally which could break system tools or other projects. Each virtual environment has its own Python binary (which matches the version of the binary that was used to create this environment) and can have its own independent set of installed Python packages in its site directories.</p>
+<p>A virtual environment can be created by executing the command <code>venv</code>:</p>
+<pre><code>python3 -m venv pyML</code></pre>
+<p>By running this command a new environment will be installed at your home directory.</p>
+<p>The environment can be activated as:</p>
+<pre><code>source pyML/bin/activate </code></pre>
+<p>Now the packages required for machine learning can be installed as:</p>
+<pre><code>pip3 install pandas scikit-learn matplotlib nibabel</code></pre>
+<p>This environment kernal needs to be added on jupyter notebook which can be done as:</p>
+<pre><code>conda install -c anaconda ipykernel
+python -m ipykernel install --user --name=firstEnv</code></pre>
+<p>After running these 2 commands, you will be able to select your virtual environment from <code>Kernal</code> tab of your jupyter notebook. More information can be accessed at this <a href="https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084" class="external-link">link</a>.</p>
+</section><section id="dataset"><h2 class="section-heading">Dataset</h2>
+<hr class="half-width"><p>Dataset for this lesson includes:</p>
+<ul><li><a href="data/patients_data.csv">patients_data.csv</a></li>
+<li><a href="data/breast_cancer.csv">breast_cancer.csv</a></li>
+</ul><!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
- -->
-</section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
+ --></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="01-classification_intro.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
@@ -320,7 +279,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/index.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/index.html",
-  "dateCreated": "2022-08-25",
+  "dateCreated": "2022-09-06",
   "dateModified": "2022-09-06",
   "datePublished": "2022-09-06"
 }
