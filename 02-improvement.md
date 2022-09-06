@@ -13,19 +13,21 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
--
--
--
+- How to deal with complex topology data?
+- Why is it important to use different classification algorithms initially?
+- What is the best way to find optimal classifier?
+- How can we avoid over-fitting of data?
+- How to evaluate performance of a classifier?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Complex training and testing data
-- Comparison of different model classes
-- Scoring
-- Stratified shuffle split
-- ROC and AUC
+- Understanding complex training and testing data.
+- Comparison of different model classes.
+- Explaining the stratified shuffle split
+- Evaluation of classifier - ROC and AUC
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -346,7 +348,7 @@ show()
 
 <img src="fig/02-improvement-rendered-unnamed-chunk-7-5.png" width="1440" style="display: block; margin: auto;" />
 
-Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflexts the original data distribution more closely. One classifier simply fails: SVC (linear): it tries to fit a straight line to separate the classes which in this case is impossible. 
+Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflects the original data distribution more closely. One classifier simply fails: SVC (linear): it tries to fit a straight line to separate the classes which in this case is impossible. 
 
 ### **The Train-Test Split**
 
@@ -1019,9 +1021,12 @@ The three features contribute similarly to the outcome.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
--
--
--
+- Different classification algorithms approach problems differently.
+- `train_test_split` function tries to preserve the ratio of labels in the split
+- Increasing the level of noise in the data makes the task more complicated.
+- The potential bias due to splitting could be avoid using stratified shuffle split.
+- `StratifiedShuffleSplit` is a method that uses `n_splits` and `test_size` parameters.
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
