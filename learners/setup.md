@@ -2,48 +2,40 @@
 title: Setup
 ---
 
-Setup instructions live in this document. Please specify the tools and the data
-sets the Learner needs to have installed.
+## Setting up virtual environment
+In Python, the use of virtual environments allows you to avoid installing Python packages globally which could break system tools or other projects.  Each virtual environment has its own Python binary (which matches the version of the binary that was used to create this environment) and can have its own independent set of installed Python packages in its site directories.
 
-## Data Sets
+A virtual environment can be created by executing the command `venv`:
 
-Download the [data zip file](data/data.zip) and unzip it to your Desktop
+```
+python3 -m venv pyML
+```
 
-## Software Setup
+By running this command a new environment will be installed at your home directory.
 
-::::::::::::::::::::::::::::::::::::::: discussion
+The environment can be activated as:
 
-### Details
+```
+source pyML/bin/activate 
+```
 
-Setup for different systems can be presented in dropdown menus via a `solution`
-tag. They will join to this discussion block, so you can give a general overview
-of the software used in this lesson here and fill out the individual operating
-systems (and potentially add more, e.g. online setup) in the solutions blocks.
+Now the packages required for machine learning can be installed as:
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::
+```
+pip3 install pandas scikit-learn matplotlib nibabel
+```
 
-:::::::::::::::: solution
+This environment kernal needs to be added on jupyter notebook which can be done as:
 
-### Windows
+```
+conda install -c anaconda ipykernel
+python -m ipykernel install --user --name=firstEnv
+```
 
-Use PuTTY
+After running these 2 commands, you will be able to select your virtual environment from `Kernal` tab of your jupyter notebook. More information can be accessed at this [link](https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084).
 
-:::::::::::::::::::::::::
+## Dataset
+Dataset for this lesson includes:
 
-:::::::::::::::: solution
-
-### MacOS
-
-Use Terminal.app
-
-:::::::::::::::::::::::::
-
-
-:::::::::::::::: solution
-
-### Linux
-
-Use Terminal
-
-:::::::::::::::::::::::::
-
+- [patients_data.csv](data/patients_data.csv)
+- [breast_cancer.csv](data/breast_cancer.csv)
