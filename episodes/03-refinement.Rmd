@@ -12,23 +12,31 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do multiple evaluation metrics differ?
-- What techniques are used to avoid chance prediction?
-- What are limitations of a confusion matrix?
-- How can we improve the performance of an algorithm?
-- Can normalisation and Hyperparameter tuning improve the results?
-- How could test data leakage be overcome?
+- How do different evaluation metrics differ?
+- What techniques are used to improve on chance prediction?
+- What are the limitations of a confusion matrix?
+- How can normalisation and hyperparameter tuning help to improve the results?
+- How could test data leakage be avoided?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
-- Explaining different types of metrics for model evaluation.
-- Understanding permutation score.
-- Illustrating model evaluation using confusion matrix.
-- Understanding different ways of normalisation and hyperparameter tuning.
-- Knowledge of progressive adjustment.
+- Introducing different types of metrics for model evaluation.
+- Understanding the permutation score.
+- Illustrating model evaluation using the confusion matrix.
+- working with normalisation and hyperparameter tuning.
+- The concept of progressive adjustment.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
+
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Vo9eBk9P9rk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JJ_5Dc1Tcg4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -73,7 +81,7 @@ classifiers = {
 
 ## Revision Example with Circular Test Data
 
-For our classification problem, we will use the `make_circles` function. See [documentations](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html)
+For our classification problem, we will use the `make_circles` function. See the [documentation](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html)
 
 The parameters for noise level and relative size of the two circles are such that the task becomes difficult.
 
@@ -142,24 +150,31 @@ show()
 
 ```
 
-Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflexts the original data distribution more closely. One classifier simply fails: SVC (linear): it tries to fit a straight line to separate the classes which in this case is impossible. 
+<p style='text-align: justify;'>
+Seven of the eight classifiers are able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others find a more circular form which reflects the original data distribution more closely. One classifier simply fails: SVC (linear). It tries to fit a straight line to separate the classes which in this case is impossible. 
+</p>
 
 :::::::::::::::::: callout
 ## Note
-__Code__: Note how the keyword argument `sharey` is used in the call of `subplots` to have y-axis only labelled once. The name of the classifier is extracted from the dictionary as its key and used in the title of each panel. 
+__Code__: Note how the keyword argument `sharey` is used in the call of `subplots` to have y-axis only labelled once. The name of the classifier is extracted from the dictionary as its key and used to set up the title of each panel. 
 ::::::::::::::::::
 
 ## Metrics
 
 We already used the score to evaluate the model performance. Here are some further metrics used in machine learning.
 
-__Accuracy__ is a metric that evaluates the integrity of the model by comparing true labels with their predicted counterparts. It produces a value between 0 and 1, where 1 is the best possible outcome, and $1 / n_{classes}$ represents the probability of a random guess. See [the scikit-learn documentation for the accuracy_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). The mathematical formula can be found in the [metrics and scoring section of the documentation](https://scikit-learn.org/stable/modules/model_evaluation.html#accuracy-score).
+<p style='text-align: justify;'>
+__Accuracy__ is a metric that evaluates the integrity of the model by comparing true labels with their predicted counterparts. It produces a value between 0 and 1, where 1 is the best possible outcome, and $1 / n_{classes}$ represents the probability of a random guess. See [the Scikit-learn documentation for the accuracy_score.](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) The mathematical formula can be found in the [metrics and scoring section of the documentation](https://scikit-learn.org/stable/modules/model_evaluation.html#accuracy-score).
+</p>
 
-
-__Recall__ is a metric that evaluates the ability of a classification model to find true positive labels. The measure produces a scalar value between 0 and 1, where 1 is the perfect outcome.  See [the scikit-learn documentation for the recall_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html). The recall is the percentage of true predictions of the overall number of predictions. 
+<p style='text-align: justify;'>
+__Recall__ is a metric that evaluates the ability of a classification model to find true positive labels. The measure produces a scalar value between 0 and 1, where 1 is the perfect outcome.  See [the Scikit-learn documentation for the recall_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html). The recall is the percentage of true predictions of the overall number of predictions. 
 It is also known as _sensitivity_.
+</p>
 
+<p style='text-align: justify;'>
 __Average Precision__, also referred to as AP, is a metric that produces a scalar value for the precision-recall curve between and with being the outcome. The metric obtains this value by weighing:
+</p>
 - the mean of precisions (P) at each threshold (n),
 - the increase in recall (R) from the previous threshold (n-1). 
 
@@ -169,13 +184,16 @@ $$ AP = \sum_{n}^{}(R_n - R_{n-1}) \cdot P $$
 
 ::::::::::::::::::: discussion
 ## Average precision vs AUC
-
+<p style='text-align: justify;'>
 As you may have noticed, the AUC metric also evaluates the area under the precision-recall curve using the trapezoid rule and with linear interpolation. The interpolation, however, may cause the resulting output to be better than it actually is. In other words, the AUC measure evaluates the outcome rather optimistically.
+</p>
+
 :::::::::::::::::::
 
 Precision is also called the _positive predictive value_.
-
-__F1 Score__ Another useful metric to evaluate a classification model that relies on precision and recall is the F1 Score, see the [scikit-learn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html). It is mathematically defined as:
+<p style='text-align: justify;'>
+__F1 Score__ Another useful metric to evaluate a classification model that relies on precision and recall is the F1 Score, see the [Scikit-learn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html). It is mathematically defined as:
+</p>
 
 $$ F_1 = 2 \cdot \frac{P\cdot R}{P+R} $$
 
@@ -183,7 +201,7 @@ where $P$ and $R$ represent precision and recall, respectively.
 
 Wikipedia has a [nice summary of the measures and connections between them](https://en.wikipedia.org/wiki/Precision_and_recall).
 
-In scikit-learn, these measures can be used in a standardised fashion. Here is an example using the `recall_score`.
+In Scikit-learn, these measures can be used in a standardised fashion. Here is an example using the `recall_score`.
 
 ```{python}
 from sklearn.model_selection import train_test_split
@@ -231,24 +249,31 @@ show()
 ```
 
 ### **Reducing Bias on Test Data**
-
+<p style='text-align: justify;'>
 Whilst `SciKit Learn` provides us with a dedicated function to obtain accuracy, the value it provides depends on how our training and test data have been split. Using the train-test-split, we can randomly shuffle the data to address this very problem. However, this implicitly assumed that our original data followed a specific distribution which is best represented by shuffling the data. That may not always be the case. In practice, we can never fully eliminate this type of bias. What we can do, however, is to split, shuffle, and permute the samples in the original dataset repeatedly to minimise the likelihood of bias.
-
+</p>
 
 ## Permutation Score
-
-When dealing with biological and medical data, the results of machine learning often are not clear-cut. The question remains whether or not to trust a predictor as being truely above chance levels. An effective technique to address this is to randomly shuffle the labels independently of the data. I.e. we permutate only the labels, and check whether the classification score actually decreases. The __permutation score__ then quantifies how trustworthy the result with the correct labels is. See [the scikit-learn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html) for details.
-
-Now that we know about evaluation metrics, we are set to properly begin the evaluation process. We can use so-called cross-validators for testing the models if a test is run many times on data with differentle permuted labels. To facilitate this, SciKit-learn provides the function `permutation_test_score`.
+<p style='text-align: justify;'>
+When dealing with biological and medical data, the results of machine learning often are not clear-cut. The question remains whether or not to trust a predictor as being truly above chance levels. An effective technique to address this is to randomly shuffle the labels independently of the data. I.e. we permutate only the labels, and check whether the classification score actually decreases. The __permutation score__ then quantifies how trustworthy the result with the correct labels is. See [the Scikit-learn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html) for details.
+</p>
+<p style='text-align: justify;'>
+Now that we know about evaluation metrics, we are set to properly begin the evaluation process. We can use so-called cross-validators for testing the models if a test is run many times on data with differently permuted labels. To facilitate this, Scikit-learn provides the function `permutation_test_score`.
+</p>
 
 ::::::::::::::: callout
 ## Note
+<p style='text-align: justify;'>
 The process of cross-validation is computationally expensive, as is the process of repeatedly permuting, fitting, and testing our models. In this context, we will be using both processes to complement each other. This makes the operation time-consuming and slow.
+</p>
+
 :::::::::::::::
 
-When possible, SciKit Learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the `n_jobs`  argument of a function or a class to the number of CPU cores we wish to use. Conveniently, it can be set to `n_jobs=-1` to use all available CPU cores (see e.g. below under Hyperparameter Tuning). Here, we have shown the use of only one core with `n_jobs=1` which is computationally slow but can be adjusted according to the machine you are using to make it faster. 
+<p style='text-align: justify;'>
+When possible, Scikit-learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the `n_jobs`  argument of a function or a class to the number of CPU cores we wish to use. Conveniently, it can be set to `n_jobs=-1` to use all available CPU cores (see e.g. [the Hyperparameter Tuning section]() below). Here, we have shown the use of only one core with `n_jobs=1` which is computationally slow. You can adjust it according to the machine you are using to make it faster. 
+</p>
 
-Keyword argument `n_permutations` is set to 100 by default. You can speed the cross-validation up by choosing a smaller number. 
+The keyword argument `n_permutations` is set to 100 by default. You can speed the cross-validation up by choosing a smaller number. 
 
 
 ```{python}
@@ -278,16 +303,18 @@ show()
 
 ```
 
-
-Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). The p-values are below 0.01.
-
-Here is a [scikit-learn example using permutations with the Iris data](https://scikit-learn.org/stable/auto_examples/model_selection/plot_permutation_tests_for_classification.html#sphx-glr-auto-examples-model-selection-plot-permutation-tests-for-classification-py).
+<p style='text-align: justify;'>
+Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). Apart from SVC (linear), the p-values are below 0.01.
+</p>
+<p style='text-align: justify;'>
+Here is a [Scikit-learn example using permutations with the Iris data](https://scikit-learn.org/stable/auto_examples/model_selection/plot_permutation_tests_for_classification.html#sphx-glr-auto-examples-model-selection-plot-permutation-tests-for-classification-py).
+</p>
 
 ## Confusion Matrix
-
+<p style='text-align: justify;'>
 Another useful method to evaluate a model and demonstrate its integrity is to produce a [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix). The matrix demonstrates the number of correctly predicted labels against the incorrect ones. As such it can, however, only be used for classification problems with two labels. 
-
-SciKit-learn provides a [function to create a confusion matrix](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html). Here is an expanded function to simplify the visualisation of this matrix.
+</p>
+Scikit-learn provides a [function to create a confusion matrix](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html). Here is an expanded function to simplify the visualisation of this matrix.
 
 ```{python}
 def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None): 
@@ -363,13 +390,14 @@ show()
 ```
 
 
-Ideally, the diagonal fields are both white and the off-diagonal fields maximaly dark. 
+Ideally, the diagonal fields are both white and the off-diagonal fields maximally dark. 
 
 ## Further Refinements
+<p style='text-align: justify;'>
 Once we decide what algorithm to use, we start by training that algorithm with its default settings and evaluate the results. If not satisfied, we can make further adjustments to the __hyper-parameters__ of the algorithm to improve the results.
 As always in machine learning, it is of great importance that we avoid overfitting, i.e. maintain the generalisability of the model whilst improving its performance.
-
-We start by creating a classification problem with 3 features and 2 labels using the `make_classification` function. Data are displayed in pseudo-3D.
+</p>
+We start by creating a classification problem with 3 features and 2 labels using the `make_classification` function. Data are now displayed in pseudo-3D.
 
 ```{python}
 from sklearn.datasets import make_classification
@@ -432,11 +460,12 @@ for name, clf in classifiers.items():
 ```
 
 ### **Normalisation**
-
+<p style='text-align: justify;'>
 Depending on the nature of the data, it might be beneficial to normalise the data before fitting a classifier. This is widely done in machine learning but needs thought in each case. 
-
-Normalisation can be done in various ways. One common way to normalise data is to require that they have mean 0 and variance 1. This is used for example, when calculating the Pearson correlation coefficient. One popular way in machine learning is to normalise data to Euclidean norm 1. For a data point in an m-dimensional feature space (m is the number of features), the Euclidean norm of a single point (one sample or row) is normalised such that the distance of the point from the origin is 1.
-
+</p>
+<p style='text-align: justify;'>
+Normalisation can be done in various ways. One common way to normalise data is to require that they have mean 0 and variance 1. This is used for example, when calculating the Pearson correlation coefficient. Another popular way in machine learning is to normalise data to Euclidean norm 1. For a data point in an m-dimensional feature space (m is the number of features), the Euclidean norm of a single point (one sample or row) is normalised such that the distance of the point from the origin is 1.
+</p>
 Let us first see an example: some data points are spread between 1 and 4.
 
 ```{python, results = "hold"}
@@ -468,8 +497,9 @@ ax[1].set_xlabel('Normalised data')
 show()
 ```
 
-
+<p style='text-align: justify;'>
 Effectively, all normalised data are positioned on a circle around the origin with radius 1. Depending on correlations existing between the features this leads to different distortions of the original data. 
+</p>
 
 Let us now apply this normalisation to our artificial data set. 
 
@@ -494,7 +524,7 @@ show()
 
 ```
 
-And now we can do the training on the normalised data:
+The normalisation projects the data on the unit sphere. And now we can do the training on the normalised data:
 
 ```{python}
 X_train, X_test, y_train, y_test = train_test_split(X_normed, y, test_size=.8, random_state=RANDOM_STATE, shuffle=True)
@@ -506,24 +536,28 @@ for name, clf in classifiers.items():
                 
 ```
 
-
-Due to the homogeneous nature of the artificial data, the results here are comparable for the data and their normalised version. But this may change when using dataframes with inconsistent distributions of the columns. For an example, see the [breastcancer data](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer) used in the assignment. 
+<p style='text-align: justify;'>
+Due to the homogeneous nature of the artificial data, the results here are comparable for the data and their normalised version. But this may change when using data with inconsistent distributions of the columns. For an example, see the [breastcancer data](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer) used in the assignment. 
+</p>
 
 ### **Hyperparameter Tuning**
-
+<p style='text-align: justify;'>
 Once we decide on what algorithm to use, we often start by training that algorithm with its default settings and evaluate the results. If not satisfied, we can go further and make adjustments to the hyper-parameters of the algorithm to improve the results.
 As always in machine learning, it is of great importance that we maintain the generalisability of our model whilst improving its performance.
 We use the data from the above classification problem with 3 features and 2 labels.
+</p>
 
 ### **Progressive Adjustment**
-
-Now that we have compared original and normalised data and obtained their scores, we can try to progressively improve the performance of the algorithms.
-Each classification algorithm uses a unique set of hyper-parameters, the details of which are outlined in their respective documentations on `SciKit Learn`. The optimum parameters are those that produce the best fit whilst maintaining the generalisability of a model. One way to obtain the optimum settings is to test different parameters and compare the model scores over and over again. However, as outlined before, by doing so we may risk _leaking_ our test data, and end up over-fitting the model to the test data. (We also learned that we can use different cross-validators to address this problem.)
-
-`SciKit Learn` provides us with a tool entitled `GridSearchCV` to define different values for different parameters. It then applies different combinations of different parameters to the model and evaluates the outcome using data that it generates from a cross-validation algorithm. Once finished, it provides us with the parameters that produce the best score for our data. This is referred to as progressive adjustment.
-
-Note that this process can be lengthy, and may need to be refined several times, so it is a good idea to set `n_jobs=-1`  and thereby take advantage of different CPU core on the computer. For demonstration, we use SVC(rbf) as a classifier. With certain problems, its training may lead to poor results wiith the default parameters.
-
+<p style='text-align: justify;'>
+After we have compared original and normalised data and obtained their scores, we now can try to progressively improve the performance of the algorithms.
+Each classification algorithm uses a unique set of hyper-parameters, the details of which are outlined in their respective documentations on `Scikit-learn`. The optimum parameters are those that produce the best fit whilst maintaining the generalisability of a model. One way to obtain the optimum settings is to test different parameters and compare the model scores over and over again. However, as outlined before, by doing so we may risk _leaking_ our test data, and end up over-fitting the model to the test data. (We also learned above that we can use different cross-validators to address this problem.)
+</p>
+<p style='text-align: justify;'>
+`Scikit-learn` provides us with a tool entitled `GridSearchCV` to define different values for different parameters. It then applies different combinations of different parameters to the model and evaluates the outcome using data that it generates from a cross-validation algorithm. Once finished, it provides us with the parameters that produce the best score for our data. This is referred to as progressive adjustment.
+</p>
+<p style='text-align: justify;'>
+Note that this process can be lengthy, and may need to be refined several times, so it is a good idea to set `n_jobs=-1`  and thereby take advantage of different CPU core on the computer. For demonstration, we use SVC(rbf) as a classifier. With certain problems, its training may lead to poor results with the default parameters.
+</p>
 
 ```{python, results = "hold"}
 clf = SVC(kernel='rbf', C=1, gamma=100, tol=0.0001) 
@@ -568,8 +602,9 @@ ORIGINAL: Best parameters {'C': 0.0001, 'gamma': 1000, 'tol': 0.0001}   Score: 0
 
 NORMED:   Best parameters {'C': 1, 'gamma': 100, 'tol': 0.0001}    Score 0.75
 ```
-
+<p style='text-align: justify;'>
 In this case, while both optimised scores are better than the original one, there is also a notable improvement when using the normalised data. Let us similarly check the Random Forest classifier, first with default settings.
+</p>
 
 ```{python, results = "hold"}
 clf = RandomForestClassifier(random_state=RANDOM_STATE)
@@ -623,10 +658,12 @@ NORMED:   Best parameters {'max_depth': 3, 'max_features': 'auto', 'min_samples_
 In this case, our (arbitrary) search did not lead to a substantial improvement. This shows that the default settings are in fact a good starting point. 
 
 ### **Leakage in progressive adjustments**
-
-We have already highlighted unequivocally the importance of not exposing our test data to our model during the training process; but where does training end? After deciding on an algorithm, we often attempt to improve its performance by adjusting its hyper-parameters as done above. We make these adjustments on our model over and over again until we obtain optimal results in a specific metric that scores the performances based exclusively on our test data. In such cases, we risk _leaking_ our test data and thereby over-fit our model to the test data through progressive adjustments. This means that the evaluation metrics on the generalisability of our model are no longer reliable.
-    
+<p style='text-align: justify;'>
+We have already highlighted unequivocally the importance of not exposing our test data to our model during the training process; but where does training end? After deciding on an algorithm, we often attempt to improve its performance by adjusting its hyper-parameters as done above. We make these adjustments on our model repeatedly until we obtain optimal results in a specific metric that scores the performances based exclusively on our test data. In such cases, we risk _leaking_ our test data and thereby over-fit our model to the test data through progressive adjustments. This means that the evaluation metrics on the generalisability of our model are no longer reliable.
+</p>
+<p style='text-align: justify;'>
 One way to address this problem is to split our original data into 3 different datasets: training, test, and validation. Whilst this is a valid approach that may be used in specific circumstances, it might also introduce new problems, e.g. after splitting the available data into 3 subsets, there might just not be enough data to train the classifier properly.
+</p>
 
 See for example the discussion in part 2 of this [paper on predictive modelling for brain stimulation](https://www.brainstimjrnl.com/article/S1935-861X(21)00236-9/fulltext). The above leaking is there referred to as "snooping".  
 
@@ -662,7 +699,7 @@ y = data.target
 
 ```
 
-Feel free to try and do any other testing or plotting that you find important. This assignment is not meant to get a correct answer. It should help you to increase flexibility when facing a difficult machine learning problem. 
+Feel free to try and do any other testing or plotting that you find important. This assignment is not meant to get a correct answer. It should help you to increase flexibility when facing a complex machine learning problem. 
 
 
 
@@ -1095,8 +1132,8 @@ It turns out that with the used settings, the classification is dominated by a s
 - The function `permutation_test_score` evaluates the significance of a cross-validated score with permutations.
 - Confusion matrix demonstrates the number of correctly predicted labels against the incorrect ones.
 - Adjustment of hyper-parameters of the algorithms may improve the results. 
-- `GridSearchCV` is a tool to simultaneously define different values for different parameters. 
-- Progressive adjustments may lead to model over-fitting.
+- `GridSearchCV` is a tool to simultaneously define different values of different parameters for optimisation. 
+- Progressive adjustments may lead to model over-fitting and require a validation data set.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
