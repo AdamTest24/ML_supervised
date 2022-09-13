@@ -37,6 +37,18 @@ exercises: 2
 - [Basic Matplotlib plotting]()
 :::::::::::::::::: 
 
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NIU1JO26Jgk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6PWCodGlXKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EUrxpMr5bG4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
 
 
 
