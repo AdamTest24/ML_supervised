@@ -32,9 +32,9 @@ exercises: 2
 
 
 :::::::::::::::::: prereq
-- [Data Handling]()
-- [Numpy arrays (see accompanying tutorial)]()
-- [Basic Matplotlib plotting]()
+- [Data Handling](https://learntodiscover.github.io/Data_Handling/)
+- [Numpy arrays (see accompanying tutorial)](setup.md#numpy)
+- [Basic Matplotlib plotting](https://matplotlib.org)
 :::::::::::::::::: 
 
 <p align = "center">

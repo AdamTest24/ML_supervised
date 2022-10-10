@@ -133,6 +133,7 @@
       <div class="accordion-body">
         <ul><li><a href="#setting-up-virtual-environment">Setting up virtual environment</a></li>
 <li><a href="#dataset">Dataset</a></li>
+<li><a href="#numpy">NumPy Tutorial</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -217,7 +218,9 @@ any links that you are not going to use.
       
 
 <section id="setting-up-virtual-environment"><h2 class="section-heading">Setting up virtual environment</h2>
-<hr class="half-width"><p>In Python, the use of virtual environments allows you to avoid installing Python packages globally which could break system tools or other projects. Each virtual environment has its own Python binary (which matches the version of the binary that was used to create this environment) and can have its own independent set of installed Python packages in its site directories.</p>
+<hr class="half-width"><p style="text-align: justify;">
+In Python, the use of virtual environments allows you to avoid installing Python packages globally which could break system tools or other projects. Each virtual environment has its own Python binary (which matches the version of the binary that was used to create this environment) and can have its own independent set of installed Python packages in its site directories.
+</p>
 <p>A virtual environment can be created by executing the command <code>venv</code> in your Terminal (Mac OS and Unix) or at the command line prompt (Windows):</p>
 <pre><code>python3 -m venv pyML</code></pre>
 <p>By running this command a new environment will be installed at your home directory.</p>
@@ -227,12 +230,17 @@ any links that you are not going to use.
 <pre><code>pip3 install pandas scikit-learn matplotlib nibabel</code></pre>
 <p>This environment kernel needs to be added to your Jupyter notebook. This can be done as:</p>
 <pre><code>conda install -c anaconda ipykernel
-python -m ipykernel install --user --name=firstEnv</code></pre>
-<p>After running these 2 commands, you will be able to select your virtual environment from the <code>Kernel</code> tab of your Jupyter notebook. More information can be accessed at this <a href="https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084" class="external-link">link</a>.</p>
+python -m ipykernel install --user --name=pyML</code></pre>
+<p style="text-align: justify;">
+After running these 2 commands, you will be able to select your virtual environment from the <code>Kernel</code> tab of your Jupyter notebook. More information can be accessed at this <a href="https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084" class="external-link">link</a>.
+</p>
 </section><section id="dataset"><h2 class="section-heading">Dataset</h2>
 <hr class="half-width"><p>Dataset for this lesson includes:</p>
 <ul><li><a href="data/patients_data.csv">patients_data.csv</a></li>
 <li><a href="data/breast_cancer.csv">breast_cancer.csv</a></li>
+</ul></section><section id="numpy"><h2 class="section-heading">NumPy Tutorial</h2>
+<hr class="half-width"><ul><li><a href="files/NumPyArrays.pdf">Numpy Array tutorial</a></li>
+<li><a href="files/NumPyArrays.ipynb">Numpy Array notebook</a></li>
 </ul><!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
@@ -279,9 +287,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/index.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/index.html",
-  "dateCreated": "2022-09-13",
-  "dateModified": "2022-10-04",
-  "datePublished": "2022-10-04"
+  "dateCreated": "2022-10-10",
+  "dateModified": "2022-10-10",
+  "datePublished": "2022-10-10"
 }
 
   </script><script>
