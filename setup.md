@@ -46,4 +46,4 @@ Dataset for this lesson includes:
 ## NumPy Tutorial {#numpy}
 
 - [Numpy Array tutorial](files/NumPyArrays.pdf)
-- [Numpy Array notebook](files/NumPyArrays.ipynb)
+- [Numpy Array notebook](files/NumpyArrays.ipynb)
