@@ -17,9 +17,19 @@
     <header id="top" class="navbar navbar-expand-md navbar-light bg-white top-nav l2d"><a class="visually-hidden-focusable skip-link" href="#main-content">Skip to main content</a>
   <div class="container-fluid top-nav-container">
     <div class="col-md-6">
-      <div class="large-logo"><img alt="l2d" src="assets/images/l2d-logo.svg"></div>
+      <div class="large-logo">
+        <img alt="l2d" src="assets/images/l2d-logo.svg"><abbr class="icon" title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught." style="text-decoration: unset">
+           
+          <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link" style="color: #383838">Pre-Alpha
+            <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="color: #FF4955; border-radius: 5px"></i>
+          </a>
+          <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+        </abbr>
+        
+      </div>
     </div>
     <div class="selector-container ">
+      
       
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +50,9 @@
       Machine Learning - Supervised
     </div>
     <div class="search-icon-sm">
+      <!-- TODO: do not show until we have search
       <i role="img" aria-label="search button" data-feather="search"></i>
+      -->
     </div>
     <div class="desktop-nav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"><li class="nav-item">
@@ -64,18 +76,20 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul></li>
       </ul></div>
     <form class="d-flex col-md-2 search-form">
-      <input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit"><i class="search-icon" data-feather="search" role="img" aria-label="search button"></i></button>
-    </form>
+      <fieldset disabled><input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit">
+          <i class="search-icon" data-feather="search" role="img" aria-label="search button"></i>
+        </button>
+      </fieldset></form>
   </div><!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
   Machine Learning - Supervised
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 50%" class="percentage">
-    50%
+<aside class="col-md-12 lesson-progress"><div style="width: 33%" class="percentage">
+    33%
   </div>
   <div class="progress l2d">
-    <div class="progress-bar l2d" role="progressbar" style="width: 50%" aria-valuenow="50" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar l2d" role="progressbar" style="width: 33%" aria-valuenow="33" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -112,7 +126,7 @@
 
               <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
                 <h2 class="accordion-header chapters" id="flush-headingEleven">
-                  CHAPTERS
+                  EPISODES
                 </h2>
               </button>
               <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
@@ -152,7 +166,6 @@
         <ul><li><a href="#traing-a-variety-of-machine-learning-models">Traing a variety of machine learning models</a></li>
 <li><a href="#the-stratified-shuffle-split">The Stratified Shuffle Split</a></li>
 <li><a href="#evaluation-roc-and-auc">Evaluation: ROC and AUC</a></li>
-<li><a href="#exercises">Exercises</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -181,12 +194,21 @@
                 </h2>
                 <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
                   <div class="accordion-body">
-                    <ul></ul></div>
+                    <ul><li>
+                        <a href="key-points.html">Key Points</a>
+                      </li>
+                      <li>
+                        <a href="reference.html#glossary">Glossary</a>
+                      </li>
+                      <li>
+                        <a href="profiles.html">Learner Profiles</a>
+                      </li>
+                      
+                    </ul></div>
                 </div>
               </div>
             </div>
-
-            <a href="aio.html">See all in one page</a>
+            <hr class="half-width resources"><a href="aio.html">See all in one page</a>
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
             
@@ -210,7 +232,12 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Improvement</h1>
-        <p> Last updated on 2022-09-13 | <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-improvement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2023-03-17 | 
+        
+        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-improvement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        
+        
+        
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -220,6 +247,19 @@
 <p><a href="02-improvement.md.pdf"><strong>Download Chapter pdf</strong></a></p>
 <p><a href="02-improvement.ipynb"><strong>Download Chapter notebook (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback Survey</strong></span></a></p>
+<div id="checklist1" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<div id="submissions" class="callout-inner">
+<h3 class="callout-title">Submissions<a class="anchor" aria-label="anchor" href="#checklist1"></a>
+</h3>
+<div class="callout-content">
+<ul><li><p><a href="#assign"><strong>Lesson Assignment</strong></a></p></li>
+<li><p><a href="#forum"><strong>Lesson Forum</strong></a></p></li>
+</ul></div>
+</div>
+</div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
 <div class="row g-0">
@@ -270,7 +310,8 @@
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="remarks" class="callout-inner">
-<h3 class="callout-title">Remarks</h3>
+<h3 class="callout-title">Remarks<a class="anchor" aria-label="anchor" href="#callout1"></a>
+</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>From now on the code will become more complex. When copied, the code should run without errors with the given data sets. (Please report any errors thrown when running the code without modifications).</p></li>
 <li><p>Make a copy of the notebook and start experimenting by modifying part of the code and comparing the outcome. Modifying existing code is one of the successful strategies when learning to programme as a non-programmer.</p></li>
@@ -299,7 +340,8 @@
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="challenge" class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 We would like to test several machine learning models’ ability to deal with a complicated task. A complicated task is one where the topology of the labelled data is not trivially separable into classes by (hyper)planes, e.g. by a straight line in a scatter plot.
@@ -417,7 +459,8 @@ The challenge here is that the only way to separate the data of the two labels f
 </div>
 </div>
 </div>
-<section id="traing-a-variety-of-machine-learning-models"><h2 class="section-heading">Traing a variety of machine learning models</h2>
+<section id="traing-a-variety-of-machine-learning-models"><h2 class="section-heading">Traing a variety of machine learning models<a class="anchor" aria-label="anchor" href="#traing-a-variety-of-machine-learning-models"></a>
+</h2>
 <hr class="half-width"><p><code>SciKit Learn</code> provides the means to generate practice datasets with specific qualities. In this section, we will use the <code>make_circles</code> function. (see the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html" class="external-link">documentations</a>):</p>
 <div class="section level3">
 <h3 id="circular-test-data"><strong>Circular Test Data</strong><a class="anchor" aria-label="anchor" href="#circular-test-data"></a></h3>
@@ -739,7 +782,9 @@ If the prediction was made by chance (throwing a dice), one would expect a 50 % 
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="never-expose-the-test-data" class="callout-inner">
-<h3 class="callout-title"><strong>Never expose the test data</strong></h3>
+<h3 class="callout-title">
+<strong>Never expose the test data</strong><a class="anchor" aria-label="anchor" href="#callout2"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 Testing a model on data that is used in training is a methodological mistake. It is therefore vital that the test data is <strong>never, ever</strong> used for training a model at any stage. This is one of the most fundamental principles of machine learning, and its importance cannot be exaggerated. There are numerous examples of people making this mistake one way or another, especially where multiple classification algorithms are used to address a problem.
@@ -748,7 +793,8 @@ Testing a model on data that is used in training is a methodological mistake. It
 </div>
 </div>
 </div>
-</section><section id="the-stratified-shuffle-split"><h2 class="section-heading">The Stratified Shuffle Split</h2>
+</section><section id="the-stratified-shuffle-split"><h2 class="section-heading">The Stratified Shuffle Split<a class="anchor" aria-label="anchor" href="#the-stratified-shuffle-split"></a>
+</h2>
 <hr class="half-width"><p style="text-align: justify;">
 One potential bias arises when we try to improve the performance of our models through the change of the so-called <strong>hyperparameters</strong> (instead of using the default parameters as we did so far). We will always receive the optimal output given <strong>the specific test data chosen</strong>. This may lead to overfitting the model on the chosen training and testing data. This can be avoided by choosing different splits into testing and training data and repeating the fit procedure. Doing different splits while preserving the fraction of labels of each class in the original data, the method is called the <strong>stratified shuffle split</strong>.
 </p>
@@ -890,7 +936,8 @@ This is still good given the quality of the data. It appears that the <em>decisi
 </p>
 <p>Here we have used a for loop to train and test on each of the different splits of the data. SciKit Learn also contains functions that take the stratified shuffle split as an argument, e.g. <code>permutation_test_score</code>.</p>
 <p>We have now reached a point where we can trust to have a robust and unbiased outcome of the training. Let us now look at more refined ways to quantify the result.</p>
-</section><section id="evaluation-roc-and-auc"><h2 class="section-heading">Evaluation: ROC and AUC</h2>
+</section><section id="evaluation-roc-and-auc"><h2 class="section-heading">Evaluation: ROC and AUC<a class="anchor" aria-label="anchor" href="#evaluation-roc-and-auc"></a>
+</h2>
 <hr class="half-width"><p style="text-align: justify;">
 There are various measures that may be used to evaluate the performance of a machine learning model. Such measures look at different characteristics, including the goodness of fit and generalisability of a model. Evaluation measures used with regards to classification models include, but are not limited to:
 </p>
@@ -916,7 +963,8 @@ The area under the ROC curve, often referred to as AUC, reduces the information 
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Discussion</h3>
+<h3 class="callout-title">Discussion<a class="anchor" aria-label="anchor" href="#discussion2"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 <code>SciKit Learn</code> includes specialist functions called <code>roc_curve</code> and <code>roc_auc_score</code> to obtain ROC (FPR and TPR values for visualisation) and AUC respectively. Both functions receive as input arguments the test labels (i.e. <code>y_test</code>) and the score (probability) associated with each prediction. We obtain the latter measure using one of the following two techniques:
@@ -973,13 +1021,35 @@ SciKit Learn includes specialist functions called <code>roc_curve</code> and <co
 <p style="text-align: justify;">
 This concludes our first steps into classification with SciKit Learn. There are many more aspects of classification. From a practical point of view, <a href="https://scikit-learn.org/stable/modules/preprocessing.html" class="external-link">data normalisation</a> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html" class="external-link">permutation test score</a> as well as the workflow report are important. These will be the topics of our next lesson.
 </p>
-</section><section id="exercises"><h2 class="section-heading">Exercises</h2>
-<hr class="half-width"><div id="challenge1" class="callout challenge">
+<p><br></p>
+<div class="section level3">
+<h3 id="assign"><strong>Lesson Assignment</strong><a class="anchor" aria-label="anchor" href="#assign"></a></h3>
+<hr><p>The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.</p>
+<ul><li><p>For <strong>L2D online cohort</strong>, please click this link: <a href="https://classroom.github.com/a/ryp1cKU0" class="external-link"><strong>GitHub classroom assignment link</strong></a></p></li>
+<li><p>For <strong>LiDo cohort</strong>, please click this link: <a href="https://classroom.github.com/a/Rikq1DAv" class="external-link"><strong>GitHub classroom assignment link</strong></a></p></li>
+</ul><div id="callout3" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="note" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout3"></a>
+</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal"><li><p>You will need to login to your GitHub account.</p></li>
+<li><p>Choose your name from the list of students.</p></li>
+<li><p>Accept the assignment.</p></li>
+<li><p>Refresh the page.</p></li>
+</ol><p>By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the <code>README.md</code> file.</p>
+</div>
+</div>
+</div>
+<div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="end-of-chapter-exercises" class="callout-inner">
-<h3 class="callout-title">End of chapter Exercises</h3>
+<div id="assignment-questions" class="callout-inner">
+<h3 class="callout-title">Assignment Questions<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+</h3>
 <div class="callout-content">
 <p>Take the torus-within-a-torus data generator from the <strong>Challenge</strong> above.</p>
 <ol style="list-style-type: decimal"><li><p>Create data with three features and a noise level of 0.3.</p></li>
@@ -993,12 +1063,13 @@ This concludes our first steps into classification with SciKit Learn. There are 
 <li>Number of data splits</li>
 <li>Percentage of data withheld for testing</li>
 </ul></li>
-</ol><div id="callout3" class="callout callout">
+</ol><div id="callout4" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="recommendation" class="callout-inner">
-<h3 class="callout-title">Recommendation</h3>
+<h3 class="callout-title">Recommendation<a class="anchor" aria-label="anchor" href="#callout4"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 Pick any of the provided (or other) data sets with labels to repeat the above. Feel free to try and do any testing or plotting that you find important. This is not an assignment to get the correct answer. Rather at this stage, we practise to use functionality from scikit-learn to search for structure in the data that helps to achieve the best predictions possible.
@@ -1016,7 +1087,7 @@ Pick any of the provided (or other) data sets with labels to repeat the above. F
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1276,12 +1347,32 @@ Average scores:
 </div>
 </div>
 </div>
+<p><br></p>
+</div>
+<div class="section level3">
+<h3 id="forum"><strong>Forum for Questions</strong><a class="anchor" aria-label="anchor" href="#forum"></a></h3>
+<hr><p>Any questions related to this lesson, code or assignment can be posted at our forum (<strong>Students_team</strong>) on GitHub.</p>
+<ul><li><p>For <strong>L2D online cohort</strong>, the forum can be accessed at: <a href="https://github.com/orgs/L2D-Oct2022/teams/students_team" class="external-link"><strong>Students_team</strong></a></p></li>
+<li><p>For <strong>LiDo cohort</strong>, the forum can be accessed at: <a href="https://github.com/orgs/LIDo-2022/teams/lido_students_team" class="external-link"><strong>LiDo_students_team</strong></a></p></li>
+</ul><div id="callout5" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="note-1" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout5"></a>
+</h3>
+<div class="callout-content">
+<p>The forum can only be accessed via your GitHub account once you have accepted the invitation to be included in the team.</p>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
 <div class="callout-content">
 <ul><li>Different classification algorithms approach problems differently.</li>
 <li>
@@ -1297,6 +1388,7 @@ Average scores:
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
+</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="01-classification_intro.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
@@ -1312,8 +1404,14 @@ any links that you are not going to use.
 
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
-				<p>All Carpentry lessons are subject to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" class="external-link">Code of Conduct</a></p>
-				<p><a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-improvement.Rmd" class="external-link">Edit on Github</a> | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> | <a href="https://github.com/carpentries/workbench-template-md/" class="external-link">Source</a></p>
+				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>
+        
+        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-improvement.Rmd" class="external-link">Edit on GitHub</a>
+        
+	
+        | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/carpentries/workbench-template-md/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/carpentries/workbench-template-md/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
@@ -1321,9 +1419,9 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.9.0)</a>,
-      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.3.2)</a>,
-      and <a href="https://github.com/carpentries/varnish" class="external-link">varnish (0.1.4)</a>.</p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.11.9)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/e815ea1a34f6eda01a3c9ab9643e35aa051e1938" class="external-link">pegboard (0.4.3)</a>,
+      and <a href="https://github.com/LearnToDiscover/varnish/tree/f412e8bbc14a5110120155e1af9282842877c62f" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1336,35 +1434,41 @@ any links that you are not going to use.
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
   "@id": "https://carpentries.github.io/workbench-template-md/02-improvement.html",
-  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/0.9-DRAFT-2020_12_08",
+  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "Improvement",
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/02-improvement.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/02-improvement.html",
-  "dateCreated": "2022-10-14",
-  "dateModified": "2022-09-13",
-  "datePublished": "2022-10-14"
+  "dateCreated": "2023-03-17",
+  "dateModified": "2023-03-17",
+  "datePublished": "2023-03-17"
 }
 
   </script><script>
 		feather.replace();
-	</script><!-- Matomo --><script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
-          _paq.push(["setDoNotTrack", true]);
-          _paq.push(["disableCookies"]);
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-              var u="https://carpentries.matomo.cloud/";
-              _paq.push(['setTrackerUrl', u+'matomo.php']);
-              _paq.push(['setSiteId', '1']);
-              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-              g.async=true; g.src='https://cdn.matomo.cloud/carpentries.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script><!-- End Matomo Code --></body></html><!-- END:   inst/pkgdown/templates/layout.html-->
+	</script><!-- Matomo
+    2022-11-07: we have gotten a notification that we have an overage for our
+    tracking and I'm pretty sure this has to do with Workbench usage.
+    Considering that I am not _currently_ using this tracking because I do not
+    yet know how to access the data, I am turning this off for now.
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setDomains", ["*.preview.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
+    _paq.push(["setDoNotTrack", true]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+          var u="https://carpentries.matomo.cloud/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '1']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src='https://cdn.matomo.cloud/carpentries.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+  </script>
+  End Matomo Code --></body></html><!-- END:   inst/pkgdown/templates/layout.html-->
 

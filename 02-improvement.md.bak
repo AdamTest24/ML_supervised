@@ -10,6 +10,12 @@ exercises: 2
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
+:::::::::: checklist
+## Submissions
+- [**Lesson Assignment**](#assign)
+
+- [**Lesson Forum**](#forum)
+::::::::::
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
@@ -800,10 +806,38 @@ The (orange) diagonal represents predictions of the two labels by a coin toss. T
 This concludes our first steps into classification with SciKit Learn. There are many more aspects of classification. From a practical point of view, [data normalisation](https://scikit-learn.org/stable/modules/preprocessing.html) and [permutation test score](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html) as well as the workflow report are important. These will be the topics of our next lesson. 
 </p>
 
-## Exercises
+<br />
+
+### **Lesson Assignment** {#assign}
+
+-------------------------------
+
+The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom. 
+
+- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/ryp1cKU0)
+
+- For **LiDo cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/Rikq1DAv)
+
+
+:::::::::::::::: callout
+## Note
+
+1. You will need to login to your GitHub account.
+
+2. Choose your name from the list of students.
+
+3. Accept the assignment.
+
+4. Refresh the page.
+
+By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the `README.md` file.
+
+:::::::::::::::: 
+
+
 :::::::::::::::::::::::::::::::::::::::: challenge
 
-#### End of chapter Exercises
+#### Assignment Questions
 
 Take the torus-within-a-torus data generator from the __Challenge__ above. 
 
@@ -1080,6 +1114,25 @@ Feature 1: 31.4%; Feature 2: 33.9%; Feature 3: 34.7%
 The three features contribute similarly to the outcome.
 :::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::
+
+<br />
+
+### **Forum for Questions** {#forum}
+
+----------------------
+Any questions related to this lesson, code or assignment can be posted at our forum (**Students_team**) on GitHub.
+
+- For **L2D online cohort**, the forum can be accessed at: [**Students_team**](https://github.com/orgs/L2D-Oct2022/teams/students_team)
+
+- For **LiDo cohort**, the forum can be accessed at: [**LiDo_students_team**](https://github.com/orgs/LIDo-2022/teams/lido_students_team)
+
+
+:::::::::::::::: callout
+## Note
+
+The forum can only be accessed via your GitHub account once you have accepted the invitation to be included in the team.
+
+::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 

@@ -17,9 +17,19 @@
     <header id="top" class="navbar navbar-expand-md navbar-light bg-white top-nav l2d"><a class="visually-hidden-focusable skip-link" href="#main-content">Skip to main content</a>
   <div class="container-fluid top-nav-container">
     <div class="col-md-6">
-      <div class="large-logo"><img alt="l2d" src="assets/images/l2d-logo.svg"></div>
+      <div class="large-logo">
+        <img alt="l2d" src="assets/images/l2d-logo.svg"><abbr class="icon" title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught." style="text-decoration: unset">
+           
+          <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link" style="color: #383838">Pre-Alpha
+            <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="color: #FF4955; border-radius: 5px"></i>
+          </a>
+          <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+        </abbr>
+        
+      </div>
     </div>
     <div class="selector-container ">
+      
       
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +50,9 @@
       Machine Learning - Supervised
     </div>
     <div class="search-icon-sm">
+      <!-- TODO: do not show until we have search
       <i role="img" aria-label="search button" data-feather="search"></i>
+      -->
     </div>
     <div class="desktop-nav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"><li class="nav-item">
@@ -64,8 +76,10 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul></li>
       </ul></div>
     <form class="d-flex col-md-2 search-form">
-      <input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit"><i class="search-icon" data-feather="search" role="img" aria-label="search button"></i></button>
-    </form>
+      <fieldset disabled><input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit">
+          <i class="search-icon" data-feather="search" role="img" aria-label="search button"></i>
+        </button>
+      </fieldset></form>
   </div><!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
   Machine Learning - Supervised
@@ -112,7 +126,7 @@
 
               <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
                 <h2 class="accordion-header chapters" id="flush-headingEleven">
-                  CHAPTERS
+                  EPISODES
                 </h2>
               </button>
               <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
@@ -145,7 +159,6 @@
 <li><a href="#scikit-learn">Scikit Learn</a></li>
 <li><a href="#classification">Classification</a></li>
 <li><a href="#application">Application</a></li>
-<li><a href="#exercises">Exercises</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -183,12 +196,21 @@
                 </h2>
                 <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
                   <div class="accordion-body">
-                    <ul></ul></div>
+                    <ul><li>
+                        <a href="key-points.html">Key Points</a>
+                      </li>
+                      <li>
+                        <a href="reference.html#glossary">Glossary</a>
+                      </li>
+                      <li>
+                        <a href="profiles.html">Learner Profiles</a>
+                      </li>
+                      
+                    </ul></div>
                 </div>
               </div>
             </div>
-
-            <a href="aio.html">See all in one page</a>
+            <hr class="half-width resources"><a href="aio.html">See all in one page</a>
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
             
@@ -212,7 +234,12 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Classification</h1>
-        <p> Last updated on 2022-10-14 | <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-classification_intro.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2023-03-17 | 
+        
+        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-classification_intro.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        
+        
+        
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -222,6 +249,19 @@
 <p><a href="01-classification_intro.md.pdf"><strong>Download Chapter pdf</strong></a></p>
 <p><a href="01-classification_intro.ipynb"><strong>Download Chapter notebook (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback Survey</strong></span></a></p>
+<div id="checklist1" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<div id="submissions" class="callout-inner">
+<h3 class="callout-title">Submissions<a class="anchor" aria-label="anchor" href="#checklist1"></a>
+</h3>
+<div class="callout-content">
+<ul><li><p><a href="#assign"><strong>Lesson Assignment</strong></a></p></li>
+<li><p><a href="#forum"><strong>Lesson Forum</strong></a></p></li>
+</ul></div>
+</div>
+</div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
 <div class="row g-0">
@@ -256,7 +296,8 @@
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Prereq</h3>
+<h3 class="callout-title">Prereq<a class="anchor" aria-label="anchor" href="#prereq1"></a>
+</h3>
 <div class="callout-content">
 <ul><li><a href="https://learntodiscover.github.io/Data_Handling/" class="external-link">Data Handling</a></li>
 <li><a href="index.html#setup">Numpy arrays (see accompanying tutorial)</a></li>
@@ -291,7 +332,8 @@
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, scatter, xlabel, ylabel, xticks, show</span></code></pre>
 </div>
 </div>
-<section id="example-visual-classification"><h2 class="section-heading">Example: Visual Classification</h2>
+<section id="example-visual-classification"><h2 class="section-heading">Example: Visual Classification<a class="anchor" aria-label="anchor" href="#example-visual-classification"></a>
+</h2>
 <hr class="half-width"><p>Import the ‘patients_data’ toy dataset and scatter the data for Height and Weight.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -331,7 +373,8 @@ Note that data in the first five columns are either integers (age) or real numbe
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="the-classification-challenge" class="callout-inner">
-<h3 class="callout-title">The classification challenge</h3>
+<h3 class="callout-title">The classification challenge<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 I am given a set of data from a single subject and feed them to a computational model. The model then predicts to what (predefined) <em>class</em> this subject belongs. Example: given height and weight data, the model might try to predict whether the subject is a smoker or a non-smoker. A naive model will, of course, not be able to predict reasonably. The <em>supervised</em> approach in machine learning is to provide the model with a set of data where the class has been verified beforehand and the model can test its (initially random) predictions against the provided class. An optimisation algorithm is then run to adjust the (internal) model setting such that the predictions improve as much as possible. When no further improvement is achieved, the algorithm stops. The model is then <em>trained</em> and ready to predict.
@@ -374,7 +417,8 @@ It appears from these graphs that based on height and weight data it is possible
 <p style="text-align: justify;">
 On the other hand, based on the smoker / non-smoker data it will not be possible to distinguish smokers from non-smokers. Red dots and blue dots are scattered throughout the graph. The conclusion is that height and weight cannot be used to predict whether a subject is a smoker.
 </p>
-</section><section id="supervised-learning-training-a-model"><h2 class="section-heading">Supervised Learning: Training a Model</h2>
+</section><section id="supervised-learning-training-a-model"><h2 class="section-heading">Supervised Learning: Training a Model<a class="anchor" aria-label="anchor" href="#supervised-learning-training-a-model"></a>
+</h2>
 <hr class="half-width"><p style="text-align: justify;">
 This lesson deals with labelled data. Labelled data are numerical data with an extra column of a <strong>label</strong> for each sample. A sample can consist of any number of individual observations but must be at least two.
 </p>
@@ -394,14 +438,16 @@ The result of the model fitting is then assessed by checking how many of the (wi
 <p style="text-align: justify;">
 As an additional result, the procedure will generate the so-called feature importances: similar to how we concluded above that weight is more important than height for gender prediction, the feature importance informs to which degree each of the data columns actually contributes to the predictions.
 </p>
-</section><section id="scikit-learn"><h2 class="section-heading">Scikit Learn</h2>
+</section><section id="scikit-learn"><h2 class="section-heading">Scikit Learn<a class="anchor" aria-label="anchor" href="#scikit-learn"></a>
+</h2>
 <hr class="half-width"><p>We will import our machine learning functionality from the <a href="https://scikit-learn.org/stable/" class="external-link">SciKit Learn library</a>.</p>
 <div id="callout1" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="scikit-learn-1" class="callout-inner">
-<h3 class="callout-title">SciKit Learn</h3>
+<h3 class="callout-title">SciKit Learn<a class="anchor" aria-label="anchor" href="#callout1"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 SciKit Learn is a renowned open source application programming interface (API) for machine learning. It enjoys a vibrant community and is well maintained. It is always beneficial to use the official documentations for every API. SciKit Learn provides an exceptional documentation with detailed explanations and examples at every level.
@@ -415,7 +461,8 @@ The implementation of algorithms in SciKit Learn follows a very specific protoco
 <p style="text-align: justify;">
 Unlike functions that perform a specific task and return the results, in OOP, we use <em>classes</em> to encapsulate interconnected components and functionalities. In accordance with the convention of best practices for Python programming (also known as PEP8), classes are implemented with camel-case characters; e.g. <code>RandomForestClassifier</code>. In contrast, functions should be implemented using lower-case characters only; e.g. <code>min</code> or <code>round</code>.
 </p>
-</section><section id="classification"><h2 class="section-heading">Classification</h2>
+</section><section id="classification"><h2 class="section-heading">Classification<a class="anchor" aria-label="anchor" href="#classification"></a>
+</h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="prepare-data-with-labels"><strong>Prepare data with labels</strong><a class="anchor" aria-label="anchor" href="#prepare-data-with-labels"></a></h3>
 <p style="text-align: justify;">
@@ -462,7 +509,8 @@ Number of features:  2</code></pre>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note" class="callout-inner">
-<h3 class="callout-title">Note</h3>
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout2"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 This code uses a <strong>random number generator</strong>. The output of a random number generator is different each time it is run. On the one hand, this is good because it allows us to create many realisations of samples drawn from a fixed distribution. On the other hand, when testing and sharing code this prevents exact reproduction of results. We therefore use the <code>seed</code> function to reset the generator such that with a given number for the seed (the parameter called <code>RANDOM_SEED</code>) the same numbers are produced.
@@ -828,7 +876,8 @@ Feature 1: 61.6%; Feature 2: 38.4%</code></pre>
 </div>
 <figure><img src="fig/01-classification_intro-rendered-unnamed-chunk-21-11.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In this case, the predictions are based on a 61% contribution from feature 1 and a 38% contribution from feature 2.</p>
 </div>
-</section><section id="application"><h2 class="section-heading">Application</h2>
+</section><section id="application"><h2 class="section-heading">Application<a class="anchor" aria-label="anchor" href="#application"></a>
+</h2>
 <hr class="half-width"><p>Now we pick the ‘Height’ and ‘Weight’ columns from the patients data to predict the gender labels. We use a split of 4/5 of the data for training and 1/5 for testing.</p>
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1115,14 +1164,36 @@ Feature Height contributes about one third and feature Weight about two thirds t
 Feature importances can be used in data sets with many features, e.g. to reduce the number of features used for classification. Some features might not contribute to the classification and could therefore be left out of the process.
 </p>
 <p>In the next lesson, we are going to test multiple classifiers and quantify their performance to improve the outcome of the classification.</p>
+<p><br></p>
 </div>
-</section><section id="exercises"><h2 class="section-heading">Exercises</h2>
-<hr class="half-width"><div id="challenge1" class="callout challenge">
+<div class="section level3">
+<h3 id="assign"><strong>Lesson Assignment</strong><a class="anchor" aria-label="anchor" href="#assign"></a></h3>
+<hr><p>The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.</p>
+<ul><li><p>For <strong>L2D online cohort</strong>, please click this link: <a href="https://classroom.github.com/a/IVT8Xrou" class="external-link"><strong>GitHub classroom assignment link</strong></a></p></li>
+<li><p>For <strong>LiDo cohort</strong>, please click this link: <a href="https://classroom.github.com/a/fnwUSOiS" class="external-link"><strong>GitHub classroom assignment link</strong></a></p></li>
+</ul><div id="callout3" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="note-1" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout3"></a>
+</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal"><li><p>You will need to login to your GitHub account.</p></li>
+<li><p>Choose your name from the list of students.</p></li>
+<li><p>Accept the assignment.</p></li>
+<li><p>Refresh the page.</p></li>
+</ol><p>By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the <code>README.md</code> file.</p>
+</div>
+</div>
+</div>
+<div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="end-of-chapter-exercises" class="callout-inner">
-<h3 class="callout-title">End of chapter Exercises</h3>
+<div id="assignment-questions" class="callout-inner">
+<h3 class="callout-title">Assignment Questions<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 Repeat the training and prediction workflow as above for two other features in the data, namely: Systole and Diastole values. Use 70 training and 30 testing samples where the labels are assigned according to the condition: 0 if ‘non-smoker’, 1 if ‘smoker’.
@@ -1142,7 +1213,7 @@ Repeat the training and prediction workflow as above for two other features in t
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="q1">Q1<a class="anchor" aria-label="anchor" href="#q1"></a></h3>
@@ -1385,12 +1456,13 @@ Feature 1: 57.3%; Feature 2: 42.7%</code></pre>
 </div>
 </div>
 </div>
-<div id="callout3" class="callout callout">
+<div id="callout4" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="further-practice-iris-data" class="callout-inner">
-<h3 class="callout-title">Further Practice: Iris data</h3>
+<h3 class="callout-title">Further Practice: Iris data<a class="anchor" aria-label="anchor" href="#callout4"></a>
+</h3>
 <div class="callout-content">
 <p>You can try to use the Random Forest classifier on the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" class="external-link">Iris data</a>:</p>
 <p>The Iris data are a collection of five features (sepal length, sepal width, petal length, petal width and species) from 3 species of Iris (Iris setosa, Iris virginica and Iris versicolor). The species name is used for training in classification.</p>
@@ -1417,12 +1489,32 @@ Feature 1: 57.3%; Feature 2: 42.7%</code></pre>
 </div>
 </div>
 </div>
+<p><br></p>
+</div>
+<div class="section level3">
+<h3 id="forum"><strong>Forum for Questions</strong><a class="anchor" aria-label="anchor" href="#forum"></a></h3>
+<hr><p>Any questions related to this lesson, code or assignment can be posted at our forum (<strong>Students_team</strong>) on GitHub.</p>
+<ul><li><p>For <strong>L2D online cohort</strong>, the forum can be accessed at: <a href="https://github.com/orgs/L2D-Oct2022/teams/students_team" class="external-link"><strong>Students_team</strong></a></p></li>
+<li><p>For <strong>LiDo cohort</strong>, the forum can be accessed at: <a href="https://github.com/orgs/LIDo-2022/teams/lido_students_team" class="external-link"><strong>LiDo_students_team</strong></a></p></li>
+</ul><div id="callout5" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="note-2" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout5"></a>
+</h3>
+<div class="callout-content">
+<p>The forum can only be accessed via your GitHub account once you have accepted the invitation to be included in the team.</p>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
 <div class="callout-content">
 <ul><li>Classification is to assign labels to unlabeled data.</li>
 <li>
@@ -1440,6 +1532,7 @@ Feature 1: 57.3%; Feature 2: 42.7%</code></pre>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
+</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
@@ -1455,8 +1548,14 @@ any links that you are not going to use.
 
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
-				<p>All Carpentry lessons are subject to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" class="external-link">Code of Conduct</a></p>
-				<p><a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-classification_intro.Rmd" class="external-link">Edit on Github</a> | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> | <a href="https://github.com/carpentries/workbench-template-md/" class="external-link">Source</a></p>
+				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>
+        
+        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-classification_intro.Rmd" class="external-link">Edit on GitHub</a>
+        
+	
+        | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/carpentries/workbench-template-md/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/carpentries/workbench-template-md/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
@@ -1464,9 +1563,9 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.9.0)</a>,
-      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.3.2)</a>,
-      and <a href="https://github.com/carpentries/varnish" class="external-link">varnish (0.1.4)</a>.</p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.11.9)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/e815ea1a34f6eda01a3c9ab9643e35aa051e1938" class="external-link">pegboard (0.4.3)</a>,
+      and <a href="https://github.com/LearnToDiscover/varnish/tree/f412e8bbc14a5110120155e1af9282842877c62f" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1479,35 +1578,41 @@ any links that you are not going to use.
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
   "@id": "https://carpentries.github.io/workbench-template-md/01-classification_intro.html",
-  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/0.9-DRAFT-2020_12_08",
+  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "Classification",
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/01-classification_intro.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/01-classification_intro.html",
-  "dateCreated": "2022-10-14",
-  "dateModified": "2022-10-14",
-  "datePublished": "2022-10-14"
+  "dateCreated": "2023-03-17",
+  "dateModified": "2023-03-17",
+  "datePublished": "2023-03-17"
 }
 
   </script><script>
 		feather.replace();
-	</script><!-- Matomo --><script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
-          _paq.push(["setDoNotTrack", true]);
-          _paq.push(["disableCookies"]);
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-              var u="https://carpentries.matomo.cloud/";
-              _paq.push(['setTrackerUrl', u+'matomo.php']);
-              _paq.push(['setSiteId', '1']);
-              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-              g.async=true; g.src='https://cdn.matomo.cloud/carpentries.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script><!-- End Matomo Code --></body></html><!-- END:   inst/pkgdown/templates/layout.html-->
+	</script><!-- Matomo
+    2022-11-07: we have gotten a notification that we have an overage for our
+    tracking and I'm pretty sure this has to do with Workbench usage.
+    Considering that I am not _currently_ using this tracking because I do not
+    yet know how to access the data, I am turning this off for now.
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setDomains", ["*.preview.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
+    _paq.push(["setDoNotTrack", true]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+          var u="https://carpentries.matomo.cloud/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '1']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src='https://cdn.matomo.cloud/carpentries.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+  </script>
+  End Matomo Code --></body></html><!-- END:   inst/pkgdown/templates/layout.html-->
 
