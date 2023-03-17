@@ -56,8 +56,8 @@ library(reticulate)
 # virtualenv_install(envname = "r-env", "pandas", "matplotlib", "sklearn")
 
 
-##use_virtualenv("r-env")
-use_python("/Users/sabaferdous/envL2D/bin/python3")
+use_virtualenv("r-env")
+#use_python("/Users/sabaferdous/envL2D/bin/python3")
 ```
 
 ### **Import functions**
