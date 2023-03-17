@@ -67,8 +67,8 @@ library(reticulate)
 # Requirement already satisfied: setuptools in /Users/sabaferdous/.virtualenvs/r-env/lib/python3.10/site-packages (58.1.0)
 # virtualenv_install(envname = "r-env", "pandas", "matplotlib", "sklearn")
 
-##use_virtualenv("r-env")
-use_python("/Users/sabaferdous/envL2D/bin/python3")
+use_virtualenv("r-env")
+# use_python("/Users/sabaferdous/envL2D/bin/python3")
 ```
 
 ### **Import functions**
