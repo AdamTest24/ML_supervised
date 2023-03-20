@@ -808,7 +808,7 @@ This concludes our first steps into classification with SciKit Learn. There are 
 
 <br />
 
-### **Lesson Assignment** {#assign}
+### **Lesson Assignment** {#assign} [**Tutorial Video**](https://www.youtube.com/watch?app=desktop&v=5UzoWit0Ewc)
 
 -------------------------------
 
@@ -1117,7 +1117,7 @@ The three features contribute similarly to the outcome.
 
 <br />
 
-### **Forum for Questions** {#forum}
+### **Forum for Questions** {#forum} [**Tutorial Video**](https://www.youtube.com/watch?app=desktop&v=N5N7QbLwztQ)
 
 ----------------------
 Any questions related to this lesson, code or assignment can be posted at our forum (**Students_team**) on GitHub.
