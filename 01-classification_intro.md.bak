@@ -71,6 +71,10 @@ from numpy.random import uniform, seed
 from matplotlib.pyplot import subplots, scatter, xlabel, ylabel, xticks, show
 ```
 
+```{.output}
+Matplotlib is building the font cache; this may take a moment.
+```
+
 ## Example: Visual Classification
 
 Import the 'patients_data' toy dataset and scatter the data for Height and Weight.

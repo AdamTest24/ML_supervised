@@ -23,7 +23,7 @@ exercises: 2
 - Why is it important to use different classification algorithms?
 - What is the best way to find the optimal classifier?
 - How can we avoid over-fitting of data?
-- How do we evaluate the performance of a classifier?
+- How do we evaluate the performance of classifiers?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -245,7 +245,7 @@ show()
 <img src="fig/02-improvement-rendered-unnamed-chunk-4-3.png" width="960" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-The function yields only two features. The reason is that with two features we can visualise the complete state space in the two dimensional scatter plot. The data of both labels are organised along a ring. There is a certain amount of randomness added to create data distributed normally around the ring. 
+The function yields only two features. The reason is that with two features we can visualise the complete state space in a two-dimensional scatter plot. The data of both labels are organised along a ring. There is a certain amount of randomness added to create data distributed normally around the ring. 
 </p>
 <p style='text-align: justify;'>
 The tricky thing about such a data distribution is that in a standard view of the data, the histogram, the clear state space organisation is not visible. There are e.g. no two distinct mean values of the distributions. Also, while the two features are clearly dependent on each other (as seen in the scatter plot), it is not possible to regress one with the other by means of fits of the type y = f(x).
@@ -304,7 +304,7 @@ Different classification algorithms approach problems differently. Let us name t
     - Multinomial 
     - Complement
         
-Some of these algorithms require a more in-depth understanding of how they work. To that end, we would only review the performance the ones that are easier to implement and adjust. 
+Some of these algorithms require a more in-depth understanding of how they work. To that end, we only review the performance of those that are easier to implement and adjust. 
 
 __AdaBoost__
 <p style='text-align: justify;'>
@@ -313,12 +313,12 @@ The AdaBoost algorithm is special in that it does not work on its own; instead, 
 
 __Seeding__
 <p style='text-align: justify;'>
-Most machine learning algorithms rely on random number generation to produce results. Therefore, one simple, but important adjustment is to `seed` the number generator, and thereby making our comparisons more consistent; i.e. ensure that all models use the same set of random numbers. Almost all SciKit Learn models take an argument called `random_state`, which takes an integer number and uses it to seed the random number generator.
+Most machine learning algorithms rely on random number generation to produce results. Therefore, one simple, but important adjustment is to `seed` the number generator, and thereby making our comparisons more consistent; i.e. ensure that all models use the same set of random numbers. Almost all SciKit Learn models take an argument called `random_state`, which takes an integer number to seed the random number generator.
 </p>
 
 ### **Training and Testing**
 
-Here is code to import the classifiers from SciKit Learn, fit them to the training data and predict the (complete) state space. The result is plotted below.
+Here is code to import a number of classifiers from SciKit Learn, fit them to the training data and predict the (complete) state space. The result is plotted below.
 
 
 ```python
@@ -381,7 +381,7 @@ show()
 <img src="fig/02-improvement-rendered-unnamed-chunk-7-5.png" width="1440" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflects the original data distribution more closely. One classifier simply fails: SVC (linear): it tries to fit a straight line to separate the classes which in this case is impossible. 
+Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflects the original data distribution more closely. One classifier simply fails: the support vector classifier (SVC) with linear basis functions: it tries to fit a straight line to separate the classes which in this case is impossible. 
 </p>
 
 ### **The Train-Test Split**
@@ -389,7 +389,7 @@ Seven of the eight classifiers were able to separate the inner data set from the
 We will now modify our workflow to avoid the need to create separate testing data (the typical situation when dealing with recorded data). For this we start with a data set of n labelled samples. Of these n samples, a certain percentage is used for training (using the provided labels) and the rest for testing (withholding the labels). The testing data then do not need to be prepared separately. 
 </p>
 <p style='text-align: justify;'>
-The function we use is `train_test_split` from SciKit Learn. A nice feauture of this function is that it tries to preserve the ratio of labels in the split. E.g. if the data contain 70% of `True` and 30 % of `False` labels, the algorithm tries to preserve this ratio in the split as good as possible: around 70% of the training data and of the testing data will have the `True` label. 
+The function we use is `train_test_split` from SciKit Learn. A nice feature of this function is that it tries to preserve the ratio of labels in the split. E.g. if the data contain 70% of `True` and 30 % of `False` labels, the algorithm tries to preserve this ratio in the split as good as possible: around 70% of the training data and of the testing data will have the `True` label. 
 </p>
 
 
@@ -435,10 +435,10 @@ show()
 
 Now we can repeat the training with this split dataset using eight types of models as above.
 <p style='text-align: justify;'>
-Before we do so, let us introduce a __scoring__ of the performance. The method `.score` takes as input arguments the testing samples and their true labels. It then uses the model predictions to calculate the fraction of labels in the testing data that were predicted correctly.
+To compare the model performances, we use __scoring__: the method `.score` takes as input arguments the testing samples and their true labels. It then uses the model predictions to calculate the fraction of labels in the testing data that were predicted correctly.
 </p>
 <p style='text-align: justify;'>
-There are different techniques to evaluate a the performance of a model, but the `.score`  method provides a quick, simple, and handy way to assess a model. As far as classification algorithms in SciKit Learn are concerned, the method usually produces the __mean accuracy__, which is between 0 and 1; and the higher the score, the better the fit.
+There are different techniques to evaluate the performance, but the `.score`  method provides a quick, simple, and handy way to assess a model. As far as classification algorithms in SciKit Learn are concerned, the method usually produces the __mean accuracy__, which is between 0 and 1; and the higher the score, the better the fit.
 </p>
 
 
@@ -546,7 +546,7 @@ Now the data are mixed in the plane and there is no simple way to separate the t
 We can see in the plots how the algorithms try to cope with their different strategies. One thing that is immediately obvious is that the fitting patterns are different. Particularly, we can see the fragmented outcome of the _decision tree_ classifier and the smooth elliptic area found by the _support vector classifier (SVC)_ with radial basis functions (RBF) and the neural network (MLP). On a closer look, you may also notice that with ensemble methods in the upper row, the patterns are somewhat disorganised. This is due to the way ensemble methods work: they sample the data randomly and then class them into different categories based on their labels.
 </p>
 <p style='text-align: justify;'>
-If the prediction was made by chance (throwing a dice), one would expect a 50 % score. Thus, the example also shows that the performance depends on the type of problem and that this testing helps to find the optimal classifier. 
+If the prediction was made by chance (throwing a dice), one would expect a 50 % score. Thus, the example also shows that the performance depends on the type of problem and that this testing helps to find an optimal classifier. 
 </p>
 
 ::::::::::::::::::::: callout
@@ -562,7 +562,7 @@ Testing a model on data that is used in training is a methodological mistake. It
 One potential bias arises when we try to improve the performance of our models through the change of the so-called __hyperparameters__ (instead of using the default parameters as we did so far). We will always receive the optimal output given __the specific test data chosen__. This may lead to overfitting the model on the chosen training and testing data. This can be avoided by choosing different splits into testing and training data and repeating the fit procedure. Doing different splits while preserving the fraction of labels of each class in the original data, the method is called the __stratified shuffle split__.
 </p>
 <p style='text-align: justify;'>
-We first need to import and instantiate the splitter. We set `n_splits` to determine the numober of different splits. `test_size` lets us determine what fraction of samples is used for the testing data.
+We first need to import and instantiate the splitter. We set key word argument `n_splits` to determine the number of different splits. `test_size` lets us determine what fraction of samples is used for the testing data.
 </p>
 
 
@@ -610,7 +610,7 @@ show()
 <img src="fig/02-improvement-rendered-unnamed-chunk-14-15.png" width="960" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-By choosing n_splits=10, we obtained ten different splits that have similarly distributed train and test data subsets from the original data. The fraction of the data set aside for testing is 30 %. The different splits cover the whole data set evenly. 
+By choosing n_splits=10, we obtained ten different splits that have similarly distributed train and test data subsets from the original data. The fraction of the data set aside for testing is 30 %. The different splits cover the whole data set evenly. As such, using them for training and testing will lead to a fairly unbiased average performance. 
 </p>
 
 Let us look at the data in state space to check that the classification task is now a real challenge.
@@ -645,10 +645,10 @@ show()
 <img src="fig/02-improvement-rendered-unnamed-chunk-16-19.png" width="768" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-The distributions differ in height because less data are in the testing test. Otherwise they are similarly centered and spread. Using a number of realisations (instead of just one) we expect to obtain a more accurate and robust result of the training. 
+The distributions differ in height because less data are in the testing test. Otherwise they are similarly centred and spread. Using a number of realisations (instead of just one) we expect to obtain a more accurate and robust result of the training. 
 </p>
 <p style='text-align: justify;'>
-We now train our classifiers on these different splits and obtain the respective scores. They will give a robust measure of the classifier's preformance given the data and avoid potential bias due to the selection of specific test data.
+We now train our classifiers on these different splits and obtain the respective scores. They will give a robust measure of the classifier's performance given the data and avoid potential bias due to the selection of specific test data.
 </p>
 
 
@@ -704,10 +704,10 @@ Average scores:
 The result is the average score for the ten splits performed. All results for the noise-contaminated data are now in the seventies.
 
 <p style='text-align: justify;'>
-This is still good given the quality of the data. It appears that the _decision tree_ classifier gives the lowest result for this kind of problem, _SVC_ scores highest. We have to keep inmind, however, that we are using the classifiers with their default settings. We will later use variation of the so-called hyperparameters to improve the classification score. 
+This is still good given the quality of the data. It appears that the _decision tree_ classifier gives the lowest result for this kind of problem, _SVC (RBF)_ scores highest. We have to keep in mind, however, that we are using the classifiers with their default settings. We will later use variation of the so-called hyperparameters to further improve the classification score. 
 </p>
 
-Here we have used a for loop to train and test on each of the different splits of the data. SciKit Learn also contains functions that take the stratified shuffle split as an argument, e.g. `permutation_test_score`.
+Here we have used a for loop to train and test on each of the different splits of the data. SciKit Learn also contains functions that take the stratified shuffle split as an argument, e.g. `permutation_test_score`. In that case, the splits do not need to be done separately. 
 
 We have now reached a point where we can trust to have a robust and unbiased outcome of the training. Let us now look at more refined ways to quantify the result.
 
@@ -737,7 +737,7 @@ A receiver operation characteristic, often referred to as the __ROC curve__, is 
 This makes ROC a measure of sensitivity versus specificity. 
 
 <p style='text-align: justify;'>
-The area under the ROC curve, often referred to as AUC, reduces the information contained within a ROC curve down to a value between 0 and 1, with 1 being a perfect fit. An AUC value of represents any random guess, and values below demonstrate a performance that’s even worse than a lucky guess!
+The area under the ROC curve, often referred to as AUC, reduces the information contained within a ROC curve down to a value between 0 and 1, with 1 being a perfect fit. An AUC value of 0.5 represents any random guess, and values below demonstrate a performance that’s even worse than a lucky guess!
 </p>
 
 :::::::::::::::::::::::::::::::: discussion
@@ -747,14 +747,14 @@ The area under the ROC curve, often referred to as AUC, reduces the information 
 </p>
 
 - Decision function: where classification models have a `.decision_function` method that provides us with score associated with each label.
-- Probability: where classification models have a `.predict_proba`  method that provides us with the probability associated with each prediction (we used it in the Classification Introduction lesson). In this case, however, the results are provided in the form of a two-dimensional array where columns represents different labels (as defined in   property). Given that we will only plot ROC curves for binary problems (two labels), we should only use one of these columns. Usually, the second column (the feature representing `True` or __1__) is the one to choose. However, if you notice that the results are unexpectedly bad, you may try the other column just be sure.
+- Probability: where classification models have a `.predict_proba`  method that provides us with the probability associated with each prediction (we used it in the Classification Introduction lesson). In this case, however, the results are provided in the form of a two-dimensional array where columns represent different labels (as defined in   property). Given that we will plot ROC curves for binary problems (two labels), we only pick one of these columns. Usually, the second column (the feature representing `True` or __1__) is the one to choose. However, if you notice that the results are unexpectedly bad, you may try the other column just be sure.
 
 ::::::::::::::::::::::::::::::::
 
 <p style='text-align: justify;'>
 We can see that our classifiers now reach different degrees of prediction. The degree can be quantified by the 
 __Area Under the Curve (AUC)__. It refers to the area between the blue ROC curve and the orange diagonal.
-The area under the ROC curve, often referred to as AUC, reduces the information contained within a ROC curve down to a value between and 0 and 1, with 1 being a perfect fit. An AUC value of 0 represents a random guess, and values below the diagonal demonstrate a performance that’s even worse than a guess!
+The area under the ROC curve, often referred to as AUC, reduces the information contained within a ROC curve down to a value between and 0 and 1, with 1 being a perfect fit. An AUC value of 0.5 represents a random guess, and values below the diagonal demonstrate a performance that’s even worse than a guess!
 </p>
 <p style='text-align: justify;'>
 SciKit Learn includes specialist functions called `roc_curve` and `roc_auc_score` to obtain ROC (FPR and TPR values for visualisation) and AUC respectively. Both function receive as input arguments the test labels (i.e. y_score) and the score (probability) associated with each prediction. We obtain the latter measure using one of the following two techniques:
@@ -861,7 +861,7 @@ Note that with 3 or more features it is no longer possible to see the full state
 ## Recommendation
 
 <p style='text-align: justify;'>
-Pick any of the provided (or other) data sets with labels to repeat the above. Feel free to try and do any testing or plotting that you find important. This is not an assignment to get the correct answer. Rather at this stage, we practise to use functionality from scikit-learn to search for structure in the data that helps to achieve the best predictions possible. 
+Pick any of the provided (or other) data sets with labels to repeat the above. Feel free to try and do any testing or plotting that you find important. This is not an assignment to get the correct answer. Rather at this stage, we practise to use functionality from SciKit-learn to search for structure in the data that helps to achieve the best predictions possible. 
 </p>
 
 ::::::::::::::::
