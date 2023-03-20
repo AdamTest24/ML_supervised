@@ -765,7 +765,7 @@ See for example the discussion in part 2 of this [paper on predictive modelling 
 
 <br />
 
-### **Lesson Assignment** {#assign}
+### **Lesson Assignment** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=5UzoWit0Ewc) {#assign}
 
 -------------------------------
 
@@ -1279,7 +1279,7 @@ It turns out that with the used settings, the classification is dominated by a s
 
 <br />
 
-### **Forum for Questions** {#forum}
+### **Forum for Questions** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=N5N7QbLwztQ){#forum}
 
 ----------------------
 
