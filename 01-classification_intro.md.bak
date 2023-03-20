@@ -71,10 +71,6 @@ from numpy.random import uniform, seed
 from matplotlib.pyplot import subplots, scatter, xlabel, ylabel, xticks, show
 ```
 
-```{.output}
-Matplotlib is building the font cache; this may take a moment.
-```
-
 ## Example: Visual Classification
 
 Import the 'patients_data' toy dataset and scatter the data for Height and Weight.
@@ -928,7 +924,7 @@ In the next lesson, we are going to test multiple classifiers and quantify their
 
 <br />
 
-### **Lesson Assignment** {#assign}
+### **Lesson Assignment** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=5UzoWit0Ewc) {#assign}
 
 -------------------------------
 
@@ -1241,7 +1237,7 @@ print(X.shape, y.shape)
 
 <br />
 
-### **Forum for Questions** {#forum}
+### **Forum for Questions** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=N5N7QbLwztQ){#forum}
 
 ----------------------
 Any questions related to this lesson, code or assignment can be posted at our forum (**Students_team**) on GitHub.
