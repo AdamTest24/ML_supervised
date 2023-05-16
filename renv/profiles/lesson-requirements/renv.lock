@@ -16,6 +16,11 @@
       }
     ]
   },
+  "Python": {
+    "Version": "3.10.6",
+    "Type": "virtualenv",
+    "Name": "./renv/profiles/lesson-requirements/renv/python/virtualenvs/renv-python-3.10"
+  },
   "Packages": {
     "Matrix": {
       "Package": "Matrix",
