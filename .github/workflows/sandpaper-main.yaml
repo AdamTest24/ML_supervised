@@ -30,7 +30,7 @@ jobs:
 
       - name: "Checkout Lesson"
         uses: actions/checkout@v2
-        
+
       - name: "Set up Python"
         uses: actions/setup-python@v2
         with:
@@ -52,15 +52,15 @@ jobs:
 
       - name: "latex template"
         run: |
-            mkdir -p ~/.pandoc/templates 
-            curl -o ~/.pandoc/templates/eisvogel.latex https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex   
+            mkdir -p ~/.pandoc/templates
+            curl -o ~/.pandoc/templates/eisvogel.latex https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex
       - name: "Setup Lesson Engine"
-        uses: carpentries/actions/setup-sandpaper@main
+        uses: milanmlft/actions/setup-sandpaper@main
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
       - name: "Setup Package Cache"
-        uses: carpentries/actions/setup-lesson-deps@main
+        uses: milanmlft/actions/setup-lesson-deps@main
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
