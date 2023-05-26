@@ -57,20 +57,6 @@ exercises: 2
 </p>
 <br>
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(reticulate)
-## use_python("/usr/local/bin/python3.10")
-## install_python(version = version)
-# version = "3.10.2"
-# virtualenv_create("r-env", python_version = version)
-# Requirement already satisfied: setuptools in /Users/sabaferdous/.virtualenvs/r-env/lib/python3.10/site-packages (58.1.0)
-# virtualenv_install(envname = "r-env", "pandas", "matplotlib", "sklearn")
-
-use_virtualenv("r-env")
-# use_python("/Users/sabaferdous/envL2D/bin/python3")
-```
-
 ### **Import functions**
 ```{python}
 from pandas import read_csv
