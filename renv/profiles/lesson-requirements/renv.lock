@@ -24,7 +24,7 @@
   "Packages": {
     "Matrix": {
       "Package": "Matrix",
-      "Version": "1.5",
+      "Version": "1.5-1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
