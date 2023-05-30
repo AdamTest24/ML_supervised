@@ -45,8 +45,6 @@ exercises: 2
 </p>
 <br>
 
-
-
 ### **Import functions**
 
 ```python

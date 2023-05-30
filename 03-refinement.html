@@ -226,7 +226,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Refinement</h1>
-        <p> Last updated on 2023-03-20 | 
+        <p> Last updated on 2023-05-30 | 
         
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-refinement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -238,15 +238,18 @@
 
         
 
-<p><a href="03-refinement.md.pdf"><strong>Download Chapter pdf</strong></a></p>
-<p><a href="03-refinement.ipynb"><strong>Download Chapter notebook (ipynb)</strong></a></p>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback Survey</strong></span></a></p>
-<div id="checklist1" class="callout checklist">
+<p><a href="03-refinement.md.pdf"><strong>Download Chapter
+pdf</strong></a></p>
+<p><a href="03-refinement.ipynb"><strong>Download Chapter notebook
+(ipynb)</strong></a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
+Survey</strong></span></a></p>
+<div id="submissions" class="callout checklist">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check-square"></i>
 </div>
 <div id="submissions" class="callout-inner">
-<h3 class="callout-title">Submissions<a class="anchor" aria-label="anchor" href="#checklist1"></a>
+<h3 class="callout-title">Submissions<a class="anchor" aria-label="anchor" href="#submissions"></a>
 </h3>
 <div class="callout-content">
 <ul><li><p><a href="#assign"><strong>Lesson Assignment</strong></a></p></li>
@@ -264,7 +267,8 @@
 <ul><li>How do different evaluation metrics differ?</li>
 <li>What techniques are used to improve on chance prediction?</li>
 <li>What are the limitations of a confusion matrix?</li>
-<li>How can normalisation and hyperparameter tuning help to improve the results?</li>
+<li>How can normalisation and hyperparameter tuning help to improve the
+results?</li>
 <li>How could test data leakage be avoided?</li>
 </ul></div>
 </div>
@@ -325,8 +329,10 @@
 </div>
 <section id="revision-example-with-circular-test-data"><h2 class="section-heading">Revision Example with Circular Test Data<a class="anchor" aria-label="anchor" href="#revision-example-with-circular-test-data"></a>
 </h2>
-<hr class="half-width"><p>For our classification problem, we will use the <code>make_circles</code> function. See the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html" class="external-link">documentation</a></p>
-<p>The parameters for noise level and relative size of the two circles are such that the task becomes difficult.</p>
+<hr class="half-width"><p>For our classification problem, we will use the
+<code>make_circles</code> function. See the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html" class="external-link">documentation</a></p>
+<p>The parameters for noise level and relative size of the two circles
+are such that the task becomes difficult.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -355,7 +361,9 @@
 </h3>
 <pre class="output" tabindex="0"><code>Shape of X: (500, 2)</code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-2-1.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>For training, we use the same classifiers as in the previous Lesson. We train on the whole data set and then use a meshgrid of the state space for prediction.</p>
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-2-1.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>For training, we use the same classifiers as in the previous Lesson.
+We train on the whole data set and then use a meshgrid of the state
+space for prediction.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -397,58 +405,95 @@
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/03-refinement-rendered-unnamed-chunk-4-3.png" width="1440" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-Seven of the eight classifiers are able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others find a more circular form which reflects the original data distribution more closely. One classifier simply fails: SVC (linear). It tries to fit a straight line to separate the classes which in this case is impossible.
+Seven of the eight classifiers are able to separate the inner data set
+from the outer data set successfully. The main difference is that some
+algorithms ended up with a more rectangular shape of the boundary
+whereas the others find a more circular form which reflects the original
+data distribution more closely. One classifier simply fails: SVC
+(linear). It tries to fit a straight line to separate the classes which
+in this case is impossible.
 </p>
-<div id="callout1" class="callout callout">
+<div id="note" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
 </h3>
 <div class="callout-content">
-<p><strong>Code</strong>: Note how the keyword argument <code>sharey</code> is used in the call of <code>subplots</code> to have y-axis only labelled once. The name of the classifier is extracted from the dictionary as its key and used to set up the title of each panel.</p>
+<p><strong>Code</strong>: Note how the keyword argument
+<code>sharey</code> is used in the call of <code>subplots</code> to have
+y-axis only labelled once. The name of the classifier is extracted from
+the dictionary as its key and used to set up the title of each
+panel.</p>
 </div>
 </div>
 </div>
 </section><section id="metrics"><h2 class="section-heading">Metrics<a class="anchor" aria-label="anchor" href="#metrics"></a>
 </h2>
-<hr class="half-width"><p>We already used the score to evaluate the model performance. Here are some further metrics used in machine learning.</p>
+<hr class="half-width"><p>We already used the score to evaluate the model performance. Here are
+some further metrics used in machine learning.</p>
 <p style="text-align: justify;">
-<strong>Accuracy</strong> is a metric that evaluates the integrity of the model by comparing true labels with their predicted counterparts. It produces a value between 0 and 1, where 1 is the best possible outcome, and <span class="math inline">\(1 / n_{classes}\)</span> represents the probability of a random guess. See <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html" class="external-link">the Scikit-learn documentation for the accuracy_score.</a> The mathematical formula can be found in the <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#accuracy-score" class="external-link">metrics and scoring section of the documentation</a>.
+<strong>Accuracy</strong> is a metric that evaluates the integrity of
+the model by comparing true labels with their predicted counterparts. It
+produces a value between 0 and 1, where 1 is the best possible outcome,
+and <span class="math inline">\(1 / n_{classes}\)</span> represents the
+probability of a random guess. See <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html" class="external-link">the
+Scikit-learn documentation for the accuracy_score.</a> The mathematical
+formula can be found in the <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#accuracy-score" class="external-link">metrics
+and scoring section of the documentation</a>.
 </p>
 <p style="text-align: justify;">
-<strong>Recall</strong> is a metric that evaluates the ability of a classification model to find true positive labels. The measure produces a scalar value between 0 and 1, where 1 is the perfect outcome. See <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html" class="external-link">the Scikit-learn documentation for the recall_score</a>. The recall is the percentage of true predictions of the overall number of predictions. It is also known as <em>sensitivity</em>.
+<strong>Recall</strong> is a metric that evaluates the ability of a
+classification model to find true positive labels. The measure produces
+a scalar value between 0 and 1, where 1 is the perfect outcome. See <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html" class="external-link">the
+Scikit-learn documentation for the recall_score</a>. The recall is the
+percentage of true predictions of the overall number of predictions. It
+is also known as <em>sensitivity</em>.
 </p>
 <p style="text-align: justify;">
-<strong>Average Precision</strong>, also referred to as AP, is a metric that produces a scalar value for the precision-recall curve between and with being the outcome. The metric obtains this value by weighing:
+<strong>Average Precision</strong>, also referred to as AP, is a metric
+that produces a scalar value for the precision-recall curve between and
+with being the outcome. The metric obtains this value by weighing:
 </p>
 <ul><li>the mean of precisions (P) at each threshold (n),</li>
 <li>the increase in recall (R) from the previous threshold (n-1).</li>
 </ul><p>The metric is mathematically defined as follows:</p>
-<p><span class="math display">\[ AP = \sum_{n}^{}(R_n - R_{n-1}) \cdot P \]</span></p>
-<div id="discussion1" class="callout discussion">
+<p><span class="math display">\[ AP = \sum_{n}^{}(R_n - R_{n-1}) \cdot P
+\]</span></p>
+<div id="average-precision-vs-auc" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="average-precision-vs-auc" class="callout-inner">
-<h3 class="callout-title">Average precision vs AUC<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Average precision vs AUC<a class="anchor" aria-label="anchor" href="#average-precision-vs-auc"></a>
 </h3>
 <div class="callout-content">
 <p style="text-align: justify;">
-As you may have noticed, the AUC metric also evaluates the area under the precision-recall curve using the trapezoid rule and with linear interpolation. The interpolation, however, may cause the resulting output to be better than it actually is. In other words, the AUC measure evaluates the outcome rather optimistically.
+As you may have noticed, the AUC metric also evaluates the area under
+the precision-recall curve using the trapezoid rule and with linear
+interpolation. The interpolation, however, may cause the resulting
+output to be better than it actually is. In other words, the AUC measure
+evaluates the outcome rather optimistically.
 </p>
 </div>
 </div>
 </div>
 Precision is also called the <em>positive predictive value</em>.
 <p style="text-align: justify;">
-<strong>F1 Score</strong> Another useful metric to evaluate a classification model that relies on precision and recall is the F1 Score, see the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html" class="external-link">Scikit-learn documentation</a>. It is mathematically defined as:
+<strong>F1 Score</strong> Another useful metric to evaluate a
+classification model that relies on precision and recall is the F1
+Score, see the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html" class="external-link">Scikit-learn
+documentation</a>. It is mathematically defined as:
 </p>
-<p><span class="math display">\[ F_1 = 2 \cdot \frac{P\cdot R}{P+R} \]</span></p>
-<p>where <span class="math inline">\(P\)</span> and <span class="math inline">\(R\)</span> represent precision and recall, respectively.</p>
-<p>Wikipedia has a <a href="https://en.wikipedia.org/wiki/Precision_and_recall" class="external-link">nice summary of the measures and connections between them</a>.</p>
-<p>In Scikit-learn, these measures can be used in a standardised fashion. Here is an example using the <code>recall_score</code>.</p>
+<p><span class="math display">\[ F_1 = 2 \cdot \frac{P\cdot R}{P+R}
+\]</span></p>
+<p>where <span class="math inline">\(P\)</span> and <span class="math inline">\(R\)</span> represent precision and recall,
+respectively.</p>
+<p>Wikipedia has a <a href="https://en.wikipedia.org/wiki/Precision_and_recall" class="external-link">nice summary
+of the measures and connections between them</a>.</p>
+<p>In Scikit-learn, these measures can be used in a standardised
+fashion. Here is an example using the <code>recall_score</code>.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -502,35 +547,69 @@ Precision is also called the <em>positive predictive value</em>.
 <figure><img src="fig/03-refinement-rendered-unnamed-chunk-6-5.png" width="1440" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="section level3">
 <h3 id="reducing-bias-on-test-data"><strong>Reducing Bias on Test Data</strong><a class="anchor" aria-label="anchor" href="#reducing-bias-on-test-data"></a></h3>
 <p style="text-align: justify;">
-Whilst <code>SciKit Learn</code> provides us with a dedicated function to obtain accuracy, the value it provides depends on how our training and test data have been split. Using the train-test-split, we can randomly shuffle the data to address this very problem. However, this implicitly assumed that our original data followed a specific distribution which is best represented by shuffling the data. That may not always be the case. In practice, we can never fully eliminate this type of bias. What we can do, however, is to split, shuffle, and permute the samples in the original dataset repeatedly to minimise the likelihood of bias.
+Whilst <code>SciKit Learn</code> provides us with a dedicated function
+to obtain accuracy, the value it provides depends on how our training
+and test data have been split. Using the train-test-split, we can
+randomly shuffle the data to address this very problem. However, this
+implicitly assumed that our original data followed a specific
+distribution which is best represented by shuffling the data. That may
+not always be the case. In practice, we can never fully eliminate this
+type of bias. What we can do, however, is to split, shuffle, and permute
+the samples in the original dataset repeatedly to minimise the
+likelihood of bias.
 </p>
 </div>
 </section><section id="permutation-score"><h2 class="section-heading">Permutation Score<a class="anchor" aria-label="anchor" href="#permutation-score"></a>
 </h2>
 <hr class="half-width"><p style="text-align: justify;">
-When dealing with biological and medical data, the results of machine learning often are not clear-cut. The question remains whether or not to trust a predictor as being truly above chance levels. An effective technique to address this is to randomly shuffle the labels independently of the data. I.e. we permutate only the labels, and check whether the classification score actually decreases. The <strong>permutation score</strong> then quantifies how trustworthy the result with the correct labels is. See <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html" class="external-link">the Scikit-learn documentation</a> for details.
+When dealing with biological and medical data, the results of machine
+learning often are not clear-cut. The question remains whether or not to
+trust a predictor as being truly above chance levels. An effective
+technique to address this is to randomly shuffle the labels
+independently of the data. I.e. we permutate only the labels, and check
+whether the classification score actually decreases. The
+<strong>permutation score</strong> then quantifies how trustworthy the
+result with the correct labels is. See <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html" class="external-link">the
+Scikit-learn documentation</a> for details.
 </p>
 <p style="text-align: justify;">
-Now that we know about evaluation metrics, we are set to properly begin the evaluation process. We can use so-called cross-validators for testing the models if a test is run many times on data with differently permuted labels. To facilitate this, Scikit-learn provides the function <code>permutation_test_score</code>.
+Now that we know about evaluation metrics, we are set to properly begin
+the evaluation process. We can use so-called cross-validators for
+testing the models if a test is run many times on data with differently
+permuted labels. To facilitate this, Scikit-learn provides the function
+<code>permutation_test_score</code>.
 </p>
-<div id="callout2" class="callout callout">
+<div id="note-1" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note-1" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-1"></a>
 </h3>
 <div class="callout-content">
 <p style="text-align: justify;">
-The process of cross-validation is computationally expensive, as is the process of repeatedly permuting, fitting, and testing our models. In this context, we will be using both processes to complement each other. This makes the operation time-consuming and slow.
+The process of cross-validation is computationally expensive, as is the
+process of repeatedly permuting, fitting, and testing our models. In
+this context, we will be using both processes to complement each other.
+This makes the operation time-consuming and slow.
 </p>
 </div>
 </div>
 </div>
 <p style="text-align: justify;">
-When possible, Scikit-learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the <code>n_jobs</code> argument of a function or a class to the number of CPU cores we wish to use. Conveniently, it can be set to <code>n_jobs=-1</code> to use all available CPU cores (see e.g. <a href="">the Hyperparameter Tuning section</a> below). Here, we have shown the use of only one core with <code>n_jobs=1</code> which is computationally slow. You can adjust it according to the machine you are using to make it faster.
+When possible, Scikit-learn provides us the with ability to use multiple
+CPU cores to speed up intensive computations through multiprocessing.
+Where available, this can be achieved by setting the <code>n_jobs</code>
+argument of a function or a class to the number of CPU cores we wish to
+use. Conveniently, it can be set to <code>n_jobs=-1</code> to use all
+available CPU cores (see e.g. <a href="">the Hyperparameter Tuning
+section</a> below). Here, we have shown the use of only one core with
+<code>n_jobs=1</code> which is computationally slow. You can adjust it
+according to the machine you are using to make it faster.
 </p>
-<p>The keyword argument <code>n_permutations</code> is set to 100 by default. You can speed the cross-validation up by choosing a smaller number.</p>
+<p>The keyword argument <code>n_permutations</code> is set to 100 by
+default. You can speed the cross-validation up by choosing a smaller
+number.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -559,17 +638,27 @@ When possible, Scikit-learn provides us the with ability to use multiple CPU cor
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>show()    </span></code></pre>
 </div>
 <figure><img src="fig/03-refinement-rendered-unnamed-chunk-7-7.png" width="1536" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-Apart from SVC (linear), all classifiers show satisfactory separation of the permutation test (blue distribution with red mean value) from the data score (green line). Apart from SVC (linear), the p-values are below 0.01.
+Apart from SVC (linear), all classifiers show satisfactory separation of
+the permutation test (blue distribution with red mean value) from the
+data score (green line). Apart from SVC (linear), the p-values are below
+0.01.
 </p>
 <p style="text-align: justify;">
-Here is a <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_permutation_tests_for_classification.html#sphx-glr-auto-examples-model-selection-plot-permutation-tests-for-classification-py" class="external-link">Scikit-learn example using permutations with the Iris data</a>.
+Here is a <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_permutation_tests_for_classification.html#sphx-glr-auto-examples-model-selection-plot-permutation-tests-for-classification-py" class="external-link">Scikit-learn
+example using permutations with the Iris data</a>.
 </p>
 </section><section id="confusion-matrix"><h2 class="section-heading">Confusion Matrix<a class="anchor" aria-label="anchor" href="#confusion-matrix"></a>
 </h2>
 <hr class="half-width"><p style="text-align: justify;">
-Another useful method to evaluate a model and demonstrate its integrity is to produce a <a href="https://en.wikipedia.org/wiki/Confusion_matrix" class="external-link">confusion matrix</a>. The matrix demonstrates the number of correctly predicted labels against the incorrect ones. As such it can, however, only be used for classification problems with two labels.
+Another useful method to evaluate a model and demonstrate its integrity
+is to produce a <a href="https://en.wikipedia.org/wiki/Confusion_matrix" class="external-link">confusion
+matrix</a>. The matrix demonstrates the number of correctly predicted
+labels against the incorrect ones. As such it can, however, only be used
+for classification problems with two labels.
 </p>
-<p>Scikit-learn provides a <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html" class="external-link">function to create a confusion matrix</a>. Here is an expanded function to simplify the visualisation of this matrix.</p>
+<p>Scikit-learn provides a <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html" class="external-link">function
+to create a confusion matrix</a>. Here is an expanded function to
+simplify the visualisation of this matrix.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -644,13 +733,22 @@ Another useful method to evaluate a model and demonstrate its integrity is to pr
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-9-9.png" width="1632" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Ideally, the diagonal fields are both white and the off-diagonal fields maximally dark.</p>
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-9-9.png" width="1632" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Ideally, the diagonal fields are both white and the off-diagonal
+fields maximally dark.</p>
 </section><section id="further-refinements"><h2 class="section-heading">Further Refinements<a class="anchor" aria-label="anchor" href="#further-refinements"></a>
 </h2>
 <hr class="half-width"><p style="text-align: justify;">
-Once we decide what algorithm to use, we start by training that algorithm with its default settings and evaluate the results. If not satisfied, we can make further adjustments to the <strong>hyper-parameters</strong> of the algorithm to improve the results. As always in machine learning, it is of great importance that we avoid overfitting, i.e. maintain the generalisability of the model whilst improving its performance.
+Once we decide what algorithm to use, we start by training that
+algorithm with its default settings and evaluate the results. If not
+satisfied, we can make further adjustments to the
+<strong>hyper-parameters</strong> of the algorithm to improve the
+results. As always in machine learning, it is of great importance that
+we avoid overfitting, i.e. maintain the generalisability of the model
+whilst improving its performance.
 </p>
-<p>We start by creating a classification problem with 3 features and 2 labels using the <code>make_classification</code> function. Data are now displayed in pseudo-3D.</p>
+<p>We start by creating a classification problem with 3 features and 2
+labels using the <code>make_classification</code> function. Data are now
+displayed in pseudo-3D.</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -698,19 +796,24 @@ Once we decide what algorithm to use, we start by training that algorithm with i
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-11-14.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="callout3" class="callout callout">
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-11-14.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="note-2" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note-2" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-2"></a>
 </h3>
 <div class="callout-content">
-<p><strong>Code</strong>: Note the setting up of 3D axis. Some examples with code to learn 3D plotting are <a href="https://matplotlib.org/2.0.2/mpl_toolkits/mplot3d/tutorial.html" class="external-link">provided in these tutorials</a>.</p>
+<p><strong>Code</strong>: Note the setting up of 3D axis. Some examples
+with code to learn 3D plotting are <a href="https://matplotlib.org/2.0.2/mpl_toolkits/mplot3d/tutorial.html" class="external-link">provided
+in these tutorials</a>.</p>
 </div>
 </div>
 </div>
-<p>We can now go ahead and use our classifier dictionary – which contains the classifiers with their default settings – to train and evaluate the models. We use the train-test split to evaluate the performance.</p>
+<p>We can now go ahead and use our classifier dictionary – which
+contains the classifiers with their default settings – to train and
+evaluate the models. We use the train-test split to evaluate the
+performance.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -733,12 +836,22 @@ Once we decide what algorithm to use, we start by training that algorithm with i
 <div class="section level3">
 <h3 id="normalisation"><strong>Normalisation</strong><a class="anchor" aria-label="anchor" href="#normalisation"></a></h3>
 <p style="text-align: justify;">
-Depending on the nature of the data, it might be beneficial to normalise the data before fitting a classifier. This is widely done in machine learning but needs thought in each case.
+Depending on the nature of the data, it might be beneficial to normalise
+the data before fitting a classifier. This is widely done in machine
+learning but needs thought in each case.
 </p>
 <p style="text-align: justify;">
-Normalisation can be done in various ways. One common way to normalise data is to require that they have mean 0 and variance 1. This is used for example, when calculating the Pearson correlation coefficient. Another popular way in machine learning is to normalise data to Euclidean norm 1. For a data point in an m-dimensional feature space (m is the number of features), the Euclidean norm of a single point (one sample or row) is normalised such that the distance of the point from the origin is 1.
+Normalisation can be done in various ways. One common way to normalise
+data is to require that they have mean 0 and variance 1. This is used
+for example, when calculating the Pearson correlation coefficient.
+Another popular way in machine learning is to normalise data to
+Euclidean norm 1. For a data point in an m-dimensional feature space (m
+is the number of features), the Euclidean norm of a single point (one
+sample or row) is normalised such that the distance of the point from
+the origin is 1.
 </p>
-<p>Let us first see an example: some data points are spread between 1 and 4.</p>
+<p>Let us first see an example: some data points are spread between 1
+and 4.</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -782,7 +895,9 @@ Normalisation can be done in various ways. One common way to normalise data is t
 (0.0, 4.4)</code></pre>
 </div>
 <figure><img src="fig/03-refinement-rendered-unnamed-chunk-13-17.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-Effectively, all normalised data are positioned on a circle around the origin with radius 1. Depending on correlations existing between the features this leads to different distortions of the original data.
+Effectively, all normalised data are positioned on a circle around the
+origin with radius 1. Depending on correlations existing between the
+features this leads to different distortions of the original data.
 </p>
 <p>Let us now apply this normalisation to our artificial data set.</p>
 <div class="codewrapper sourceCode" id="cb18">
@@ -809,7 +924,8 @@ Effectively, all normalised data are positioned on a circle around the origin wi
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-14-20.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The normalisation projects the data on the unit sphere. And now we can do the training on the normalised data:</p>
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-14-20.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The normalisation projects the data on the unit sphere. And now we
+can do the training on the normalised data:</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -831,25 +947,57 @@ Effectively, all normalised data are positioned on a circle around the origin wi
 </div></div></div>
 </div>
 <p style="text-align: justify;">
-Due to the homogeneous nature of the artificial data, the results here are comparable for the data and their normalised version. But this may change when using data with inconsistent distributions of the columns. For an example, see the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer" class="external-link">breastcancer data</a> used in the assignment.
+Due to the homogeneous nature of the artificial data, the results here
+are comparable for the data and their normalised version. But this may
+change when using data with inconsistent distributions of the columns.
+For an example, see the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer" class="external-link">breastcancer
+data</a> used in the assignment.
 </p>
 </div>
 <div class="section level3">
 <h3 id="hyperparameter-tuning"><strong>Hyperparameter Tuning</strong><a class="anchor" aria-label="anchor" href="#hyperparameter-tuning"></a></h3>
 <p style="text-align: justify;">
-Once we decide on what algorithm to use, we often start by training that algorithm with its default settings and evaluate the results. If not satisfied, we can go further and make adjustments to the hyper-parameters of the algorithm to improve the results. As always in machine learning, it is of great importance that we maintain the generalisability of our model whilst improving its performance. We use the data from the above classification problem with 3 features and 2 labels.
+Once we decide on what algorithm to use, we often start by training that
+algorithm with its default settings and evaluate the results. If not
+satisfied, we can go further and make adjustments to the
+hyper-parameters of the algorithm to improve the results. As always in
+machine learning, it is of great importance that we maintain the
+generalisability of our model whilst improving its performance. We use
+the data from the above classification problem with 3 features and 2
+labels.
 </p>
 </div>
 <div class="section level3">
 <h3 id="progressive-adjustment"><strong>Progressive Adjustment</strong><a class="anchor" aria-label="anchor" href="#progressive-adjustment"></a></h3>
 <p style="text-align: justify;">
-After we have compared original and normalised data and obtained their scores, we now can try to progressively improve the performance of the algorithms. Each classification algorithm uses a unique set of hyper-parameters, the details of which are outlined in their respective documentations on <code>Scikit-learn</code>. The optimum parameters are those that produce the best fit whilst maintaining the generalisability of a model. One way to obtain the optimum settings is to test different parameters and compare the model scores over and over again. However, as outlined before, by doing so we may risk <em>leaking</em> our test data, and end up over-fitting the model to the test data. (We also learned above that we can use different cross-validators to address this problem.)
+After we have compared original and normalised data and obtained their
+scores, we now can try to progressively improve the performance of the
+algorithms. Each classification algorithm uses a unique set of
+hyper-parameters, the details of which are outlined in their respective
+documentations on <code>Scikit-learn</code>. The optimum parameters are
+those that produce the best fit whilst maintaining the generalisability
+of a model. One way to obtain the optimum settings is to test different
+parameters and compare the model scores over and over again. However, as
+outlined before, by doing so we may risk <em>leaking</em> our test data,
+and end up over-fitting the model to the test data. (We also learned
+above that we can use different cross-validators to address this
+problem.)
 </p>
 <p style="text-align: justify;">
-<code>Scikit-learn</code> provides us with a tool entitled <code>GridSearchCV</code> to define different values for different parameters. It then applies different combinations of different parameters to the model and evaluates the outcome using data that it generates from a cross-validation algorithm. Once finished, it provides us with the parameters that produce the best score for our data. This is referred to as progressive adjustment.
+<code>Scikit-learn</code> provides us with a tool entitled
+<code>GridSearchCV</code> to define different values for different
+parameters. It then applies different combinations of different
+parameters to the model and evaluates the outcome using data that it
+generates from a cross-validation algorithm. Once finished, it provides
+us with the parameters that produce the best score for our data. This is
+referred to as progressive adjustment.
 </p>
 <p style="text-align: justify;">
-Note that this process can be lengthy, and may need to be refined several times, so it is a good idea to set <code>n_jobs=-1</code> and thereby take advantage of different CPU core on the computer. For demonstration, we use SVC(rbf) as a classifier. With certain problems, its training may lead to poor results with the default parameters.
+Note that this process can be lengthy, and may need to be refined
+several times, so it is a good idea to set <code>n_jobs=-1</code> and
+thereby take advantage of different CPU core on the computer. For
+demonstration, we use SVC(rbf) as a classifier. With certain problems,
+its training may lead to poor results with the default parameters.
 </p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -876,8 +1024,12 @@ Note that this process can be lengthy, and may need to be refined several times,
 </h3>
 <pre class="output" tabindex="0"><code>SVC (RBF)                      Score: 0.68</code></pre>
 </div>
-<p>Progressive adjustment of some of the parameters may lead to an improved model.</p>
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html" class="external-link">Check the documentation</a> for the meaning and the default values of regularisation parameters <code>C</code>, kernel coeffcient <code>gamma</code>, and tolerance setting <code>tol</code>.</p>
+<p>Progressive adjustment of some of the parameters may lead to an
+improved model.</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html" class="external-link">Check
+the documentation</a> for the meaning and the default values of
+regularisation parameters <code>C</code>, kernel coeffcient
+<code>gamma</code>, and tolerance setting <code>tol</code>.</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -905,7 +1057,10 @@ Note that this process can be lengthy, and may need to be refined several times,
 
 NORMED:   Best parameters {'C': 1, 'gamma': 100, 'tol': 0.0001}    Score 0.75</code></pre>
 <p style="text-align: justify;">
-In this case, while both optimised scores are better than the original one, there is also a notable improvement when using the normalised data. Let us similarly check the Random Forest classifier, first with default settings.
+In this case, while both optimised scores are better than the original
+one, there is also a notable improvement when using the normalised data.
+Let us similarly check the Random Forest classifier, first with default
+settings.
 </p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -932,7 +1087,8 @@ In this case, while both optimised scores are better than the original one, ther
 </h3>
 <pre class="output" tabindex="0"><code>Random Forest                  Score: 0.77</code></pre>
 </div>
-<p>And now a grid over <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" class="external-link">some of its parameters</a>.</p>
+<p>And now a grid over <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" class="external-link">some
+of its parameters</a>.</p>
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -964,58 +1120,98 @@ In this case, while both optimised scores are better than the original one, ther
 
 NORMED:   Best parameters {'max_depth': 3, 'max_features': 'auto', 'min_samples_split': 4, 'n_estimators': 10}    Score 0.81
 </code></pre>
-<p>In this case, our (arbitrary) search did not lead to a substantial improvement. This shows that the default settings are in fact a good starting point.</p>
+<p>In this case, our (arbitrary) search did not lead to a substantial
+improvement. This shows that the default settings are in fact a good
+starting point.</p>
 </div>
 <div class="section level3">
 <h3 id="leakage-in-progressive-adjustments"><strong>Leakage in progressive adjustments</strong><a class="anchor" aria-label="anchor" href="#leakage-in-progressive-adjustments"></a></h3>
 <p style="text-align: justify;">
-We have already highlighted unequivocally the importance of not exposing our test data to our model during the training process; but where does training end? After deciding on an algorithm, we often attempt to improve its performance by adjusting its hyper-parameters as done above. We make these adjustments on our model repeatedly until we obtain optimal results in a specific metric that scores the performances based exclusively on our test data. In such cases, we risk <em>leaking</em> our test data and thereby over-fit our model to the test data through progressive adjustments. This means that the evaluation metrics on the generalisability of our model are no longer reliable.
+We have already highlighted unequivocally the importance of not exposing
+our test data to our model during the training process; but where does
+training end? After deciding on an algorithm, we often attempt to
+improve its performance by adjusting its hyper-parameters as done above.
+We make these adjustments on our model repeatedly until we obtain
+optimal results in a specific metric that scores the performances based
+exclusively on our test data. In such cases, we risk <em>leaking</em>
+our test data and thereby over-fit our model to the test data through
+progressive adjustments. This means that the evaluation metrics on the
+generalisability of our model are no longer reliable.
 </p>
 <p style="text-align: justify;">
-One way to address this problem is to split our original data into 3 different datasets: training, test, and validation. Whilst this is a valid approach that may be used in specific circumstances, it might also introduce new problems, e.g. after splitting the available data into 3 subsets, there might just not be enough data to train the classifier properly.
+One way to address this problem is to split our original data into 3
+different datasets: training, test, and validation. Whilst this is a
+valid approach that may be used in specific circumstances, it might also
+introduce new problems, e.g. after splitting the available data into 3
+subsets, there might just not be enough data to train the classifier
+properly.
 </p>
-<p>See for example the discussion in part 2 of this <a href="https://www.brainstimjrnl.com/article/S1935-861X(21)00236-9/fulltext" class="external-link">paper on predictive modelling for brain stimulation</a>. The above leaking is there referred to as “snooping”.</p>
+<p>See for example the discussion in part 2 of this <a href="https://www.brainstimjrnl.com/article/S1935-861X(21)00236-9/fulltext" class="external-link">paper
+on predictive modelling for brain stimulation</a>. The above leaking is
+there referred to as “snooping”.</p>
 <p><br></p>
 </div>
 <div class="section level3">
 <h3 id="assign">
-<strong>Lesson Assignment</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=5UzoWit0Ewc" class="external-link">(Tutorial Video)</a>
+<strong>Lesson Assignment</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=5UzoWit0Ewc" class="external-link">(Tutorial
+Video)</a>
 <a class="anchor" aria-label="anchor" href="#assign"></a></h3>
-<hr><p>The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.</p>
-<ul><li><p>For <strong>L2D online cohort</strong>, please click this link: <a href="https://classroom.github.com/a/UsgSRahY" class="external-link"><strong>GitHub classroom assignment link</strong></a></p></li>
-<li><p>For <strong>LiDo cohort</strong>, please click this link: <a href="https://classroom.github.com/a/-keuS0WB" class="external-link"><strong>GitHub classroom assignment link</strong></a></p></li>
-</ul><div id="callout4" class="callout callout">
+<hr><p>The assignment for this lesson consists of the questions shown below
+in the next section and can be accessed via GitHub classroom.</p>
+<ul><li><p>For <strong>L2D online cohort</strong>, please click this link:
+<a href="https://classroom.github.com/a/UsgSRahY" class="external-link"><strong>GitHub
+classroom assignment link</strong></a></p></li>
+<li><p>For <strong>LiDo cohort</strong>, please click this link: <a href="https://classroom.github.com/a/-keuS0WB" class="external-link"><strong>GitHub classroom
+assignment link</strong></a></p></li>
+</ul><div id="note-3" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note-3" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout4"></a>
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-3"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>You will need to login to your GitHub account.</p></li>
 <li><p>Choose your name from the list of students.</p></li>
 <li><p>Accept the assignment.</p></li>
 <li><p>Refresh the page.</p></li>
-</ol><p>By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the <code>README.md</code> file.</p>
+</ol><p>By doing these steps, you will be able to access the assignment
+repository at GitHub. Instructions for completing the assignment are
+displayed beneath the file browser containing all the files you will
+need. These instructions are contained in the <code>README.md</code>
+file.</p>
 </div>
 </div>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="assignmet-questions" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="assignmet-questions" class="callout-inner">
-<h3 class="callout-title">Assignmet Questions<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Assignmet Questions<a class="anchor" aria-label="anchor" href="#assignmet-questions"></a>
 </h3>
 <div class="callout-content">
-<p>As a suggestion, take the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer" class="external-link">breast cancer dataset</a>.</p>
-<ol style="list-style-type: decimal"><li><p>Using all features create a summary boxplot to see the medians and distributions of the features.</p></li>
-<li><p>Train the above introduced classifiers using the train_test split to generate testing and training data and pick a small training set of e.g. 10% to make the classification task difficult. Obtain the recall scores to compare classifiers.</p></li>
+<p>As a suggestion, take the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer" class="external-link">breast
+cancer dataset</a>.</p>
+<ol style="list-style-type: decimal"><li><p>Using all features create a summary boxplot to see the medians
+and distributions of the features.</p></li>
+<li><p>Train the above introduced classifiers using the train_test split
+to generate testing and training data and pick a small training set of
+e.g. 10% to make the classification task difficult. Obtain the recall
+scores to compare classifiers.</p></li>
 <li><p>Plot the confusion matrix for each case.</p></li>
-<li><p>Do a permutation test with default settings to get the p-values to reject the null hypothesis that the scores are compatible with random predictions. If it takes too long, reduce <code>n_permutations</code>.</p></li>
-<li><p>Repeat the workflow with normalised data and compare the results.</p></li>
-<li><p>Perform a hyperparameter tuning with the Random Forest classifier. For the optimal parameter settings, re-run the training and plot the feature importances to see the contributions of each feature to the outcome.</p></li>
-</ol><p>The breast cancer data can be imported from the <code>scikit-learn</code>.</p>
+<li><p>Do a permutation test with default settings to get the p-values
+to reject the null hypothesis that the scores are compatible with random
+predictions. If it takes too long, reduce
+<code>n_permutations</code>.</p></li>
+<li><p>Repeat the workflow with normalised data and compare the
+results.</p></li>
+<li><p>Perform a hyperparameter tuning with the Random Forest
+classifier. For the optimal parameter settings, re-run the training and
+plot the feature importances to see the contributions of each feature to
+the outcome.</p></li>
+</ol><p>The breast cancer data can be imported from the
+<code>scikit-learn</code>.</p>
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1026,7 +1222,10 @@ One way to address this problem is to split our original data into 3 different d
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data.data</span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> data.target</span></code></pre>
 </div>
-<p>Feel free to try and do any other testing or plotting that you find important. This assignment is not meant to get a correct answer. It should help you to increase flexibility when facing a complex machine learning problem.</p>
+<p>Feel free to try and do any other testing or plotting that you find
+important. This assignment is not meant to get a correct answer. It
+should help you to increase flexibility when facing a complex machine
+learning problem.</p>
 </div>
 </div>
 </div>
@@ -1077,7 +1276,10 @@ One way to address this problem is to split our original data into 3 different d
 <span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Multi-layer Perceptron'</span>: MLPClassifier(max_iter<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span>RANDOM_STATE)</span>
 <span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre>
 </div>
-<p>Notice that the linear Support Vector classifier is imported with the keyword argument <code>dual=False</code>. This is to reduce the number of (pink) warnings that occur when the classifier struggles to find a good solution.</p>
+<p>Notice that the linear Support Vector classifier is imported with the
+keyword argument <code>dual=False</code>. This is to reduce the number
+of (pink) warnings that occur when the classifier struggles to find a
+good solution.</p>
 <div class="section level2">
 <h2 id="q1">Q1<a class="anchor" aria-label="anchor" href="#q1"></a></h2>
 <div class="codewrapper sourceCode" id="cb31">
@@ -1119,7 +1321,8 @@ One way to address this problem is to split our original data into 3 different d
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>df.boxplot()<span class="op">;</span></span></code></pre>
 </div>
-<p>Data are differently distributed. Features with indices 3 and 23 have largest medians and variances.</p>
+<p>Data are differently distributed. Features with indices 3 and 23 have
+largest medians and variances.</p>
 </div>
 <div class="section level2">
 <h2 id="q2-train-test-split-and-classification-of-original-data">Q2 Train-test split and classification of original data<a class="anchor" aria-label="anchor" href="#q2-train-test-split-and-classification-of-original-data"></a></h2>
@@ -1261,11 +1464,21 @@ One way to address this problem is to split our original data into 3 different d
 <span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<p>The classification result is good in that the green score for the data is separate from the score distribution of permutated data. However, the permutated data are distributed systematically above 0.5. This is presumably due to the strongly skewed distributions of some of the features (see the boxplots above). For both SVCs, there are cases where the classifier fails to converge, and thus data are missing. (There would have been many warnings, but warnings were switched off (see abvove under ‘Import Functions’).</p>
+<p>The classification result is good in that the green score for the
+data is separate from the score distribution of permutated data.
+However, the permutated data are distributed systematically above 0.5.
+This is presumably due to the strongly skewed distributions of some of
+the features (see the boxplots above). For both SVCs, there are cases
+where the classifier fails to converge, and thus data are missing.
+(There would have been many warnings, but warnings were switched off
+(see abvove under ‘Import Functions’).</p>
 </div>
 <div class="section level2">
 <h2 id="q5-normalisation">Q5 Normalisation<a class="anchor" aria-label="anchor" href="#q5-normalisation"></a></h2>
-<p>The code for three common scalers is shown below. Figures were obtained with the <code>Normaliser</code>. Note that this changes the y-scale of the data, but does not affect the skewness of the distribution.</p>
+<p>The code for three common scalers is shown below. Figures were
+obtained with the <code>Normaliser</code>. Note that this changes the
+y-scale of the data, but does not affect the skewness of the
+distribution.</p>
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1315,7 +1528,9 @@ One way to address this problem is to split our original data into 3 different d
 <span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>show()    </span></code></pre>
 </div>
-<p>In the normalised data, the recall score is high. The SVCs even achieve scores of 1.0. The Recall is the ability of the classifier to find all the positive samples.</p>
+<p>In the normalised data, the recall score is high. The SVCs even
+achieve scores of 1.0. The Recall is the ability of the classifier to
+find all the positive samples.</p>
 </div>
 <div class="section level2">
 <h2 id="confusion-matrix-1">Confusion Matrix<a class="anchor" aria-label="anchor" href="#confusion-matrix-1"></a></h2>
@@ -1338,8 +1553,12 @@ One way to address this problem is to split our original data into 3 different d
 <span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>show()    </span></code></pre>
 </div>
-<p>Notice how both SVC perform badly! All true positive were found (see above) but they struggled to detect the false negatives. In this specific case, the single recall score would be quite misleading.</p>
-<p>If instead of the Normaliser, we apply the Standard Scaler, yielding mean 0 and variance 1 for all features, the results look a bit better.</p>
+<p>Notice how both SVC perform badly! All true positive were found (see
+above) but they struggled to detect the false negatives. In this
+specific case, the single recall score would be quite misleading.</p>
+<p>If instead of the Normaliser, we apply the Standard Scaler, yielding
+mean 0 and variance 1 for all features, the results look a bit
+better.</p>
 <div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1454,7 +1673,10 @@ One way to address this problem is to split our original data into 3 different d
 <span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Random Forest Score: </span><span class="sc">{:.2f}</span><span class="st">'</span>.<span class="bu">format</span>(score))</span></code></pre>
 </div>
-<p>Arbitrary parameter searches do not necessarily lead to improved performance. The reason our score differs from the score reported in the grid search is that the grid search used 10 splits into different train and test data.</p>
+<p>Arbitrary parameter searches do not necessarily lead to improved
+performance. The reason our score differs from the score reported in the
+grid search is that the grid search used 10 splits into different train
+and test data.</p>
 </div>
 <div class="section level2">
 <h2 id="feature-importances">Feature Importances<a class="anchor" aria-label="anchor" href="#feature-importances"></a></h2>
@@ -1486,7 +1708,8 @@ One way to address this problem is to split our original data into 3 different d
 <span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(feature_indices))</span>
 <span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Feature Name(s):'</span>, feature_names)</span></code></pre>
 </div>
-<p>It turns out that with the used settings, the classification is dominated by a single feature.</p>
+<p>It turns out that with the used settings, the classification is
+dominated by a single feature.</p>
 </div>
 </div>
 </div>
@@ -1498,18 +1721,22 @@ One way to address this problem is to split our original data into 3 different d
 <h3 id="forum-for-questions-tutorial-video">
 <strong>Forum for Questions</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=N5N7QbLwztQ" id="forum" class="external-link">(Tutorial Video)</a>
 <a class="anchor" aria-label="anchor" href="#forum-for-questions-tutorial-video"></a></h3>
-<hr><p>Any questions related to this lesson, code or assignment can be posted at our forum (<strong>Students_team</strong>) on GitHub.</p>
-<ul><li><p>For <strong>L2D online cohort</strong>, the forum can be accessed at: <a href="https://github.com/orgs/L2D-Oct2022/teams/students_team" class="external-link"><strong>Students_team</strong></a></p></li>
-<li><p>For <strong>LiDo cohort</strong>, the forum can be accessed at: <a href="https://github.com/orgs/LIDo-2022/teams/lido_students_team" class="external-link"><strong>LiDo_students_team</strong></a></p></li>
-</ul><div id="callout5" class="callout callout">
+<hr><p>Any questions related to this lesson, code or assignment can be
+posted at our forum (<strong>Students_team</strong>) on GitHub.</p>
+<ul><li><p>For <strong>L2D online cohort</strong>, the forum can be accessed
+at: <a href="https://github.com/orgs/L2D-Oct2022/teams/students_team" class="external-link"><strong>Students_team</strong></a></p></li>
+<li><p>For <strong>LiDo cohort</strong>, the forum can be accessed at:
+<a href="https://github.com/orgs/LIDo-2022/teams/lido_students_team" class="external-link"><strong>LiDo_students_team</strong></a></p></li>
+</ul><div id="note-4" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note-4" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout5"></a>
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-4"></a>
 </h3>
 <div class="callout-content">
-<p>The forum can only be accessed via your GitHub account once you have accepted the invitation to be included in the team.</p>
+<p>The forum can only be accessed via your GitHub account once you have
+accepted the invitation to be included in the team.</p>
 </div>
 </div>
 </div>
@@ -1521,12 +1748,17 @@ One way to address this problem is to split our original data into 3 different d
 <h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
-<ul><li>The function <code>permutation_test_score</code> evaluates the significance of a cross-validated score with permutations.</li>
-<li>Confusion matrix demonstrates the number of correctly predicted labels against the incorrect ones.</li>
-<li>Adjustment of hyper-parameters of the algorithms may improve the results.</li>
+<ul><li>The function <code>permutation_test_score</code> evaluates the
+significance of a cross-validated score with permutations.</li>
+<li>Confusion matrix demonstrates the number of correctly predicted
+labels against the incorrect ones.</li>
+<li>Adjustment of hyper-parameters of the algorithms may improve the
+results.</li>
 <li>
-<code>GridSearchCV</code> is a tool to simultaneously define different values of different parameters for optimisation.</li>
-<li>Progressive adjustments may lead to model over-fitting and require a validation data set.</li>
+<code>GridSearchCV</code> is a tool to simultaneously define
+different values of different parameters for optimisation.</li>
+<li>Progressive adjustments may lead to model over-fitting and require a
+validation data set.</li>
 </ul></div>
 </div>
 </div>
@@ -1565,8 +1797,8 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.11.9)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/e815ea1a34f6eda01a3c9ab9643e35aa051e1938" class="external-link">pegboard (0.4.3)</a>,
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.12.0.9000)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/3b06f4559892e31ff0a6bae1d838cd1ba6fd94fb" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/LearnToDiscover/varnish/tree/f412e8bbc14a5110120155e1af9282842877c62f" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
@@ -1587,9 +1819,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/03-refinement.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/03-refinement.html",
-  "dateCreated": "2023-03-20",
-  "dateModified": "2023-03-20",
-  "datePublished": "2023-03-20"
+  "dateCreated": "2023-05-30",
+  "dateModified": "2023-05-30",
+  "datePublished": "2023-05-30"
 }
 
   </script><script>

@@ -70,8 +70,6 @@ exercises: 2
 
 ::::::::::::::::
 
-
-
 ### **Import functions**
 
 ```python
