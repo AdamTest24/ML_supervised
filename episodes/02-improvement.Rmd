@@ -768,9 +768,7 @@ This concludes our first steps into classification with SciKit Learn. There are 
 
 The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom. 
 
-- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/ryp1cKU0)
-
-- For **LiDo cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/Rikq1DAv)
+- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/IL--pcTK)
 
 
 :::::::::::::::: callout
@@ -1041,11 +1039,9 @@ The three features contribute similarly to the outcome.
 ### **Forum for Questions** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=N5N7QbLwztQ){#forum}
 
 ----------------------
-Any questions related to this lesson, code or assignment can be posted at our forum (**Students_team**) on GitHub.
 
-- For **L2D online cohort**, the forum can be accessed at: [**Students_team**](https://github.com/orgs/L2D-Oct2022/teams/students_team)
+Any questions related to this lesson, code or assignment can be posted at our [forum](https://github.com/orgs/L2D-June2023/discussions) on GitHub.
 
-- For **LiDo cohort**, the forum can be accessed at: [**LiDo_students_team**](https://github.com/orgs/LIDo-2022/teams/lido_students_team)
 
 
 :::::::::::::::: callout

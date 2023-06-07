@@ -670,9 +670,9 @@ See for example the discussion in part 2 of this [paper on predictive modelling 
 
 The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom. 
 
-- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/UsgSRahY)
+- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/SPvIcYNb)
 
-- For **LiDo cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/-keuS0WB)
+
 
 
 :::::::::::::::: callout
@@ -1154,11 +1154,7 @@ It turns out that with the used settings, the classification is dominated by a s
 
 ----------------------
 
-Any questions related to this lesson, code or assignment can be posted at our forum (**Students_team**) on GitHub.
-
-- For **L2D online cohort**, the forum can be accessed at: [**Students_team**](https://github.com/orgs/L2D-Oct2022/teams/students_team)
-
-- For **LiDo cohort**, the forum can be accessed at: [**LiDo_students_team**](https://github.com/orgs/LIDo-2022/teams/lido_students_team)
+Any questions related to this lesson, code or assignment can be posted at our [forum](https://github.com/orgs/L2D-June2023/discussions) on GitHub.
 
 
 :::::::::::::::: callout
