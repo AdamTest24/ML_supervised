@@ -43,19 +43,8 @@ jobs:
       - name: "Set up Pandoc"
         uses: r-lib/actions/setup-pandoc@v2
 
-      - name: "Install LaTeX dependencies"
-        run: |
-          sudo apt update -y
-          sudo apt install -y \
-            texlive-latex-base \
-            texlive-fonts-recommended \
-            texlive-fonts-extra \
-            texlive-latex-extra
-
-      - name: "latex template"
-        run: |
-            mkdir -p ~/.pandoc/templates
-            curl -o ~/.pandoc/templates/eisvogel.latex https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex
+      - name: "Set up Chrome" # for PDF rendering
+        uses: browser-actions/setup-chrome@v1.2.0
 
       - name: "Setup Lesson Engine"
         uses: LearnToDiscover/actions/setup-sandpaper@main
