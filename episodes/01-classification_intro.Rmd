@@ -4,7 +4,6 @@ teaching: 10
 exercises: 2
 ---
 
-[**Download Chapter pdf**](01-classification_intro.md.pdf)
 
 [**Download Chapter notebook (ipynb)**](01-classification_intro.ipynb)
 
@@ -17,7 +16,7 @@ exercises: 2
 - [**Lesson Forum**](#forum)
 ::::::::::
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How to prepare data for classification?
 - Why do we need to train a model?
@@ -42,7 +41,7 @@ exercises: 2
 - [Data Handling](https://learntodiscover.github.io/Data_Handling/)
 - [Numpy arrays (see accompanying tutorial)](setup.md#numpy)
 - [Basic Matplotlib plotting](https://matplotlib.org)
-:::::::::::::::::: 
+::::::::::::::::::
 
 <p align = "center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NIU1JO26Jgk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -75,7 +74,7 @@ Import the 'patients_data' toy dataset and scatter the data for Height and Weigh
 
 ```{python, results = "hold"}
 # Please adjust your path to the file
-df = read_csv('data/patients_data.csv') 
+df = read_csv('data/patients_data.csv')
 
 print(df.shape)
 
@@ -96,22 +95,22 @@ Note that data in the first five columns are either integers (age) or real numbe
 ## The classification challenge
 
 <p style='text-align: justify;'>
-I am given a set of data from a single subject and feed them to a computational model. The model then predicts to what (predefined) _class_ this subject belongs. Example: given height and weight data, the model might try to predict whether the subject is a smoker or a non-smoker. A naive model will, of course, not be able to predict reasonably. The _supervised_ approach in machine learning is to provide the model with a set of data where the class has been verified beforehand and the model can test its (initially random) predictions against the provided class. An optimisation algorithm is then run to adjust the (internal) model setting such that the predictions improve as much as possible. When no further improvement is achieved, the algorithm stops. The model is then _trained_ and ready to predict. 
+I am given a set of data from a single subject and feed them to a computational model. The model then predicts to what (predefined) _class_ this subject belongs. Example: given height and weight data, the model might try to predict whether the subject is a smoker or a non-smoker. A naive model will, of course, not be able to predict reasonably. The _supervised_ approach in machine learning is to provide the model with a set of data where the class has been verified beforehand and the model can test its (initially random) predictions against the provided class. An optimisation algorithm is then run to adjust the (internal) model setting such that the predictions improve as much as possible. When no further improvement is achieved, the algorithm stops. The model is then _trained_ and ready to predict.
 </p>
 
 ::::::::::::::::::::
 
 <p style='text-align: justify;'>
-The act of classification is to assign labels to unlabelled data after model exposure to previously labelled data (e.g. based on medical knowledge in the case of disease data). 
+The act of classification is to assign labels to unlabelled data after model exposure to previously labelled data (e.g. based on medical knowledge in the case of disease data).
 </p>
 <p style='text-align: justify;'>
 In contrast, in _unsupervised machine learning_ the assignment is done based on exposure to unlabelled data following a search for distinctive features or 'structure' in the data.
 </p>
 <p style='text-align: justify;'>
-We can first check if we are able to distinguish classes visually. For this, we scatter the data of two columns of a dataframe using the column names. That is, we look at the distribution of points in a plane. Then we use the class __label__ to color each point in the plane according to the class it belongs to. String labels like 'male' / 'female' first need to be converted to Boolean (binary). 0/1 labels as in the 'smokers/non-smokers' column can be used directly. 
+We can first check if we are able to distinguish classes visually. For this, we scatter the data of two columns of a dataframe using the column names. That is, we look at the distribution of points in a plane. Then we use the class __label__ to color each point in the plane according to the class it belongs to. String labels like 'male' / 'female' first need to be converted to Boolean (binary). 0/1 labels as in the 'smokers/non-smokers' column can be used directly.
 </p>
 
-Let us plot the height-weight data and label them for both cases. 
+Let us plot the height-weight data and label them for both cases.
 
 ```{python}
 fig, ax = subplots(figsize=(12,6),ncols=2,nrows=1)
@@ -141,7 +140,7 @@ On the other hand, based on the smoker / non-smoker data it will not be possible
 
 ## Supervised Learning: Training a Model
 <p style='text-align: justify;'>
-This lesson deals with labelled data. Labelled data are numerical data with an extra column of a __label__ for each sample. A sample can consist of any number of individual observations but must be at least two. 
+This lesson deals with labelled data. Labelled data are numerical data with an extra column of a __label__ for each sample. A sample can consist of any number of individual observations but must be at least two.
 </p>
 Examples of labels include 'control group / test group'; 'male / female'; 'healthy / diseased'; 'before treatment / after treatment'.
 <p style='text-align: justify;'>
@@ -152,15 +151,15 @@ The model itself is a black box. It has set default parameters to start with and
 </p>
 The performance of the model is tested by splitting a dataset with labels into:
 
-- the `train data`, those that will be used for model fitting, and 
+- the `train data`, those that will be used for model fitting, and
 
 - the `test data`, those that will be used to check how well the model predicts.
 
 <p style='text-align: justify;'>
-The result of the model fitting is then assessed by checking how many of the (withheld) labels in the test data were correctly predicted by the trained model. We can also retrieve the confidence of the model prediction, i.e. the probability that the assigned label is correct. 
+The result of the model fitting is then assessed by checking how many of the (withheld) labels in the test data were correctly predicted by the trained model. We can also retrieve the confidence of the model prediction, i.e. the probability that the assigned label is correct.
 </p>
 <p style='text-align: justify;'>
-As an additional result, the procedure will generate the so-called feature importances: similar to how we concluded above that weight is more important than height for gender prediction, the feature importance informs to which degree each of the data columns actually contributes to the predictions. 
+As an additional result, the procedure will generate the so-called feature importances: similar to how we concluded above that weight is more important than height for gender prediction, the feature importance informs to which degree each of the data columns actually contributes to the predictions.
 </p>
 
 ## Scikit Learn
@@ -220,7 +219,7 @@ print('')
 :::::::::::::::: callout
 ## Note
 <p style='text-align: justify;'>
-This code uses a __random number generator__. The output of a random number generator is different each time it is run. On the one hand, this is good because it allows us to create many realisations of samples drawn from a fixed distribution. On the other hand, when testing and sharing code this prevents exact reproduction of results. We therefore use the `seed` function to reset the generator such that with a given number for the seed (the parameter called `RANDOM_SEED`) the same numbers are produced. 
+This code uses a __random number generator__. The output of a random number generator is different each time it is run. On the one hand, this is good because it allows us to create many realisations of samples drawn from a fixed distribution. On the other hand, when testing and sharing code this prevents exact reproduction of results. We therefore use the `seed` function to reset the generator such that with a given number for the seed (the parameter called `RANDOM_SEED`) the same numbers are produced.
 </p>
 
 ::::::::::::::::
@@ -237,10 +236,10 @@ show()
 ```
 
 <p style='text-align: justify;'>
-We find that both features are distributed over the selected range of values. Due to the small number of samples, the distribution is not very even. 
+We find that both features are distributed over the selected range of values. Due to the small number of samples, the distribution is not very even.
 </p>
 <p style='text-align: justify;'>
-The categorical data used to distinguish between different classes are called __labels__. Let us create an artificial set of labels for our first classification task. 
+The categorical data used to distinguish between different classes are called __labels__. Let us create an artificial set of labels for our first classification task.
 </p>
 <p style='text-align: justify;'>
 We pick an arbitrary threshold and call all values `True` if the values in both the first and the second feature are above the threshold. The resulting labels `True` and `False` can be viewed as 0/1 using the method `astype` with argument `int`.
@@ -275,7 +274,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 ```
 
-The Random Forest is a member of the ensemble learning family, whose objective is to combine the predictions of several optimisations to improve their performance, generalisability, and robustness. 
+The Random Forest is a member of the ensemble learning family, whose objective is to combine the predictions of several optimisations to improve their performance, generalisability, and robustness.
 
 Ensemble methods are often divided into two different categories:
 
@@ -368,7 +367,7 @@ predictions.astype(int)
 
 ```
 
-According to the model, data points with indices 3, and 9 are in class `True` (or `1`). 
+According to the model, data points with indices 3, and 9 are in class `True` (or `1`).
 
 <p style='text-align: justify;'>
 Predicting individual samples is fine, but does not tell us whether the classifier was able to create a good model of the class distinction. To check the training result systematically, we create a state space grid over the state space. This is the same as creating a coordinate system of data points (as in a scatter plot), in our case with values from 0 to 100 in each feature.
@@ -510,7 +509,7 @@ importances = clf.feature_importances_
 
 print('Relative importance:')
 
-template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%' 
+template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%'
 
 print(template.format(importances[0]*100, importances[1]*100))
 
@@ -534,7 +533,7 @@ In this case, the predictions are based on a 61% contribution from feature 1 and
 Now we pick the 'Height' and 'Weight' columns from the patients data to predict the gender labels. We use a split of 4/5 of the data for training and 1/5 for testing.
 
 ```{python, results = "hold"}
-df = read_csv('data/patients_data.csv') 
+df = read_csv('data/patients_data.csv')
 
 print(df.shape)
 
@@ -562,7 +561,7 @@ print(X.shape)
 
 ```
 
-For the labels of the training data we convert the 'Male' and 'Female' strings to categorical values. 
+For the labels of the training data we convert the 'Male' and 'Female' strings to categorical values.
 
 ```{python}
 gender_boolean = df['Gender'] == 'Female'
@@ -604,7 +603,7 @@ print('Predictions: ', predict_test, '\n', 'Probabilities: ', '\n',  probab_test
 
 ```
 
-As in the example above, we create a state space grid to visualise the outcome for the two features. 
+As in the example above, we create a state space grid to visualise the outcome for the two features.
 
 ```{python}
 X1_min, X1_max = min(X[:, 0]), max(X[:, 0])
@@ -717,7 +716,7 @@ This shows that the predicted label is female but the probability is less than 7
 importances = clf.feature_importances_
 
 print('Features importances:')
-template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%' 
+template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%'
 print(template.format(importances[0]*100, importances[1]*100))
 print('')
 
@@ -734,10 +733,10 @@ show()
 
 Feature Height contributes about one third and feature Weight about two thirds to the decisions.
 <p style='text-align: justify;'>
-Feature importances can be used in data sets with many features, e.g. to reduce the number of features used for classification. Some features might not contribute to the classification and could therefore be left out of the process. 
-</p> 
+Feature importances can be used in data sets with many features, e.g. to reduce the number of features used for classification. Some features might not contribute to the classification and could therefore be left out of the process.
+</p>
 
-In the next lesson, we are going to test multiple classifiers and quantify their performance to improve the outcome of the classification. 
+In the next lesson, we are going to test multiple classifiers and quantify their performance to improve the outcome of the classification.
 
 <br />
 
@@ -745,7 +744,7 @@ In the next lesson, we are going to test multiple classifiers and quantify their
 
 -------------------------------
 
-The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom. 
+The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.
 
 - For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/IVT8Xrou)
 
@@ -765,7 +764,7 @@ The assignment for this lesson consists of the questions shown below in the next
 
 By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the `README.md` file.
 
-:::::::::::::::: 
+::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: challenge
 
@@ -783,7 +782,7 @@ Use the above code to:
 
 3. Compare the predicted and actual labels to check how well the trained model performed: how many of the 30 test data points are correctly predicted?
 
-4. Plot the feature importance to check how much the systolic and diastolic values contributed to the predictions. 
+4. Plot the feature importance to check how much the systolic and diastolic values contributed to the predictions.
 
 
 ::::::::::::::::::::: solution
@@ -803,7 +802,7 @@ from sklearn.ensemble import RandomForestClassifier
 ```
 
 ```{python}
-df = read_csv("data/patients_data.csv") 
+df = read_csv("data/patients_data.csv")
 
 train_samples = 70
 
@@ -921,7 +920,7 @@ xticks(bins, ('Non-smoker', 'Smoker'), fontsize=16);
 show()
 ```
 
-While there is a decision for the label 'Smoker', the (simulated) subject is essentially classified at chance level. 
+While there is a decision for the label 'Smoker', the (simulated) subject is essentially classified at chance level.
 
 ### Q4
 
@@ -930,7 +929,7 @@ importances = clf.feature_importances_
 
 print('Features importances:')
 
-template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%' 
+template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%'
 
 print(template.format(importances[0]*100, importances[1]*100))
 
@@ -964,7 +963,7 @@ from sklearn import datasets
 # Import Iris data
 iris = datasets.load_iris()
 
-# Get first two features and labels 
+# Get first two features and labels
 X = iris.data[:, :2]
 y = iris.target
 
@@ -993,7 +992,7 @@ The forum can only be accessed via your GitHub account once you have accepted th
 
 ::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::: keypoints 
+::::::::::::::::::::::::::::::::::::: keypoints
 
 - Classification is to assign labels to unlabeled data.
 - `SciKit Learn` is an open source application programming interface (API) for machine learning.
