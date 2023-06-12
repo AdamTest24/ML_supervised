@@ -37,6 +37,12 @@ branch: main
 # Who to contact if there are any issues
 contact: team@carpentries.org
 
+# Generate PDFs of episodes?
+pdf: TRUE
+
+# Generate ipynb notebooks of episodes?
+ipynb: TRUE
+
 # Navigation ------------------------------------------------
 # 
 # Use the following menu items to specify the order of
