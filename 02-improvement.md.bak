@@ -4,7 +4,6 @@ teaching: 10
 exercises: 2
 ---
 
-[**Download Chapter pdf**](02-improvement.md.pdf)
 
 [**Download Chapter notebook (ipynb)**](02-improvement.ipynb)
 
@@ -17,7 +16,7 @@ exercises: 2
 - [**Lesson Forum**](#forum)
 ::::::::::
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How to deal with complex classification problems?
 - Why is it important to use different classification algorithms?
@@ -58,15 +57,15 @@ exercises: 2
 :::::::::::::::: callout
 
 ## Remarks
-1. From now on the code will become more complex. When copied, the code should run without errors with the given data sets. (Please report any errors thrown when running the code without modifications). 
+1. From now on the code will become more complex. When copied, the code should run without errors with the given data sets. (Please report any errors thrown when running the code without modifications).
 
-2. Make a copy of the notebook and start experimenting by modifying part of the code and comparing the outcome. Modifying existing code is one of the successful strategies when learning to programme as a non-programmer. 
+2. Make a copy of the notebook and start experimenting by modifying part of the code and comparing the outcome. Modifying existing code is one of the successful strategies when learning to programme as a non-programmer.
 
 3. The first resource to consult when facing bugs are the official documentations, be it Python, Numpy, SciKit Learn or other.
 
 4. If you formulate a problem adequately, often there may be good answers on [Stack Overflow](https://stackoverflow.com).
 
-5. Sometimes, simply copying and pasting an error message into the search engine can point you to the solution. 
+5. Sometimes, simply copying and pasting an error message into the search engine can point you to the solution.
 
 ::::::::::::::::
 
@@ -150,7 +149,7 @@ def make_torus_3D(n_samples=100, shuffle=True, noise=None, random_state=None,
     outer_circ_x = (co+ao*cos(linspace_out)) * cos(linspace_out*61.1)
     outer_circ_y = (co+ao*cos(linspace_out)) * sin(linspace_out*61.1)
     outer_circ_z =    ao*sin(linspace_out)
-    
+
     inner_circ_x = (ci+ai*cos(linspace_in)) * cos(linspace_in*61.1)* factor
     inner_circ_y = (ci+ai*cos(linspace_in)) * sin(linspace_in*61.1) * factor
     inner_circ_z =    ai*sin(linspace_in) * factor
@@ -158,11 +157,10 @@ def make_torus_3D(n_samples=100, shuffle=True, noise=None, random_state=None,
     X = vstack([append(outer_circ_x, inner_circ_x),
                 append(outer_circ_y, inner_circ_y),
                 append(outer_circ_z, inner_circ_z)]).T
-            
+
     y = hstack([zeros(n_samples_out, dtype=intp),
                    ones(n_samples_in, dtype=intp)])
-    
-    
+
     if shuffle:
         X, y = shuffle(X, y, random_state=generator)
 
@@ -243,13 +241,13 @@ show()
 <img src="fig/02-improvement-rendered-unnamed-chunk-4-3.png" width="960" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-The function yields only two features. The reason is that with two features we can visualise the complete state space in a two-dimensional scatter plot. The data of both labels are organised along a ring. There is a certain amount of randomness added to create data distributed normally around the ring. 
+The function yields only two features. The reason is that with two features we can visualise the complete state space in a two-dimensional scatter plot. The data of both labels are organised along a ring. There is a certain amount of randomness added to create data distributed normally around the ring.
 </p>
 <p style='text-align: justify;'>
 The tricky thing about such a data distribution is that in a standard view of the data, the histogram, the clear state space organisation is not visible. There are e.g. no two distinct mean values of the distributions. Also, while the two features are clearly dependent on each other (as seen in the scatter plot), it is not possible to regress one with the other by means of fits of the type y = f(x).
 </p>
 
-We will now use different classes of machine learning models to fit to these labelled data. 
+We will now use different classes of machine learning models to fit to these labelled data.
 
 
 ### **Classification Algorithms**
@@ -259,50 +257,50 @@ Different classification algorithms approach problems differently. Let us name t
 `SciKit Learn` provides the following algorithms for classification problems:
 
 - Ensemble: Averaging:
-    - Random Forest 
-    - Extra Tree 
-    - Isolation Forest 
-    - Bagging
-    - Voting 
-   
-- Boosting:
-    - Gradient Boosting 
-    - AdaBoost
-    
-- Decision Trees: 
-    - Decision Tree 
+    - Random Forest
     - Extra Tree
-  
-- Nearest Neighbour: 
-    - K Nearest Neighbour 
-    - Radius Neighbours 
+    - Isolation Forest
+    - Bagging
+    - Voting
+
+- Boosting:
+    - Gradient Boosting
+    - AdaBoost
+
+- Decision Trees:
+    - Decision Tree
+    - Extra Tree
+
+- Nearest Neighbour:
+    - K Nearest Neighbour
+    - Radius Neighbours
     - Nearest Centroid
-    
-- Support Vector Machine: 
+
+- Support Vector Machine:
     - with non-linear kernel:
         - Radial Basis Function (RBF) Polynomial
         - Sigmoid
-    - with linear kernel: 
+    - with linear kernel:
         - Linear kernel
-    - parametrised with non-linear kernel: 
+    - parametrised with non-linear kernel:
         - Nu-Support Vector Classification
-        
-- Neural Networks: 
+
+- Neural Networks:
     - Multi-layer Perceptron
-    - Gaussian: 
+    - Gaussian:
         - Gaussian Process
-    - Linear Models: 
+    - Linear Models:
         - Logistic Regression
         - Passive Aggressive
         - Ridge
         - Linear classifiers with Stochastic Gradient Descent
 
-- Baysian: 
-    - Bernoulli 
-    - Multinomial 
+- Baysian:
+    - Bernoulli
+    - Multinomial
     - Complement
-        
-Some of these algorithms require a more in-depth understanding of how they work. To that end, we only review the performance of those that are easier to implement and adjust. 
+
+Some of these algorithms require a more in-depth understanding of how they work. To that end, we only review the performance of those that are easier to implement and adjust.
 
 __AdaBoost__
 <p style='text-align: justify;'>
@@ -344,7 +342,7 @@ classifiers = {
 ft_min, ft_max = -1.5, 1.5
 
 # Constructing (2 grids x 300 rows x 300 cols):
-grid_1, grid_2 = mgrid[ft_min:ft_max:.01, ft_min:ft_max:.01] 
+grid_1, grid_2 = mgrid[ft_min:ft_max:.01, ft_min:ft_max:.01]
 
 # We need only the shape for one of the grids (i.e. 300 x  300):
 grid_shape = grid_1.shape
@@ -372,22 +370,22 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
     ax.set_yticks([-1.5, 0, 1.5])
     ax.set_xticks([-1.5, 0, 1.5])
     ax.set_title(name, fontsize=10);
-    
+
 show()
 ```
 
 <img src="fig/02-improvement-rendered-unnamed-chunk-7-5.png" width="1440" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflects the original data distribution more closely. One classifier simply fails: the support vector classifier (SVC) with linear basis functions: it tries to fit a straight line to separate the classes which in this case is impossible. 
+Seven of the eight classifiers were able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others found a more circular form which reflects the original data distribution more closely. One classifier simply fails: the support vector classifier (SVC) with linear basis functions: it tries to fit a straight line to separate the classes which in this case is impossible.
 </p>
 
 ### **The Train-Test Split**
 <p style='text-align: justify;'>
-We will now modify our workflow to avoid the need to create separate testing data (the typical situation when dealing with recorded data). For this we start with a data set of n labelled samples. Of these n samples, a certain percentage is used for training (using the provided labels) and the rest for testing (withholding the labels). The testing data then do not need to be prepared separately. 
+We will now modify our workflow to avoid the need to create separate testing data (the typical situation when dealing with recorded data). For this we start with a data set of n labelled samples. Of these n samples, a certain percentage is used for training (using the provided labels) and the rest for testing (withholding the labels). The testing data then do not need to be prepared separately.
 </p>
 <p style='text-align: justify;'>
-The function we use is `train_test_split` from SciKit Learn. A nice feature of this function is that it tries to preserve the ratio of labels in the split. E.g. if the data contain 70% of `True` and 30 % of `False` labels, the algorithm tries to preserve this ratio in the split as good as possible: around 70% of the training data and of the testing data will have the `True` label. 
+The function we use is `train_test_split` from SciKit Learn. A nice feature of this function is that it tries to preserve the ratio of labels in the split. E.g. if the data contain 70% of `True` and 30 % of `False` labels, the algorithm tries to preserve this ratio in the split as good as possible: around 70% of the training data and of the testing data will have the `True` label.
 </p>
 
 
@@ -444,7 +442,7 @@ There are different techniques to evaluate the performance, but the `.score`  me
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
-    # Training the model using training data:     
+    # Training the model using training data:
     clf.fit(X_train, y_train)
 
     y_pred = clf.predict(new_obs)
@@ -453,7 +451,7 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
     # Evaluating the score using test data:
     score = clf.score(X_test, y_test)
 
-    # Scattering the test data only:     
+    # Scattering the test data only:
     ax.scatter(X_test[:, feature_1], X_test[:, feature_2], c=y_test, s=4, cmap='bwr', marker='.')
 
     ax.contourf(grid_1, grid_2, y_pred_grid, cmap='gray_r', alpha=.2, levels=contour_levels)
@@ -466,9 +464,8 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
 
     label = '{} - Score: {:.2f}'.format(name, score)
     ax.set_title(label , fontsize=10);
-    
+
 show()
-    
 ```
 
 <img src="fig/02-improvement-rendered-unnamed-chunk-10-9.png" width="1440" style="display: block; margin: auto;" />
@@ -477,7 +474,7 @@ show()
 Here, we only plotted the test data, those that were classified based on the trained model. The gray area shows the result of the classification: within the gray area the prediction is 1 (the red samples) and outside it is 0 (the blue samples). The result is that testing data are classified correctly in all but one of the classifiers, so their performance is 1, or 100 %. This is excellent because it demonstrates that most classifiers are able to deal with embedded topologies.
 </p>
 
-Let us now repeat the procedure with a higher level of noise to make the task more complicated. 
+Let us now repeat the procedure with a higher level of noise to make the task more complicated.
 
 
 
@@ -512,7 +509,7 @@ show()
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
-    # Training the model using training data:     
+    # Training the model using training data:
     clf.fit(X_train, y_train)
 
     y_pred = clf.predict(new_obs)
@@ -521,7 +518,7 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
     # Evaluating the score using test data:
     score = clf.score(X_test, y_test)
 
-    # Scattering the test data only:     
+    # Scattering the test data only:
     ax.scatter(X_test[:, feature_1], X_test[:, feature_2], c=y_test, s=4, cmap='bwr', marker='.')
 
     ax.contourf(grid_1, grid_2, y_pred_grid, cmap='gray_r', alpha=.2, levels=contour_levels)
@@ -533,18 +530,18 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
 
     label = '{} - Score: {:.2f}'.format(name, score)
     ax.set_title(label , fontsize=10);
-    
+
 show()
 ```
 
 <img src="fig/02-improvement-rendered-unnamed-chunk-12-13.png" width="1440" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-Now the data are mixed in the plane and there is no simple way to separate the two classes. 
+Now the data are mixed in the plane and there is no simple way to separate the two classes.
 We can see in the plots how the algorithms try to cope with their different strategies. One thing that is immediately obvious is that the fitting patterns are different. Particularly, we can see the fragmented outcome of the _decision tree_ classifier and the smooth elliptic area found by the _support vector classifier (SVC)_ with radial basis functions (RBF) and the neural network (MLP). On a closer look, you may also notice that with ensemble methods in the upper row, the patterns are somewhat disorganised. This is due to the way ensemble methods work: they sample the data randomly and then class them into different categories based on their labels.
 </p>
 <p style='text-align: justify;'>
-If the prediction was made by chance (throwing a dice), one would expect a 50 % score. Thus, the example also shows that the performance depends on the type of problem and that this testing helps to find an optimal classifier. 
+If the prediction was made by chance (throwing a dice), one would expect a 50 % score. Thus, the example also shows that the performance depends on the type of problem and that this testing helps to find an optimal classifier.
 </p>
 
 ::::::::::::::::::::: callout
@@ -571,7 +568,7 @@ sss = StratifiedShuffleSplit(random_state=RANDOM_STATE, n_splits=10, test_size=0
 ```
 
 Let us look at the different splits obtained:
-    
+
 
 ```python
 fig, ax = subplots(figsize=[10, 5])
@@ -608,7 +605,7 @@ show()
 <img src="fig/02-improvement-rendered-unnamed-chunk-14-15.png" width="960" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-By choosing n_splits=10, we obtained ten different splits that have similarly distributed train and test data subsets from the original data. The fraction of the data set aside for testing is 30 %. The different splits cover the whole data set evenly. As such, using them for training and testing will lead to a fairly unbiased average performance. 
+By choosing n_splits=10, we obtained ten different splits that have similarly distributed train and test data subsets from the original data. The fraction of the data set aside for testing is 30 %. The different splits cover the whole data set evenly. As such, using them for training and testing will lead to a fairly unbiased average performance.
 </p>
 
 Let us look at the data in state space to check that the classification task is now a real challenge.
@@ -621,8 +618,8 @@ fig, ax = subplots(figsize=(8, 8))
 for train_index, test_index in sss.split(X, y):
     ax.scatter(X[train_index, 0], X[train_index, 1], c=y[train_index], cmap='Set1', s=30, marker='^', alpha=.5)
     ax.scatter(X[test_index, 0], X[test_index, 1], c=y[test_index], cmap='cool', s=30, alpha=.5, marker='*', label='Test');
-    
-show()    
+
+show()
 ```
 
 <img src="fig/02-improvement-rendered-unnamed-chunk-15-17.png" width="768" style="display: block; margin: auto;" />
@@ -636,14 +633,14 @@ fig, ax = subplots(figsize=(8, 8))
 for train_index, test_index in sss.split(X, y):
     ax.hist(X[train_index], color=['magenta', 'red'], alpha=.5, histtype='step')
     ax.hist(X[test_index], color=['cyan', 'blue'], alpha=.4, histtype='step');
-    
-show()    
+
+show()
 ```
 
 <img src="fig/02-improvement-rendered-unnamed-chunk-16-19.png" width="768" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-The distributions differ in height because less data are in the testing test. Otherwise they are similarly centred and spread. Using a number of realisations (instead of just one) we expect to obtain a more accurate and robust result of the training. 
+The distributions differ in height because less data are in the testing test. Otherwise they are similarly centred and spread. Using a number of realisations (instead of just one) we expect to obtain a more accurate and robust result of the training.
 </p>
 <p style='text-align: justify;'>
 We now train our classifiers on these different splits and obtain the respective scores. They will give a robust measure of the classifier's performance given the data and avoid potential bias due to the selection of specific test data.
@@ -660,17 +657,17 @@ score = list()
 for train_index, test_index in sss.split(X, y):
     X_s, y_s = X[train_index, :], y[train_index]
     new_obs_s, y_test_s = X[test_index, :], y[test_index]
-    
+
     score_clf = list()
-    
+
     for name, clf in classifiers.items():
-        
+
         clf.fit(X_s, y_s)
         y_pred = clf.predict(new_obs_s)
         score_clf.append(clf.score(new_obs_s, y_test_s))
-        
+
     score.append(score_clf)
-    
+
 score_mean = mean(score, axis=0)
 
 bins = arange(len(score_mean))
@@ -702,10 +699,10 @@ Average scores:
 The result is the average score for the ten splits performed. All results for the noise-contaminated data are now in the seventies.
 
 <p style='text-align: justify;'>
-This is still good given the quality of the data. It appears that the _decision tree_ classifier gives the lowest result for this kind of problem, _SVC (RBF)_ scores highest. We have to keep in mind, however, that we are using the classifiers with their default settings. We will later use variation of the so-called hyperparameters to further improve the classification score. 
+This is still good given the quality of the data. It appears that the _decision tree_ classifier gives the lowest result for this kind of problem, _SVC (RBF)_ scores highest. We have to keep in mind, however, that we are using the classifiers with their default settings. We will later use variation of the so-called hyperparameters to further improve the classification score.
 </p>
 
-Here we have used a for loop to train and test on each of the different splits of the data. SciKit Learn also contains functions that take the stratified shuffle split as an argument, e.g. `permutation_test_score`. In that case, the splits do not need to be done separately. 
+Here we have used a for loop to train and test on each of the different splits of the data. SciKit Learn also contains functions that take the stratified shuffle split as an argument, e.g. `permutation_test_score`. In that case, the splits do not need to be done separately.
 
 We have now reached a point where we can trust to have a robust and unbiased outcome of the training. Let us now look at more refined ways to quantify the result.
 
@@ -732,7 +729,7 @@ A receiver operation characteristic, often referred to as the __ROC curve__, is 
 - True Positive Rate (TPR): the sensitivity of the model
 - False Positive Rate (FPR): one minus the specificity of the model
 
-This makes ROC a measure of sensitivity versus specificity. 
+This makes ROC a measure of sensitivity versus specificity.
 
 <p style='text-align: justify;'>
 The area under the ROC curve, often referred to as AUC, reduces the information contained within a ROC curve down to a value between 0 and 1, with 1 being a perfect fit. An AUC value of 0.5 represents any random guess, and values below demonstrate a performance that’s even worse than a lucky guess!
@@ -750,7 +747,7 @@ The area under the ROC curve, often referred to as AUC, reduces the information 
 ::::::::::::::::::::::::::::::::
 
 <p style='text-align: justify;'>
-We can see that our classifiers now reach different degrees of prediction. The degree can be quantified by the 
+We can see that our classifiers now reach different degrees of prediction. The degree can be quantified by the
 __Area Under the Curve (AUC)__. It refers to the area between the blue ROC curve and the orange diagonal.
 The area under the ROC curve, often referred to as AUC, reduces the information contained within a ROC curve down to a value between and 0 and 1, with 1 being a perfect fit. An AUC value of 0.5 represents a random guess, and values below the diagonal demonstrate a performance that’s even worse than a guess!
 </p>
@@ -781,7 +778,7 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
     # Obtaining the x- and y-axis values for the ROC curve:
     fpr, tpr, thresh = roc_curve(y_test, y_score)
 
-    # Obtaining the AUC value: 
+    # Obtaining the AUC value:
     roc_auc = roc_auc_score(y_test, y_score)
 
     ax.plot(fpr, tpr, lw=2)
@@ -798,10 +795,10 @@ show()
 
 <img src="fig/02-improvement-rendered-unnamed-chunk-18-23.png" width="1440" style="display: block; margin: auto;" />
 
-The (orange) diagonal represents predictions of the two labels by a coin toss. To be of value the classifier must reach a ROC curve above the diagonal. 
+The (orange) diagonal represents predictions of the two labels by a coin toss. To be of value the classifier must reach a ROC curve above the diagonal.
 
 <p style='text-align: justify;'>
-This concludes our first steps into classification with SciKit Learn. There are many more aspects of classification. From a practical point of view, [data normalisation](https://scikit-learn.org/stable/modules/preprocessing.html) and [permutation test score](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html) as well as the workflow report are important. These will be the topics of our next lesson. 
+This concludes our first steps into classification with SciKit Learn. There are many more aspects of classification. From a practical point of view, [data normalisation](https://scikit-learn.org/stable/modules/preprocessing.html) and [permutation test score](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html) as well as the workflow report are important. These will be the topics of our next lesson.
 </p>
 
 <br />
@@ -810,7 +807,7 @@ This concludes our first steps into classification with SciKit Learn. There are 
 
 -------------------------------
 
-The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom. 
+The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.
 
 - For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/ryp1cKU0)
 
@@ -830,24 +827,24 @@ The assignment for this lesson consists of the questions shown below in the next
 
 By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the `README.md` file.
 
-:::::::::::::::: 
+::::::::::::::::
 
 
 :::::::::::::::::::::::::::::::::::::::: challenge
 
 #### Assignment Questions
 
-Take the torus-within-a-torus data generator from the __Challenge__ above. 
+Take the torus-within-a-torus data generator from the __Challenge__ above.
 
-1. Create data with three features and a noise level of 0.3. 
+1. Create data with three features and a noise level of 0.3.
 
-2. Create a pseudo-3D scatter plot of one of the test data sets to judge the difficulty of the task. 
+2. Create a pseudo-3D scatter plot of one of the test data sets to judge the difficulty of the task.
 
 3. Train the above introduced classifiers using the stratified shuffle split to generate 10 sets of testing and training data and obtain the average score for each classifier.
 
-4. Plot the feature importances obtained from the Random Forest classifier to see the contributions of each feature to the outcome. 
+4. Plot the feature importances obtained from the Random Forest classifier to see the contributions of each feature to the outcome.
 
-Note that with 3 or more features it is no longer possible to see the full state space in a plane. 
+Note that with 3 or more features it is no longer possible to see the full state space in a plane.
 
 5. Optional: Check how the outcome varies depending on
 
@@ -859,7 +856,7 @@ Note that with 3 or more features it is no longer possible to see the full state
 ## Recommendation
 
 <p style='text-align: justify;'>
-Pick any of the provided (or other) data sets with labels to repeat the above. Feel free to try and do any testing or plotting that you find important. This is not an assignment to get the correct answer. Rather at this stage, we practise to use functionality from SciKit-learn to search for structure in the data that helps to achieve the best predictions possible. 
+Pick any of the provided (or other) data sets with labels to repeat the above. Feel free to try and do any testing or plotting that you find important. This is not an assignment to get the correct answer. Rather at this stage, we practise to use functionality from SciKit-learn to search for structure in the data that helps to achieve the best predictions possible.
 </p>
 
 ::::::::::::::::
@@ -934,7 +931,7 @@ def make_torus_3D(n_samples=100, shuffle=True, noise=None, random_state=None,
     outer_circ_x = (co+ao*cos(linspace_out)) * cos(linspace_out*61.1)
     outer_circ_y = (co+ao*cos(linspace_out)) * sin(linspace_out*61.1)
     outer_circ_z =    ao*sin(linspace_out)
-    
+
     inner_circ_x = (ci+ai*cos(linspace_in)) * cos(linspace_in*61.1)* factor
     inner_circ_y = (ci+ai*cos(linspace_in)) * sin(linspace_in*61.1) * factor
     inner_circ_z =    ai*sin(linspace_in) * factor
@@ -942,11 +939,10 @@ def make_torus_3D(n_samples=100, shuffle=True, noise=None, random_state=None,
     X = vstack([append(outer_circ_x, inner_circ_x),
                 append(outer_circ_y, inner_circ_y),
                 append(outer_circ_z, inner_circ_z)]).T
-            
+
     y = hstack([zeros(n_samples_out, dtype=intp),
                    ones(n_samples_in, dtype=intp)])
-    
-    
+
     if shuffle:
         X, y = shuffle(X, y, random_state=generator)
 
@@ -998,7 +994,7 @@ ax.set_visible(False)
 
 ax = axes(projection="3d")
 
-im = ax.scatter3D(X[:, feature_1], X[:, feature_2], X[:, feature_3], 
+im = ax.scatter3D(X[:, feature_1], X[:, feature_2], X[:, feature_3],
                   marker='o', s=20, c=y, cmap='bwr');
 
 ax.set_xlabel('Feature A')
@@ -1024,17 +1020,17 @@ score = list()
 for train_index, test_index in sss.split(X, y):
     X_s, y_s = X[train_index, :], y[train_index]
     new_obs_s, y_test_s = X[test_index, :], y[test_index]
-    
+
     score_clf = list()
-    
+
     for name, clf in classifiers.items():
-        
+
         clf.fit(X_s, y_s)
         y_pred = clf.predict(new_obs_s)
         score_clf.append(clf.score(new_obs_s, y_test_s))
-        
+
     score.append(score_clf)
-    
+
 score_mean = mean(score, axis=0)
 
 bins = arange(len(score_mean))
@@ -1087,7 +1083,7 @@ Random Forest score: 0.88
 ```python
 importances = clf_RF.feature_importances_
 
-template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%; Feature 3: {:.1f}%' 
+template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%; Feature 3: {:.1f}%'
 
 print(template.format(importances[0]*100, importances[1]*100, importances[2]*100))
 
@@ -1132,7 +1128,7 @@ The forum can only be accessed via your GitHub account once you have accepted th
 
 ::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::: keypoints 
+::::::::::::::::::::::::::::::::::::: keypoints
 
 - Different classification algorithms approach problems differently.
 - `train_test_split` function tries to preserve the ratio of labels in the split

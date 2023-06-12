@@ -225,7 +225,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Improvement</h1>
-        <p> Last updated on 2023-05-30 | 
+        <p> Last updated on 2023-06-12 | 
         
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-improvement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -237,8 +237,6 @@
 
         
 
-<p><a href="02-improvement.md.pdf"><strong>Download Chapter
-pdf</strong></a></p>
 <p><a href="02-improvement.ipynb"><strong>Download Chapter notebook
 (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
@@ -416,7 +414,7 @@ function call to produce a figure.</p>
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    outer_circ_x <span class="op">=</span> (co<span class="op">+</span>ao<span class="op">*</span>cos(linspace_out)) <span class="op">*</span> cos(linspace_out<span class="op">*</span><span class="fl">61.1</span>)</span>
 <span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    outer_circ_y <span class="op">=</span> (co<span class="op">+</span>ao<span class="op">*</span>cos(linspace_out)) <span class="op">*</span> sin(linspace_out<span class="op">*</span><span class="fl">61.1</span>)</span>
 <span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    outer_circ_z <span class="op">=</span>    ao<span class="op">*</span>sin(linspace_out)</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    inner_circ_x <span class="op">=</span> (ci<span class="op">+</span>ai<span class="op">*</span>cos(linspace_in)) <span class="op">*</span> cos(linspace_in<span class="op">*</span><span class="fl">61.1</span>)<span class="op">*</span> factor</span>
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    inner_circ_y <span class="op">=</span> (ci<span class="op">+</span>ai<span class="op">*</span>cos(linspace_in)) <span class="op">*</span> sin(linspace_in<span class="op">*</span><span class="fl">61.1</span>) <span class="op">*</span> factor</span>
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    inner_circ_z <span class="op">=</span>    ai<span class="op">*</span>sin(linspace_in) <span class="op">*</span> factor</span>
@@ -424,18 +422,17 @@ function call to produce a figure.</p>
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> vstack([append(outer_circ_x, inner_circ_x),</span>
 <span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>                append(outer_circ_y, inner_circ_y),</span>
 <span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>                append(outer_circ_z, inner_circ_z)]).T</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> hstack([zeros(n_samples_out, dtype<span class="op">=</span>intp),</span>
 <span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>                   ones(n_samples_in, dtype<span class="op">=</span>intp)])</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> shuffle:</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        X, y <span class="op">=</span> shuffle(X, y, random_state<span class="op">=</span>generator)</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> noise <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>        X <span class="op">+=</span> generator.normal(scale<span class="op">=</span>noise, size<span class="op">=</span>X.shape)</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X, y</span></code></pre>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> shuffle:</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>        X, y <span class="op">=</span> shuffle(X, y, random_state<span class="op">=</span>generator)</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> noise <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>        X <span class="op">+=</span> generator.normal(scale<span class="op">=</span>noise, size<span class="op">=</span>X.shape)</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X, y</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -640,7 +637,7 @@ result is plotted below.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ft_min, ft_max <span class="op">=</span> <span class="op">-</span><span class="fl">1.5</span>, <span class="fl">1.5</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Constructing (2 grids x 300 rows x 300 cols):</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>grid_1, grid_2 <span class="op">=</span> mgrid[ft_min:ft_max:<span class="fl">.01</span>, ft_min:ft_max:<span class="fl">.01</span>] </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>grid_1, grid_2 <span class="op">=</span> mgrid[ft_min:ft_max:<span class="fl">.01</span>, ft_min:ft_max:<span class="fl">.01</span>]</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># We need only the shape for one of the grids (i.e. 300 x  300):</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>grid_shape <span class="op">=</span> grid_1.shape</span>
@@ -667,7 +664,7 @@ result is plotted below.</p>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks([<span class="op">-</span><span class="fl">1.5</span>, <span class="dv">0</span>, <span class="fl">1.5</span>])</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks([<span class="op">-</span><span class="fl">1.5</span>, <span class="dv">0</span>, <span class="fl">1.5</span>])</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    ax.set_title(name, fontsize<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/02-improvement-rendered-unnamed-chunk-7-5.png" width="1440" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
@@ -766,7 +763,7 @@ the better the fit.
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, all_axes <span class="op">=</span> subplots(figsize<span class="op">=</span>[<span class="dv">15</span>, <span class="dv">5</span>], ncols<span class="op">=</span><span class="dv">4</span>, nrows<span class="op">=</span><span class="dv">2</span>, sharey<span class="op">=</span><span class="va">True</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (name, clf) <span class="kw">in</span> <span class="bu">zip</span>(all_axes.ravel(), classifiers.items()):</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Training the model using training data:     </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Training the model using training data:</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    clf.fit(X_train, y_train)</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> clf.predict(new_obs)</span>
@@ -775,7 +772,7 @@ the better the fit.
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Evaluating the score using test data:</span></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    score <span class="op">=</span> clf.score(X_test, y_test)</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scattering the test data only:     </span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scattering the test data only:</span></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    ax.scatter(X_test[:, feature_1], X_test[:, feature_2], c<span class="op">=</span>y_test, s<span class="op">=</span><span class="dv">4</span>, cmap<span class="op">=</span><span class="st">'bwr'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    ax.contourf(grid_1, grid_2, y_pred_grid, cmap<span class="op">=</span><span class="st">'gray_r'</span>, alpha<span class="op">=</span><span class="fl">.2</span>, levels<span class="op">=</span>contour_levels)</span>
@@ -788,9 +785,8 @@ the better the fit.
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> <span class="st">'</span><span class="sc">{}</span><span class="st"> - Score: </span><span class="sc">{:.2f}</span><span class="st">'</span>.<span class="bu">format</span>(name, score)</span>
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    ax.set_title(label , fontsize<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>show()</span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    </span></code></pre>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/02-improvement-rendered-unnamed-chunk-10-9.png" width="1440" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 Here, we only plotted the test data, those that were classified based on
@@ -834,7 +830,7 @@ the task more complicated.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, all_axes <span class="op">=</span> subplots(figsize<span class="op">=</span>[<span class="dv">15</span>, <span class="dv">5</span>], ncols<span class="op">=</span><span class="dv">4</span>, nrows<span class="op">=</span><span class="dv">2</span>, sharey<span class="op">=</span><span class="va">True</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (name, clf) <span class="kw">in</span> <span class="bu">zip</span>(all_axes.ravel(), classifiers.items()):</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Training the model using training data:     </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Training the model using training data:</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    clf.fit(X_train, y_train)</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> clf.predict(new_obs)</span>
@@ -843,7 +839,7 @@ the task more complicated.</p>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Evaluating the score using test data:</span></span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    score <span class="op">=</span> clf.score(X_test, y_test)</span>
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scattering the test data only:     </span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scattering the test data only:</span></span>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    ax.scatter(X_test[:, feature_1], X_test[:, feature_2], c<span class="op">=</span>y_test, s<span class="op">=</span><span class="dv">4</span>, cmap<span class="op">=</span><span class="st">'bwr'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    ax.contourf(grid_1, grid_2, y_pred_grid, cmap<span class="op">=</span><span class="st">'gray_r'</span>, alpha<span class="op">=</span><span class="fl">.2</span>, levels<span class="op">=</span>contour_levels)</span>
@@ -855,7 +851,7 @@ the task more complicated.</p>
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> <span class="st">'</span><span class="sc">{}</span><span class="st"> - Score: </span><span class="sc">{:.2f}</span><span class="st">'</span>.<span class="bu">format</span>(name, score)</span>
 <span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    ax.set_title(label , fontsize<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/02-improvement-rendered-unnamed-chunk-12-13.png" width="1440" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
@@ -979,8 +975,8 @@ classification task is now a real challenge.</p>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> sss.split(X, y):</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    ax.scatter(X[train_index, <span class="dv">0</span>], X[train_index, <span class="dv">1</span>], c<span class="op">=</span>y[train_index], cmap<span class="op">=</span><span class="st">'Set1'</span>, s<span class="op">=</span><span class="dv">30</span>, marker<span class="op">=</span><span class="st">'^'</span>, alpha<span class="op">=</span><span class="fl">.5</span>)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    ax.scatter(X[test_index, <span class="dv">0</span>], X[test_index, <span class="dv">1</span>], c<span class="op">=</span>y[test_index], cmap<span class="op">=</span><span class="st">'cool'</span>, s<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">.5</span>, marker<span class="op">=</span><span class="st">'*'</span>, label<span class="op">=</span><span class="st">'Test'</span>)<span class="op">;</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>show()    </span></code></pre>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/02-improvement-rendered-unnamed-chunk-15-17.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>These are the scatter plots of the training (magenta) and testing
 (blue) data. Here are their distributions:</p>
@@ -992,8 +988,8 @@ classification task is now a real challenge.</p>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> sss.split(X, y):</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    ax.hist(X[train_index], color<span class="op">=</span>[<span class="st">'magenta'</span>, <span class="st">'red'</span>], alpha<span class="op">=</span><span class="fl">.5</span>, histtype<span class="op">=</span><span class="st">'step'</span>)</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    ax.hist(X[test_index], color<span class="op">=</span>[<span class="st">'cyan'</span>, <span class="st">'blue'</span>], alpha<span class="op">=</span><span class="fl">.4</span>, histtype<span class="op">=</span><span class="st">'step'</span>)<span class="op">;</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>show()    </span></code></pre>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/02-improvement-rendered-unnamed-chunk-16-19.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 The distributions differ in height because less data are in the testing
@@ -1019,17 +1015,17 @@ of specific test data.
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> sss.split(X, y):</span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    X_s, y_s <span class="op">=</span> X[train_index, :], y[train_index]</span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    new_obs_s, y_test_s <span class="op">=</span> X[test_index, :], y[test_index]</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    score_clf <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, clf <span class="kw">in</span> classifiers.items():</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        clf.fit(X_s, y_s)</span>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        y_pred <span class="op">=</span> clf.predict(new_obs_s)</span>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        score_clf.append(clf.score(new_obs_s, y_test_s))</span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    score.append(score_clf)</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>score_mean <span class="op">=</span> mean(score, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> arange(<span class="bu">len</span>(score_mean))</span>
@@ -1207,7 +1203,7 @@ other column just be sure.</li>
 <span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Obtaining the x- and y-axis values for the ROC curve:</span></span>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    fpr, tpr, thresh <span class="op">=</span> roc_curve(y_test, y_score)</span>
 <span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Obtaining the AUC value: </span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Obtaining the AUC value:</span></span>
 <span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    roc_auc <span class="op">=</span> roc_auc_score(y_test, y_score)</span>
 <span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    ax.plot(fpr, tpr, lw<span class="op">=</span><span class="dv">2</span>)</span>
@@ -1322,7 +1318,7 @@ predictions possible.
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1391,7 +1387,7 @@ predictions possible.
 <span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>    outer_circ_x <span class="op">=</span> (co<span class="op">+</span>ao<span class="op">*</span>cos(linspace_out)) <span class="op">*</span> cos(linspace_out<span class="op">*</span><span class="fl">61.1</span>)</span>
 <span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>    outer_circ_y <span class="op">=</span> (co<span class="op">+</span>ao<span class="op">*</span>cos(linspace_out)) <span class="op">*</span> sin(linspace_out<span class="op">*</span><span class="fl">61.1</span>)</span>
 <span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>    outer_circ_z <span class="op">=</span>    ao<span class="op">*</span>sin(linspace_out)</span>
-<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>    inner_circ_x <span class="op">=</span> (ci<span class="op">+</span>ai<span class="op">*</span>cos(linspace_in)) <span class="op">*</span> cos(linspace_in<span class="op">*</span><span class="fl">61.1</span>)<span class="op">*</span> factor</span>
 <span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>    inner_circ_y <span class="op">=</span> (ci<span class="op">+</span>ai<span class="op">*</span>cos(linspace_in)) <span class="op">*</span> sin(linspace_in<span class="op">*</span><span class="fl">61.1</span>) <span class="op">*</span> factor</span>
 <span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>    inner_circ_z <span class="op">=</span>    ai<span class="op">*</span>sin(linspace_in) <span class="op">*</span> factor</span>
@@ -1399,18 +1395,17 @@ predictions possible.
 <span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> vstack([append(outer_circ_x, inner_circ_x),</span>
 <span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>                append(outer_circ_y, inner_circ_y),</span>
 <span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>                append(outer_circ_z, inner_circ_z)]).T</span>
-<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> hstack([zeros(n_samples_out, dtype<span class="op">=</span>intp),</span>
 <span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>                   ones(n_samples_in, dtype<span class="op">=</span>intp)])</span>
-<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> shuffle:</span>
-<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a>        X, y <span class="op">=</span> shuffle(X, y, random_state<span class="op">=</span>generator)</span>
-<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> noise <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>        X <span class="op">+=</span> generator.normal(scale<span class="op">=</span>noise, size<span class="op">=</span>X.shape)</span>
-<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X, y</span></code></pre>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> shuffle:</span>
+<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>        X, y <span class="op">=</span> shuffle(X, y, random_state<span class="op">=</span>generator)</span>
+<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> noise <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>        X <span class="op">+=</span> generator.normal(scale<span class="op">=</span>noise, size<span class="op">=</span>X.shape)</span>
+<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X, y</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1454,7 +1449,7 @@ predictions possible.
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes(projection<span class="op">=</span><span class="st">"3d"</span>)</span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.scatter3D(X[:, feature_1], X[:, feature_2], X[:, feature_3], </span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.scatter3D(X[:, feature_1], X[:, feature_2], X[:, feature_3],</span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>                  marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">20</span>, c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'bwr'</span>)<span class="op">;</span></span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Feature A'</span>)</span>
@@ -1480,17 +1475,17 @@ predictions possible.
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> sss.split(X, y):</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    X_s, y_s <span class="op">=</span> X[train_index, :], y[train_index]</span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    new_obs_s, y_test_s <span class="op">=</span> X[test_index, :], y[test_index]</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    score_clf <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, clf <span class="kw">in</span> classifiers.items():</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>        clf.fit(X_s, y_s)</span>
 <span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>        y_pred <span class="op">=</span> clf.predict(new_obs_s)</span>
 <span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>        score_clf.append(clf.score(new_obs_s, y_test_s))</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    score.append(score_clf)</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>score_mean <span class="op">=</span> mean(score, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> arange(<span class="bu">len</span>(score_mean))</span>
@@ -1556,7 +1551,7 @@ Average scores:
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> clf_RF.feature_importances_</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> <span class="st">'Feature 1: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 2: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 3: </span><span class="sc">{:.1f}</span><span class="st">%'</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> <span class="st">'Feature 1: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 2: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 3: </span><span class="sc">{:.1f}</span><span class="st">%'</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(template.<span class="bu">format</span>(importances[<span class="dv">0</span>]<span class="op">*</span><span class="dv">100</span>, importances[<span class="dv">1</span>]<span class="op">*</span><span class="dv">100</span>, importances[<span class="dv">2</span>]<span class="op">*</span><span class="dv">100</span>))</span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -1688,7 +1683,7 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-md/02-improvement.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/02-improvement.html",
   "dateCreated": "2023-06-12",
-  "dateModified": "2023-05-30",
+  "dateModified": "2023-06-12",
   "datePublished": "2023-06-12"
 }
 

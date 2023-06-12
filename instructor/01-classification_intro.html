@@ -227,7 +227,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Classification</h1>
-        <p> Last updated on 2023-05-30 | 
+        <p> Last updated on 2023-06-12 | 
         
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-classification_intro.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -241,8 +241,6 @@
 
         
 
-<p><a href="../01-classification_intro.md.pdf"><strong>Download Chapter
-pdf</strong></a></p>
 <p><a href="../01-classification_intro.ipynb"><strong>Download Chapter
 notebook (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
@@ -340,7 +338,7 @@ Height and Weight.</p>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Please adjust your path to the file</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">'data/patients_data.csv'</span>) </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">'data/patients_data.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -1018,7 +1016,7 @@ contribution of each feature to the prediction.
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Relative importance:'</span>)</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> <span class="st">'Feature 1: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 2: </span><span class="sc">{:.1f}</span><span class="st">%'</span> </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> <span class="st">'Feature 1: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 2: </span><span class="sc">{:.1f}</span><span class="st">%'</span></span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(template.<span class="bu">format</span>(importances[<span class="dv">0</span>]<span class="op">*</span><span class="dv">100</span>, importances[<span class="dv">1</span>]<span class="op">*</span><span class="dv">100</span>))</span>
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -1050,7 +1048,7 @@ training and 1/5 for testing.</p>
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">'data/patients_data.csv'</span>) </span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">'data/patients_data.csv'</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1321,7 +1319,7 @@ additional evidence before the decision is made.
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> clf.feature_importances_</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Features importances:'</span>)</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> <span class="st">'Feature 1: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 2: </span><span class="sc">{:.1f}</span><span class="st">%'</span> </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> <span class="st">'Feature 1: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 2: </span><span class="sc">{:.1f}</span><span class="st">%'</span></span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(template.<span class="bu">format</span>(importances[<span class="dv">0</span>]<span class="op">*</span><span class="dv">100</span>, importances[<span class="dv">1</span>]<span class="op">*</span><span class="dv">100</span>))</span>
 <span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">''</span>)</span>
 <span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
@@ -1420,7 +1418,7 @@ diastolic values contributed to the predictions.</p></li>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="q1">Q1<a class="anchor" aria-label="anchor" href="#q1"></a></h3>
@@ -1439,7 +1437,7 @@ diastolic values contributed to the predictions.</p></li>
 <div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">"data/patients_data.csv"</span>) </span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">"data/patients_data.csv"</span>)</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>train_samples <span class="op">=</span> <span class="dv">70</span></span>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1641,7 +1639,7 @@ subject is essentially classified at chance level.</p>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Features importances:'</span>)</span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> <span class="st">'Feature 1: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 2: </span><span class="sc">{:.1f}</span><span class="st">%'</span> </span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> <span class="st">'Feature 1: </span><span class="sc">{:.1f}</span><span class="st">%; Feature 2: </span><span class="sc">{:.1f}</span><span class="st">%'</span></span>
 <span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(template.<span class="bu">format</span>(importances[<span class="dv">0</span>]<span class="op">*</span><span class="dv">100</span>, importances[<span class="dv">1</span>]<span class="op">*</span><span class="dv">100</span>))</span>
 <span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -1692,7 +1690,7 @@ as:</p>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Iris data</span></span>
 <span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> datasets.load_iris()</span>
 <span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get first two features and labels </span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get first two features and labels</span></span>
 <span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> iris.data[:, :<span class="dv">2</span>]</span>
 <span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> iris.target</span>
 <span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -1813,7 +1811,7 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-md/instructor/01-classification_intro.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/instructor/01-classification_intro.html",
   "dateCreated": "2023-06-12",
-  "dateModified": "2023-05-30",
+  "dateModified": "2023-06-12",
   "datePublished": "2023-06-12"
 }
 
