@@ -4,7 +4,6 @@ teaching: 10
 exercises: 2
 ---
 
-[**Download Chapter pdf**](03-refinement.md.pdf)
 
 [**Download Chapter notebook (ipynb)**](03-refinement.ipynb)
 
@@ -17,7 +16,7 @@ exercises: 2
 - [**Lesson Forum**](#forum)
 ::::::::::
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How do different evaluation metrics differ?
 - What techniques are used to improve on chance prediction?
@@ -108,7 +107,7 @@ For training, we use the same classifiers as in the previous Lesson. We train on
 ft_min, ft_max = -1.5, 1.5
 
 # Constructing (2 grids x 300 rows x 300 cols):
-grid_1, grid_2 = mgrid[ft_min:ft_max:.01, ft_min:ft_max:.01] 
+grid_1, grid_2 = mgrid[ft_min:ft_max:.01, ft_min:ft_max:.01]
 
 # We need only the shape for one of the grids (i.e. 300 x  300):
 grid_shape = grid_1.shape
@@ -125,33 +124,33 @@ contour_levels = linspace(0, 1, 6)
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
-    
+
     clf.fit(X, y)
-    
+
     y_pred = clf.predict(new_obs)
     y_pred_grid = y_pred.reshape(grid_shape)
     print("")
-    
+
     ax.scatter(X[:, feature_1], X[:, feature_2], c=y, s=1, cmap='bwr_r')
     ax.contourf(grid_1, grid_2, y_pred_grid, cmap='gray_r', alpha=.2, levels=contour_levels);
-    
+
     ax.set_ylim(ft_min, ft_max)
     ax.set_xlim(ft_min, ft_max)
     ax.set_yticks([ft_min, 0, ft_max])
     ax.set_xticks([ft_min, 0, ft_max])
     ax.set_title(name, fontsize=10);
-    
+
 show()
 
 ```
 
 <p style='text-align: justify;'>
-Seven of the eight classifiers are able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others find a more circular form which reflects the original data distribution more closely. One classifier simply fails: SVC (linear). It tries to fit a straight line to separate the classes which in this case is impossible. 
+Seven of the eight classifiers are able to separate the inner data set from the outer data set successfully. The main difference is that some algorithms ended up with a more rectangular shape of the boundary whereas the others find a more circular form which reflects the original data distribution more closely. One classifier simply fails: SVC (linear). It tries to fit a straight line to separate the classes which in this case is impossible.
 </p>
 
 :::::::::::::::::: callout
 ## Note
-__Code__: Note how the keyword argument `sharey` is used in the call of `subplots` to have y-axis only labelled once. The name of the classifier is extracted from the dictionary as its key and used to set up the title of each panel. 
+__Code__: Note how the keyword argument `sharey` is used in the call of `subplots` to have y-axis only labelled once. The name of the classifier is extracted from the dictionary as its key and used to set up the title of each panel.
 ::::::::::::::::::
 
 ## Metrics
@@ -163,7 +162,7 @@ __Accuracy__ is a metric that evaluates the integrity of the model by comparing 
 </p>
 
 <p style='text-align: justify;'>
-__Recall__ is a metric that evaluates the ability of a classification model to find true positive labels. The measure produces a scalar value between 0 and 1, where 1 is the perfect outcome.  See [the Scikit-learn documentation for the recall_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html). The recall is the percentage of true predictions of the overall number of predictions. 
+__Recall__ is a metric that evaluates the ability of a classification model to find true positive labels. The measure produces a scalar value between 0 and 1, where 1 is the perfect outcome.  See [the Scikit-learn documentation for the recall_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html). The recall is the percentage of true predictions of the overall number of predictions.
 It is also known as _sensitivity_.
 </p>
 
@@ -171,7 +170,7 @@ It is also known as _sensitivity_.
 __Average Precision__, also referred to as AP, is a metric that produces a scalar value for the precision-recall curve between and with being the outcome. The metric obtains this value by weighing:
 </p>
 - the mean of precisions (P) at each threshold (n),
-- the increase in recall (R) from the previous threshold (n-1). 
+- the increase in recall (R) from the previous threshold (n-1).
 
 The metric is mathematically defined as follows:
 
@@ -213,24 +212,24 @@ from sklearn.metrics import recall_score
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
-    
-    # Training the model using training data:     
+
+    # Training the model using training data:
     clf.fit(X_train, y_train)
-    
+
     y_pred_gr = clf.predict(new_obs)
     y_pred_grid = y_pred_gr.reshape(grid_shape)
-    
+
     y_predicted = clf.predict(X_test)
     print("")
     # Evaluating the score using test data:
     score = clf.score(X_test, y_test)
     recall = recall_score(y_test, y_predicted)
-    
-    # Scattering the test data only:     
+
+    # Scattering the test data only:
     ax.scatter(X_test[:, feature_1], X_test[:, feature_2], c=y_test, s=4, cmap='bwr', marker='.')
     print("")
     ax.contourf(grid_1, grid_2, y_pred_grid, cmap='gray_r', alpha=.2, levels=contour_levels)
-    
+
     ax.set_ylim(ft_min, ft_max)
     ax.set_xlim(ft_min, ft_max)
     ax.set_yticks([-1.5, 0, 1.5])
@@ -238,9 +237,9 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
 
     label = '{} - Recall: {:.2f}'.format(name, recall)
     ax.set_title(label , fontsize=10);
-    
-show()    
-    
+
+show()
+
 ```
 
 ### **Reducing Bias on Test Data**
@@ -265,10 +264,10 @@ The process of cross-validation is computationally expensive, as is the process 
 :::::::::::::::
 
 <p style='text-align: justify;'>
-When possible, Scikit-learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the `n_jobs`  argument of a function or a class to the number of CPU cores we wish to use. Conveniently, it can be set to `n_jobs=-1` to use all available CPU cores (see e.g. [the Hyperparameter Tuning section]() below). Here, we have shown the use of only one core with `n_jobs=1` which is computationally slow. You can adjust it according to the machine you are using to make it faster. 
+When possible, Scikit-learn provides us the with ability to use multiple CPU cores to speed up intensive computations through multiprocessing. Where available, this can be achieved by setting the `n_jobs`  argument of a function or a class to the number of CPU cores we wish to use. Conveniently, it can be set to `n_jobs=-1` to use all available CPU cores (see e.g. [the Hyperparameter Tuning section]() below). Here, we have shown the use of only one core with `n_jobs=1` which is computationally slow. You can adjust it according to the machine you are using to make it faster.
 </p>
 
-The keyword argument `n_permutations` is set to 100 by default. You can speed the cross-validation up by choosing a smaller number. 
+The keyword argument `n_permutations` is set to 100 by default. You can speed the cross-validation up by choosing a smaller number.
 
 
 ```{python}
@@ -278,23 +277,23 @@ n_classes = 2
 
 chance = 1 / n_classes
 
-fig, axes = subplots(figsize=[16, 12], ncols=4, nrows=2, sharey=True, sharex=True) 
+fig, axes = subplots(figsize=[16, 12], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
 
-    score, permutation_scores, pvalue = permutation_test_score(clf, X, y, scoring="accuracy", n_jobs=1,n_permutations=100) 
-                                                               
+    score, permutation_scores, pvalue = permutation_test_score(clf, X, y, scoring="accuracy", n_jobs=1,n_permutations=100)
+
     score_label = 'Score: {:.3f}, (p={:.4f})'.format(score, pvalue)
     print("")
     chance_label = 'Chance: {:.3f}'.format(chance)
-    
-    ax.hist(permutation_scores) 
-    ax.axvline(score,  c='g', label=score_label,  linewidth=3.0) 
+
+    ax.hist(permutation_scores)
+    ax.axvline(score,  c='g', label=score_label,  linewidth=3.0)
     ax.axvline(chance, c='r', label=chance_label, linewidth=3.0)
-    ax.set_title(name, fontsize=10) 
+    ax.set_title(name, fontsize=10)
     ax.legend(fontsize=8)
-    
-show()    
+
+show()
 
 ```
 
@@ -307,12 +306,12 @@ Here is a [Scikit-learn example using permutations with the Iris data](https://s
 
 ## Confusion Matrix
 <p style='text-align: justify;'>
-Another useful method to evaluate a model and demonstrate its integrity is to produce a [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix). The matrix demonstrates the number of correctly predicted labels against the incorrect ones. As such it can, however, only be used for classification problems with two labels. 
+Another useful method to evaluate a model and demonstrate its integrity is to produce a [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix). The matrix demonstrates the number of correctly predicted labels against the incorrect ones. As such it can, however, only be used for classification problems with two labels.
 </p>
 Scikit-learn provides a [function to create a confusion matrix](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html). Here is an expanded function to simplify the visualisation of this matrix.
 
 ```{python}
-def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None): 
+def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
     """
     This function prints and plots the confusion matrix.
     y_test (array)
@@ -320,22 +319,22 @@ def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
     classes (array)
     normalize (bool) Normalize the results (True), or show them as integer numbers (False).
     ax Visualization axis.
-    The function is an adaptation of a SciKit Learn example. 
+    The function is an adaptation of a SciKit Learn example.
     """
-    
-    from itertools import product   
+
+    from itertools import product
     from numpy import asarray, newaxis
     from sklearn.metrics import confusion_matrix
     cm = confusion_matrix(y_test,y_pred)
     n_classes = len(classes)
-    
+
     if normalize:
         cm = asarray(cm).astype('float32') /cm.sum(axis=1)[:, newaxis]
-        
+
     if not ax:
         from matplotlib.pyplot import subplots, show
         fig, ax = subplots()
-        
+
     ticks = range(n_classes)
     ax.imshow(cm, interpolation='nearest', cmap='Blues')
     ax.set_xticks(ticks)
@@ -345,21 +344,21 @@ def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
     fmt = '.2f' if normalize else 'd'
     thresh = 3*cm.max() / 4
     cm_dim = cm.shape
-    
+
     # Matrix indices:
     indices_a = range(cm_dim[0])
     indices_b = range(cm_dim[1])
     # Cartesian product of matrix indices:
     indices = product(indices_a, indices_b)
     fmt = '.2f' if normalize else 'd'
-    
+
     for ind_a, ind_b in indices:
       label = format(cm[ind_a, ind_b], fmt)
       color = "white" if cm[ind_a, ind_b] > thresh else "black"
       ax.text(ind_b, ind_a, label, ha="center", color=color)
     ax.set_ylabel('True label')
     ax.set_xlabel('Predicted label')
-    
+
     return ax
 
 ```
@@ -371,11 +370,11 @@ fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=Tru
 
 
 for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
-   
+
     clf.fit(X_train, y_train)
-    
+
     y_pred = clf.predict(X_test)
-    
+
     plot_confusion_matrix(y_test, y_pred, classes=class_names, normalize=True, ax=ax)
 
     ax.set_title(name, fontsize=10);
@@ -385,7 +384,7 @@ show()
 ```
 
 
-Ideally, the diagonal fields are both white and the off-diagonal fields maximally dark. 
+Ideally, the diagonal fields are both white and the off-diagonal fields maximally dark.
 
 ## Further Refinements
 <p style='text-align: justify;'>
@@ -399,14 +398,14 @@ from sklearn.datasets import make_classification
 
 X, y = make_classification(
     n_samples=500,
-    n_features=3, 
+    n_features=3,
     n_classes=2,
     n_informative=2,
     n_redundant=0,
-    n_repeated=0, 
-    n_clusters_per_class=2, 
-    class_sep=.7, 
-    scale=3, 
+    n_repeated=0,
+    n_clusters_per_class=2,
+    class_sep=.7,
+    scale=3,
     random_state=RANDOM_STATE
 )
 
@@ -442,7 +441,7 @@ show()
 __Code__: Note the setting up of 3D axis. Some examples with code to learn 3D plotting are [provided in these tutorials](https://matplotlib.org/2.0.2/mpl_toolkits/mplot3d/tutorial.html).
 :::::::::::::::::
 
-We can now go ahead and use our classifier dictionary – which contains the classifiers with their default settings – to train and evaluate the models. We use the train-test split to evaluate the performance. 
+We can now go ahead and use our classifier dictionary – which contains the classifiers with their default settings – to train and evaluate the models. We use the train-test split to evaluate the performance.
 
 ```{python}
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.8, random_state=RANDOM_STATE, shuffle=True)
@@ -456,7 +455,7 @@ for name, clf in classifiers.items():
 
 ### **Normalisation**
 <p style='text-align: justify;'>
-Depending on the nature of the data, it might be beneficial to normalise the data before fitting a classifier. This is widely done in machine learning but needs thought in each case. 
+Depending on the nature of the data, it might be beneficial to normalise the data before fitting a classifier. This is widely done in machine learning but needs thought in each case.
 </p>
 <p style='text-align: justify;'>
 Normalisation can be done in various ways. One common way to normalise data is to require that they have mean 0 and variance 1. This is used for example, when calculating the Pearson correlation coefficient. Another popular way in machine learning is to normalise data to Euclidean norm 1. For a data point in an m-dimensional feature space (m is the number of features), the Euclidean norm of a single point (one sample or row) is normalised such that the distance of the point from the origin is 1.
@@ -464,7 +463,7 @@ Normalisation can be done in various ways. One common way to normalise data is t
 Let us first see an example: some data points are spread between 1 and 4.
 
 ```{python, results = "hold"}
-from sklearn.preprocessing import Normalizer 
+from sklearn.preprocessing import Normalizer
 
 some_data = array([[1, 4], [3, 1], [4, 4], [2, 3]])
 
@@ -493,10 +492,10 @@ show()
 ```
 
 <p style='text-align: justify;'>
-Effectively, all normalised data are positioned on a circle around the origin with radius 1. Depending on correlations existing between the features this leads to different distortions of the original data. 
+Effectively, all normalised data are positioned on a circle around the origin with radius 1. Depending on correlations existing between the features this leads to different distortions of the original data.
 </p>
 
-Let us now apply this normalisation to our artificial data set. 
+Let us now apply this normalisation to our artificial data set.
 
 ```{python}
 norm = Normalizer()
@@ -528,11 +527,11 @@ for name, clf in classifiers.items():
     clf.fit(X_train, y_train)
     score = clf.score(X_test, y_test)
     print('{:<30} Score: {:.2f}'.format(name, score))
-                
+
 ```
 
 <p style='text-align: justify;'>
-Due to the homogeneous nature of the artificial data, the results here are comparable for the data and their normalised version. But this may change when using data with inconsistent distributions of the columns. For an example, see the [breastcancer data](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer) used in the assignment. 
+Due to the homogeneous nature of the artificial data, the results here are comparable for the data and their normalised version. But this may change when using data with inconsistent distributions of the columns. For an example, see the [breastcancer data](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer) used in the assignment.
 </p>
 
 ### **Hyperparameter Tuning**
@@ -555,7 +554,7 @@ Note that this process can be lengthy, and may need to be refined several times,
 </p>
 
 ```{python, results = "hold"}
-clf = SVC(kernel='rbf', C=1, gamma=100, tol=0.0001) 
+clf = SVC(kernel='rbf', C=1, gamma=100, tol=0.0001)
 
 clf.fit(X_train, y_train)
 
@@ -570,14 +569,14 @@ Progressive adjustment of some of the parameters may lead to an improved model.
 [Check the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html) for the meaning and the default values of regularisation parameters `C`, kernel coeffcient `gamma`, and tolerance setting `tol`.
 
 ```{python, eval=FALSE}
-from sklearn.model_selection import StratifiedShuffleSplit 
+from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import GridSearchCV
 
-param_grid = dict(C=[1e-4, 1e-3, 1e-2, 1e-1, 1, 10], 
+param_grid = dict(C=[1e-4, 1e-3, 1e-2, 1e-1, 1, 10],
                   gamma=[100, 1000, 10000, 100000],
                   tol=[1e-4, 1e-3, 1e-2, 1e-1])
 
-cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=RANDOM_STATE) 
+cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=RANDOM_STATE)
 clf = SVC(kernel='rbf', random_state=RANDOM_STATE)
 
 grid = GridSearchCV(clf, param_grid=param_grid, cv=cv, n_jobs=1)
@@ -613,11 +612,11 @@ print('{:<30} Score: {:.2f}'.format('Random Forest', score))
 ```
 
 
-And now a grid over [some of its parameters](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html). 
+And now a grid over [some of its parameters](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html).
 
 
 ```{python, eval=FALSE}
-from sklearn.model_selection import StratifiedShuffleSplit 
+from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import GridSearchCV
 
 param_grid = dict(
@@ -650,7 +649,7 @@ NORMED:   Best parameters {'max_depth': 3, 'max_features': 'auto', 'min_samples_
 
 ```
 
-In this case, our (arbitrary) search did not lead to a substantial improvement. This shows that the default settings are in fact a good starting point. 
+In this case, our (arbitrary) search did not lead to a substantial improvement. This shows that the default settings are in fact a good starting point.
 
 ### **Leakage in progressive adjustments**
 <p style='text-align: justify;'>
@@ -660,7 +659,7 @@ We have already highlighted unequivocally the importance of not exposing our tes
 One way to address this problem is to split our original data into 3 different datasets: training, test, and validation. Whilst this is a valid approach that may be used in specific circumstances, it might also introduce new problems, e.g. after splitting the available data into 3 subsets, there might just not be enough data to train the classifier properly.
 </p>
 
-See for example the discussion in part 2 of this [paper on predictive modelling for brain stimulation](https://www.brainstimjrnl.com/article/S1935-861X(21)00236-9/fulltext). The above leaking is there referred to as "snooping".  
+See for example the discussion in part 2 of this [paper on predictive modelling for brain stimulation](https://www.brainstimjrnl.com/article/S1935-861X(21)00236-9/fulltext). The above leaking is there referred to as "snooping".
 
 <br />
 
@@ -668,7 +667,7 @@ See for example the discussion in part 2 of this [paper on predictive modelling 
 
 -------------------------------
 
-The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom. 
+The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.
 
 - For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/SPvIcYNb)
 
@@ -688,13 +687,13 @@ The assignment for this lesson consists of the questions shown below in the next
 
 By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the `README.md` file.
 
-:::::::::::::::: 
+::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: challenge
 
 #### Assignmet Questions
 
-As a suggestion, take the [breast cancer dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer). 
+As a suggestion, take the [breast cancer dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer).
 
 1. Using all features create a summary boxplot to see the medians and distributions of the features.
 
@@ -704,9 +703,9 @@ As a suggestion, take the [breast cancer dataset](https://scikit-learn.org/stabl
 
 4. Do a permutation test with default settings to get the p-values to reject the null hypothesis that the scores are compatible with random predictions. If it takes too long, reduce `n_permutations`.
 
-5. Repeat the workflow with normalised data and compare the results. 
+5. Repeat the workflow with normalised data and compare the results.
 
-6. Perform a hyperparameter tuning with the Random Forest classifier. For the optimal parameter settings, re-run the training and plot the feature importances to see the contributions of each feature to the outcome. 
+6. Perform a hyperparameter tuning with the Random Forest classifier. For the optimal parameter settings, re-run the training and plot the feature importances to see the contributions of each feature to the outcome.
 
 
 The breast cancer data can be imported from the `scikit-learn`.
@@ -721,7 +720,7 @@ y = data.target
 
 ```
 
-Feel free to try and do any other testing or plotting that you find important. This assignment is not meant to get a correct answer. It should help you to increase flexibility when facing a complex machine learning problem. 
+Feel free to try and do any other testing or plotting that you find important. This assignment is not meant to get a correct answer. It should help you to increase flexibility when facing a complex machine learning problem.
 
 
 
@@ -749,7 +748,7 @@ from sklearn.neighbors import KNeighborsClassifier
 
 from sklearn.model_selection import permutation_test_score
 
-from sklearn.model_selection import StratifiedShuffleSplit 
+from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import GridSearchCV
 
 RANDOM_STATE = 111
@@ -766,7 +765,7 @@ classifiers = {
     }
 ```
 
-Notice that the linear Support Vector classifier is imported with the keyword argument `dual=False`. This is to reduce the number of (pink) warnings that occur when the classifier struggles to find a good solution. 
+Notice that the linear Support Vector classifier is imported with the keyword argument `dual=False`. This is to reduce the number of (pink) warnings that occur when the classifier struggles to find a good solution.
 
 ## Q1
 
@@ -793,7 +792,7 @@ df = DataFrame(X)
 df.boxplot();
 ```
 
-Data are differently distributed. Features with indices 3 and 23 have largest medians and variances. 
+Data are differently distributed. Features with indices 3 and 23 have largest medians and variances.
 
 ## Q2 Train-test split and classification of original data
 
@@ -808,7 +807,7 @@ print(X_train.shape, X_test.shape)
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
-    # Training the model using training data:     
+    # Training the model using training data:
     clf.fit(X_train, y_train)
 
     y_predicted = clf.predict(X_test)
@@ -817,7 +816,7 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
     score = clf.score(X_test, y_test)
     recall = recall_score(y_test, y_predicted)
 
-    # Scattering two features of test data only:     
+    # Scattering two features of test data only:
     ax.scatter(X_test[:, 0], X_test[:, 1], c=y_test, s=4, cmap='bwr', marker='.')
 
     label = '{} - Recall Score: {:.2f}'.format(name, recall)
@@ -828,7 +827,7 @@ show()
 
 ## Q3 Confusion Matrix
 ```{python, eval=FALSE}
-def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None): 
+def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
     """
     This function prints and plots the confusion matrix.
     y_test (array)
@@ -836,23 +835,23 @@ def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
     classes (array)
     normalize (bool) Normalize the results (True), or show them as integer numbers (False).
     ax Visualization axis.
-    The function is an adaptation of a SciKit Learn example. 
+    The function is an adaptation of a SciKit Learn example.
     """
-    
+
     from itertools import product
     from numpy import asarray, newaxis
 
     from sklearn.metrics import confusion_matrix
     cm = confusion_matrix(y_test, y_pred)
     n_classes = len(classes)
-    
+
     if normalize:
         cm = asarray(cm).astype('float32') / cm.sum(axis=1)[:, newaxis]
 
     if not ax:
         from matplotlib.pyplot import subplots
         fig, ax = subplots()
-        
+
     ticks = range(n_classes)
     ax.imshow(cm, interpolation='nearest', cmap='Blues')
     ax.set_xticks(ticks)
@@ -862,23 +861,23 @@ def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
     fmt = '.2f' if normalize else 'd'
     thresh = 3*cm.max() / 4
     cm_dim = cm.shape
-    
+
     # Matrix indices:
     indices_a = range(cm_dim[0])
     indices_b = range(cm_dim[1])
     # Cartesian product of matrix indices:
     indices = product(indices_a, indices_b)
     fmt = '.2f' if normalize else 'd'
-    
+
     for ind_a, ind_b in indices:
         label = format(cm[ind_a, ind_b], fmt)
         color = "white" if cm[ind_a, ind_b] > thresh else "black"
         ax.text(ind_b, ind_a, label, ha="center", color=color)
     ax.set_ylabel('True label')
     ax.set_xlabel('Predicted label')
-    
+
     return ax
-  
+
 ```
 
 ```{python, eval=FALSE}
@@ -887,16 +886,16 @@ class_names = ('False (0)', 'True (1)')
 fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
-    
+
     clf.fit(X_train, y_train)
-    
+
     y_pred = clf.predict(X_test)
-    
+
     plot_confusion_matrix(y_test, y_pred, classes=class_names, normalize=True, ax=ax)
 
     ax.set_title(name, fontsize=10);
-    
-show()    
+
+show()
 ```
 
 ## Q4 Permutation Test Score
@@ -904,24 +903,24 @@ show()
 n_classes = 2
 chance = 1 / n_classes
 
-fig, axes = subplots(figsize=[16, 12], ncols=4, nrows=2, sharey=True, sharex=True) 
+fig, axes = subplots(figsize=[16, 12], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
 
-    score, permutation_scores, pvalue = permutation_test_score(clf, X, y, 
-                                                               scoring="accuracy", 
+    score, permutation_scores, pvalue = permutation_test_score(clf, X, y,
+                                                               scoring="accuracy",
                                                                n_jobs=1,
-                                                               n_permutations=100) 
-                                                               
+                                                               n_permutations=100)
+
     score_label = 'Score: {:.3f}, (p={:.4f})'.format(score, pvalue)
 
     chance_label = 'Chance: {:.3f}'.format(chance)
-    
-    ax.hist(permutation_scores) 
+
+    ax.hist(permutation_scores)
     ax.set_ylim(0, 30)
-    ax.axvline(score,  c='g', label=score_label,  linewidth=3.0) 
+    ax.axvline(score,  c='g', label=score_label,  linewidth=3.0)
     ax.axvline(chance, c='r', label=chance_label, linewidth=3.0)
-    ax.set_title(name, fontsize=10) 
+    ax.set_title(name, fontsize=10)
     ax.legend(fontsize=8)
 
 show()
@@ -960,7 +959,7 @@ print(X_normed_train.shape, X_normed_test.shape)
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
-    # Training the model using trainiang data:     
+    # Training the model using trainiang data:
     clf.fit(X_normed_train, y_train)
 
     y_predicted = clf.predict(X_normed_test)
@@ -969,13 +968,13 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
     score = clf.score(X_normed_test, y_test)
     recall = recall_score(y_test, y_predicted)
 
-    # Scattering two features of test data only:     
+    # Scattering two features of test data only:
     ax.scatter(X_normed_test[:, 0], X_normed_test[:, 1], c=y_test, s=4, cmap='bwr', marker='.')
 
     label = '{} - Recall Score: {:.2f}'.format(name, recall)
     ax.set_title(label , fontsize=10);
-    
-show()    
+
+show()
 ```
 In the normalised data, the recall score is high. The SVCs even achieve scores of 1.0. The Recall is the ability of the classifier to find all the positive samples.
 
@@ -986,19 +985,19 @@ class_names = ('False (0)', 'True (1)')
 fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
-    
+
     clf.fit(X_normed_train, y_train)
-    
+
     y_pred = clf.predict(X_normed_test)
-    
+
     plot_confusion_matrix(y_test, y_pred, classes=class_names, normalize=True, ax=ax)
 
     ax.set_title(name, fontsize=10);
-    
-show()    
+
+show()
 ```
 
-Notice how both SVC perform badly! All true positive were found (see above) but they struggled to detect the false negatives. In this specific case, the single recall score would be quite misleading. 
+Notice how both SVC perform badly! All true positive were found (see above) but they struggled to detect the false negatives. In this specific case, the single recall score would be quite misleading.
 
 If instead of the Normaliser, we apply the Standard Scaler, yielding mean 0 and variance 1 for all features, the results look a bit better.
 
@@ -1024,7 +1023,7 @@ print(X_normed_train.shape, X_normed_test.shape)
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
-    # Training the model using trainiang data:     
+    # Training the model using trainiang data:
     clf.fit(X_normed_train, y_train)
 
     y_predicted = clf.predict(X_normed_test)
@@ -1033,7 +1032,7 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
     score = clf.score(X_normed_test, y_test)
     recall = recall_score(y_test, y_predicted)
 
-    # Scattering two features of test data only:     
+    # Scattering two features of test data only:
     ax.scatter(X_normed_test[:, 0], X_normed_test[:, 1], c=y_test, s=4, cmap='bwr', marker='.')
 
     label = '{} - Recall Score: {:.2f}'.format(name, recall)
@@ -1049,16 +1048,16 @@ class_names = ('False (0)', 'True (1)')
 fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(axes.ravel(), classifiers.items()):
-    
+
     clf.fit(X_normed_train, y_train)
-    
+
     y_pred = clf.predict(X_normed_test)
-    
+
     plot_confusion_matrix(y_test, y_pred, classes=class_names, normalize=True, ax=ax)
 
     ax.set_title(name, fontsize=10);
-    
-show()    
+
+show()
 ```
 
 ## Q6 Hyperparameter Tuning
@@ -1097,10 +1096,10 @@ print("NORMED data:   Best parameters {}    Score {:.2f}".format(grid.best_param
 ```
 
 ```{python, eval=FALSE}
-clf = RandomForestClassifier(max_depth=4, 
-                             max_features=None, 
-                             min_samples_split=2, 
-                             n_estimators=50, 
+clf = RandomForestClassifier(max_depth=4,
+                             max_features=None,
+                             min_samples_split=2,
+                             n_estimators=50,
                              random_state=RANDOM_STATE)
 
 clf.fit(X_train, y_train)
@@ -1111,7 +1110,7 @@ print('Random Forest Score: {:.2f}'.format(score))
 
 ```
 
-Arbitrary parameter searches do not necessarily lead to improved performance. The reason our score differs from the score reported in the grid search is that the grid search used 10 splits into different train and test data. 
+Arbitrary parameter searches do not necessarily lead to improved performance. The reason our score differs from the score reported in the grid search is that the grid search used 10 splits into different train and test data.
 
 ## Feature Importances
 ```{python, eval=FALSE}
@@ -1146,7 +1145,7 @@ It turns out that with the used settings, the classification is dominated by a s
 
 
 :::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::: 
+::::::::::::::::::::::::::::::::::::::::
 
 <br />
 
@@ -1166,12 +1165,12 @@ The forum can only be accessed via your GitHub account once you have accepted th
 
 
 
-::::::::::::::::::::::::::::::::::::: keypoints 
+::::::::::::::::::::::::::::::::::::: keypoints
 
 - The function `permutation_test_score` evaluates the significance of a cross-validated score with permutations.
 - Confusion matrix demonstrates the number of correctly predicted labels against the incorrect ones.
-- Adjustment of hyper-parameters of the algorithms may improve the results. 
-- `GridSearchCV` is a tool to simultaneously define different values of different parameters for optimisation. 
+- Adjustment of hyper-parameters of the algorithms may improve the results.
+- `GridSearchCV` is a tool to simultaneously define different values of different parameters for optimisation.
 - Progressive adjustments may lead to model over-fitting and require a validation data set.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
