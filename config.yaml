@@ -68,8 +68,8 @@ ipynb: TRUE
 # Order of episodes in your lesson 
 episodes:
   - 01-classification_intro.Rmd
-  - 02-improvement.Rmd
-  - 03-refinement.Rmd
+ # - 02-improvement.Rmd
+ # - 03-refinement.Rmd
 
 # Information for Learners
 learners: 
