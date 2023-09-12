@@ -1,4 +1,4 @@
 "file" "checksum" "built" "date"
-"01-classification_intro.Rmd" "8dc4674cb4075b835953817d6431d274" "../site/built/01-classification_intro.ipynb" "2023-09-05"
-"02-improvement.Rmd" "712360bacb2eef6cd5d01de604b1cf06" "../site/built/02-improvement.ipynb" "2023-09-05"
-"03-refinement.Rmd" "cb6bd5ebbfc941be5900601104313992" "../site/built/03-refinement.ipynb" "2023-09-05"
+"01-classification_intro.Rmd" "8dc4674cb4075b835953817d6431d274" "../site/built/01-classification_intro.ipynb" "2023-09-12"
+"02-improvement.Rmd" "712360bacb2eef6cd5d01de604b1cf06" "../site/built/02-improvement.ipynb" "2023-09-12"
+"03-refinement.Rmd" "cb6bd5ebbfc941be5900601104313992" "../site/built/03-refinement.ipynb" "2023-09-12"
