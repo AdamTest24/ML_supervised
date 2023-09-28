@@ -9,12 +9,6 @@ exercises: 2
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
-:::::::::: checklist
-## Submissions
-- [**Lesson Assignment**](#assign)
-
-- [**Lesson Forum**](#forum)
-::::::::::
 
 :::::::::::::::::::::::::::::::::::::: questions
 
@@ -740,33 +734,11 @@ In the next lesson, we are going to test multiple classifiers and quantify their
 
 <br />
 
-### **Lesson Assignment** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=5UzoWit0Ewc) {#assign}
 
--------------------------------
-
-The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.
-
-- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/U7tJPB_w)
-
-
-:::::::::::::::: callout
-## Note
-
-1. You will need to login to your GitHub account.
-
-2. Choose your name from the list of students.
-
-3. Accept the assignment.
-
-4. Refresh the page.
-
-By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the `README.md` file.
-
-::::::::::::::::
-
+## Exercises
 :::::::::::::::::::::::::::::::::::::::: challenge
 
-#### Assignment Questions
+#### End of chapter Exercises
 
 <p style='text-align: justify;'>
 Repeat the training and prediction workflow as above for two other features in the data, namely: Systole and Diastole values. Use 70 training and 30 testing samples where the labels are assigned according to the condition: 0 if 'non-smoker', 1 if 'smoker'.
@@ -971,21 +943,6 @@ print(X.shape, y.shape)
 
 ::::::::::::::::::::::::::::::::::::::::
 
-<br />
-
-### **Forum for Questions** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=N5N7QbLwztQ){#forum}
-
-----------------------
-Any questions related to this lesson, code or assignment can be posted at our [forum](https://github.com/orgs/L2D-June2023/discussions) on GitHub.
-
-
-
-:::::::::::::::: callout
-## Note
-
-The forum can only be accessed via your GitHub account once you have accepted the invitation to be included in the team.
-
-::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
