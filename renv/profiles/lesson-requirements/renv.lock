@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.3.1",
+    "Version": "4.3.3",
     "Repositories": [
       {
         "Name": "carpentries",
@@ -17,7 +17,7 @@
     ]
   },
   "Python": {
-    "Version": "3.10.6",
+    "Version": "3.10.9",
     "Type": "virtualenv",
     "Name": "./renv/profiles/lesson-requirements/renv/python/virtualenvs/renv-python-3.10"
   },
@@ -85,12 +85,6 @@
       "Version": "0.4.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "bslib",
-      "RemoteRef": "bslib",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "aarch64-apple-darwin20",
-      "RemoteSha": "0.4.2",
       "Requirements": [
         "R",
         "base64enc",
@@ -255,12 +249,6 @@
       "Version": "1.8.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "jsonlite",
-      "RemoteRef": "jsonlite",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "aarch64-apple-darwin20",
-      "RemoteSha": "1.8.4",
       "Requirements": [
         "methods"
       ],
@@ -366,12 +354,6 @@
       "Version": "0.17.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "renv",
-      "RemoteRef": "renv",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "aarch64-apple-darwin20",
-      "RemoteSha": "0.17.3",
       "Requirements": [
         "utils"
       ],
@@ -414,12 +396,6 @@
       "Version": "2.21",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "rmarkdown",
-      "RemoteRef": "rmarkdown",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "aarch64-apple-darwin20",
-      "RemoteSha": "2.21",
       "Requirements": [
         "R",
         "bslib",
@@ -508,12 +484,6 @@
       "Version": "0.6.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "vctrs",
-      "RemoteRef": "vctrs",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "aarch64-apple-darwin20",
-      "RemoteSha": "0.6.2",
       "Requirements": [
         "R",
         "cli",
