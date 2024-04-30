@@ -32,7 +32,7 @@
     </div>
   </div>
   <hr></header><nav class="navbar navbar-expand-xl navbar-light bg-white bottom-nav l2d" aria-label="Main Navigation"><div class="container-fluid nav-container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="menu-title">Menu</span>
     </button>
@@ -43,7 +43,7 @@
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
-      <i role="img" aria-label="search button" data-feather="search"></i>
+        <i role="img" aria-label="Search the All In One page" data-feather="search"></i>
       -->
     </div>
     <div class="desktop-nav">
@@ -67,11 +67,17 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul></li>
       </ul></div>
+    <!--
     <form class="d-flex col-md-2 search-form">
-      <fieldset disabled><input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit">
-          <i class="search-icon" data-feather="search" role="img" aria-label="search button"></i>
+      <fieldset disabled>
+      <input class="form-control me-2 searchbox" type="search" placeholder="" aria-label="">
+        <button class="btn btn-outline-success tablet-search-button"  type="submit">
+          <i class="search-icon" data-feather="search" role="img" aria-label="Search the All In One page"></i>
         </button>
-      </fieldset></form>
+      </fieldset>
+    </form>
+    -->
+    <a class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div><!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
   Machine Learning - Supervised
@@ -88,45 +94,49 @@
       <div class="row">
         <!-- START: inst/pkgdown/templates/navbar.html -->
 <div id="sidebar-col" class="col-lg-4">
-  <div id="sidebar" class="sidebar">
-      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle">
-          <i class="search-icon" data-feather="x" role="img"></i>
-        </button>
-        <div class="sidebar-inner">
-          <div class="row mobile-row">
-            <div class="col">
-              <div class="sidenav-view-selector">
-                <div class="accordion accordion-flush" id="accordionFlush9">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingNine">
-                      <button class="accordion-button collapsed" id="instructor" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
-                        <i id="eye" aria-hidden="true" class="icon" data-feather="eye"></i> Learner View
-                      </button>
-                    </h2>
-                    <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlush2">
-                      <div class="accordion-body">
-                        <a href="instructor/03-refinement.html">Instructor View</a>
-                      </div>
+    <div id="sidebar" class="sidebar">
+        <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle" data-collapse="Collapse " data-episodes="Episodes ">
+                <i class="search-icon" data-feather="x" role="img"></i>
+            </button>
+            <div class="sidebar-inner">
+                <div class="row mobile-row">
+                    <div class="col">
+                        <div class="sidenav-view-selector">
+                            <div class="accordion accordion-flush" id="accordionFlush9">
+                                <div class="accordion-item">
+ 
+                                    <h2 class="accordion-header" id="flush-headingNine">
+                                        <button class="accordion-button collapsed" id="instructor" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+                                            <i id="eye" aria-hidden="true" class="icon" data-feather="eye"></i>
+                                            Learner View
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlush2">
+                                        <div class="accordion-body">
+                                            <a href="instructor/03-refinement.html">Instructor View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/div.accordion-item-->
+                            </div>
+                            <!--/div.accordion-flush-->
+                        </div>
+                        <!--div.sidenav-view-selector -->
                     </div>
-                  </div><!--/div.accordion-item-->
-                </div><!--/div.accordion-flush-->
-              </div><!--div.sidenav-view-selector -->
-            </div><!--/div.col -->
-      
-            <hr></div><!--/div.mobile-row -->
+                    <!--/div.col -->
+                    
+                    <hr></div>
+                <!--/div.mobile-row -->
 
-          <div class="accordion accordion-flush" id="accordionFlush11">
-            <div class="accordion-item">
-
-              <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
-                <h2 class="accordion-header chapters" id="flush-headingEleven">
-                  EPISODES
-                </h2>
-              </button>
-              <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
-
-                <div class="accordion-body">
-                  <div class="accordion accordion-flush" id="accordionFlush1">
+                <div class="accordion accordion-flush" id="accordionFlush11">
+                    <div class="accordion-item">
+                        <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
+                            <h2 class="accordion-header chapters" id="flush-headingEleven">
+                                EPISODES
+                            </h2>
+                        </button>
+                        <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
+                            <div class="accordion-body"><div class="accordion accordion-flush" id="accordionFlush1">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Setup</a>
@@ -177,44 +187,48 @@
         
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
+</div>
+                        </div>
+                    </div>
+                     
+                    <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwelve">
+                                <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                                    RESOURCES
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
+                                <div class="accordion-body">
+                                    <ul><li>
+                                            <a href="key-points.html">Key Points</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference.html#glossary">Glossary</a>
+                                        </li>
+                                        <li>
+                                            <a href="profiles.html">Learner Profiles</a>
+                                        </li>
+                                         
+                                    </ul></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="half-width resources"><a href="aio.html">See all in one page</a>
+                    
+                    <br><a href="aio.pdf">See all in one page [PDF]</a> 
 
+                    <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
+                        
+                    </div>
                 </div>
-              </div>
+                <!-- /div.accordion -->
             </div>
-
-            <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwelve">
-                  <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
-                    RESOURCES
-                  </button>
-                </h2>
-                <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
-                  <div class="accordion-body">
-                    <ul><li>
-                        <a href="key-points.html">Key Points</a>
-                      </li>
-                      <li>
-                        <a href="reference.html#glossary">Glossary</a>
-                      </li>
-                      <li>
-                        <a href="profiles.html">Learner Profiles</a>
-                      </li>
-                      
-                    </ul></div>
-                </div>
-              </div>
-            </div>
-            <hr class="half-width resources"><a href="aio.html">See all in one page</a>
-            <br><a href="aio.pdf">See all in one page [PDF]</a>
-
-            <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
-            </div>
-          </div><!-- /div.accordion -->
-        </div><!-- /div.sidebar-inner -->
-      </nav></div><!-- /div.sidebar -->
-  </div><!-- /div.sidebar-col -->
+            <!-- /div.sidebar-inner -->
+        </nav></div>
+    <!-- /div.sidebar -->
+</div>
+<!-- /div.sidebar-col -->
 <!-- END:   inst/pkgdown/templates/navbar.html-->
 
         <!-- START: inst/pkgdown/templates/content-instructor.html -->
@@ -236,14 +250,14 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Refinement</h1>
-        <p> Last updated on 2023-11-21 | 
+        <p>Last updated on 2024-03-18 |
         
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-refinement.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
         
         
         <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 
         
@@ -408,12 +422,13 @@ data distribution more closely. One classifier simply fails: SVC
 (linear). It tries to fit a straight line to separate the classes which
 in this case is impossible.
 </p>
-<div id="callout1" class="callout">
+<div id="note" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h3>
+<div id="note" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
+</h3>
 <div class="callout-content">
 <p><strong>Code</strong>: Note how the keyword argument
 <code>sharey</code> is used in the call of <code>subplots</code> to have
@@ -573,12 +588,13 @@ testing the models if a test is run many times on data with differently
 permuted labels. To facilitate this, Scikit-learn provides the function
 <code>permutation_test_score</code>.
 </p>
-<div id="callout2" class="callout">
+<div id="note-1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="note-1">Note<a class="anchor" aria-label="anchor" href="#note-1"></a></h3>
+<div id="note-1" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-1"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 The process of cross-validation is computationally expensive, as is the
@@ -789,12 +805,13 @@ displayed in pseudo-3D.</p>
 <span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a></span>
 <span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/03-refinement-rendered-unnamed-chunk-11-14.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="callout3" class="callout">
+<figure><img src="fig/03-refinement-rendered-unnamed-chunk-11-14.png" width="1152" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="note-2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="note-2">Note<a class="anchor" aria-label="anchor" href="#note-2"></a></h3>
+<div id="note-2" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-2"></a>
+</h3>
 <div class="callout-content">
 <p><strong>Code</strong>: Note the setting up of 3D axis. Some examples
 with code to learn 3D plotting are <a href="https://matplotlib.org/2.0.2/mpl_toolkits/mplot3d/tutorial.html" class="external-link">provided
@@ -1722,13 +1739,13 @@ any links that you are not going to use.
 
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
-				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
         
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-refinement.Rmd" class="external-link">Edit on GitHub</a>
         
 	
-        | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/carpentries/workbench-template-md/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/carpentries/workbench-template-md/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
@@ -1736,15 +1753,13 @@ any links that you are not going to use.
         
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
-        <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.2)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/1bc5753e917d515c3d888ce6cc013c0a680eacfc" class="external-link">pegboard (0.7.3)</a>,
-      and <a href="https://github.com/LearnToDiscover/varnish/tree/aeffaff05b65bf7180c5154928fb2e3f42f9ec28" class="external-link">varnish (0.3.0)</a>.</p>
+        <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.4)</a>, <a href="https://github.com/carpentries/pegboard/tree/a32a7836d4455f407c3cafe8ab95edc636e5e919" class="external-link">pegboard (0.7.5)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/7ac5e27a3dfed3a59ec1e5fcb0b719d430806598" class="external-link">varnish (1.0.2)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
 		<a href="#top">
-			<i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back to top"></i><br><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
+      <i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back To Top"></i><br><!-- <span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top --><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
 		</a>
 	</div>
   <script type="application/ld+json">
@@ -1760,9 +1775,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/03-refinement.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/03-refinement.html",
-  "dateCreated": "2023-09-28",
-  "dateModified": "2023-11-21",
-  "datePublished": "2024-03-05"
+  "dateCreated": "2024-03-18",
+  "dateModified": "2024-03-18",
+  "datePublished": "2024-04-30"
 }
 
   </script><script>
