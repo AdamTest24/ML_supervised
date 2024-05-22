@@ -65,7 +65,7 @@ exercises: 2
 
 ### **Import functions**
 
-```python
+``` python
 
 from numpy import mgrid, linspace, c_, arange, mean, array
 from numpy.random import uniform, seed
@@ -88,7 +88,7 @@ Here is the function code to create these data, followed by a function call to p
 
 
 
-```python
+``` python
 def make_torus_3D(n_samples=100, shuffle=True, noise=None, random_state=None,
                  factor=.8):
     """Make a large torus containing a smaller torus in 3d.
@@ -166,7 +166,7 @@ def make_torus_3D(n_samples=100, shuffle=True, noise=None, random_state=None,
 
 
 
-```python
+``` python
 RANDOM_STATE  = 12345
 seed(RANDOM_STATE)
 
@@ -208,7 +208,7 @@ The challenge here is that the only way to separate the data of the two labels f
 
 
 
-```python
+``` python
 RANDOM_STATE  = 1234
 seed(RANDOM_STATE)
 
@@ -220,11 +220,11 @@ ft_min, ft_max = X.min(), X.max()
 print('Shape of X:', X.shape)
 ```
 
-```{.output}
+``` output
 Shape of X: (500, 2)
 ```
 
-```python
+``` python
 fig, ax = subplots(figsize=(10, 5), nrows=1, ncols=2)
 ax[0].scatter(X[:, feature_1], X[:, feature_2], c=y, s=4, cmap='bwr');
 ax[1].hist(X);
@@ -311,7 +311,7 @@ Most machine learning algorithms rely on random number generation to produce res
 Here is code to import a number of classifiers from SciKit Learn, fit them to the training data and predict the (complete) state space. The result is plotted below.
 
 
-```python
+``` python
 from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier, AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC, LinearSVC
@@ -332,7 +332,7 @@ classifiers = {
 
 
 
-```python
+``` python
 ft_min, ft_max = -1.5, 1.5
 
 # Constructing (2 grids x 300 rows x 300 cols):
@@ -347,7 +347,7 @@ new_obs = c_[grid_1.ravel(), grid_2.ravel()]
 
 
 
-```python
+``` python
 contour_levels = linspace(0, 1, 6)
 
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
@@ -383,7 +383,7 @@ The function we use is `train_test_split` from SciKit Learn. A nice feature of t
 </p>
 
 
-```python
+``` python
 from sklearn.model_selection import train_test_split
 
 X, y = make_circles(n_samples=1000, factor=0.3, noise=.05, random_state=RANDOM_STATE)
@@ -393,7 +393,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.3, random_s
 print(X_train.shape, X_test.shape)
 ```
 
-```{.output}
+``` output
 (700, 2) (300, 2)
 ```
 
@@ -402,20 +402,37 @@ Here is an illustration of the two sets of data. The splitting into testing and 
 </p>
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(7, 6), ncols=2, nrows=2, sharex=True)
 
 ax[0, 0].scatter(X_train[:, feature_1], X_train[:, feature_2], c=y_train, s=4, cmap='bwr')
 ax[0, 1].scatter(X_test[:, feature_1], X_test[:, feature_2], c=y_test, s=4, cmap='bwr')
 
 ax[1, 0].hist(X_train)
+```
+
+``` python
 ax[1, 1].hist(X_test)
+```
+
+``` python
+
 ax[0, 0].set_title('Training data')
 ax[0, 1].set_title('Test data')
 
 ax[0, 0].set_ylim(ft_min, ft_max)
+```
+
+``` python
 ax[0, 1].set_ylim(ft_min, ft_max)
+```
+
+``` python
+
 ax[1, 0].set_ylim(0, 100)
+```
+
+``` python
 ax[1, 1].set_ylim(0, 100);
 
 show()
@@ -432,7 +449,7 @@ There are different techniques to evaluate the performance, but the `.score`  me
 </p>
 
 
-```python
+``` python
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
@@ -472,7 +489,7 @@ Let us now repeat the procedure with a higher level of noise to make the task mo
 
 
 
-```python
+``` python
 X, y = make_circles(n_samples=1000, factor=.5, noise=.3, random_state=RANDOM_STATE)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.3, random_state=RANDOM_STATE, shuffle=True)
@@ -484,13 +501,31 @@ ax[0, 1].scatter(X_test[:, feature_1], X_test[:, feature_2], c=y_test, s=4, cmap
 
 
 ax[1, 0].hist(X_train)
+```
+
+``` python
+
 ax[1, 1].hist(X_test)
+```
+
+``` python
+
 ax[0, 0].set_title('Training data')
 ax[0, 1].set_title('Test data')
 
 ax[0, 0].set_ylim(-3, 3)
+```
+
+``` python
 ax[0, 1].set_ylim(-3, 3)
+```
+
+``` python
+
 ax[1, 0].set_ylim(0, 200)
+```
+
+``` python
 ax[1, 1].set_ylim(0, 200);
 
 show()
@@ -499,7 +534,7 @@ show()
 <img src="fig/02-improvement-rendered-unnamed-chunk-11-11.png" width="672" style="display: block; margin: auto;" />
 
 
-```python
+``` python
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
@@ -555,7 +590,7 @@ We first need to import and instantiate the splitter. We set key word argument `
 </p>
 
 
-```python
+``` python
 from sklearn.model_selection import StratifiedShuffleSplit
 
 sss = StratifiedShuffleSplit(random_state=RANDOM_STATE, n_splits=10, test_size=0.3)
@@ -564,7 +599,7 @@ sss = StratifiedShuffleSplit(random_state=RANDOM_STATE, n_splits=10, test_size=0
 Let us look at the different splits obtained:
 
 
-```python
+``` python
 fig, ax = subplots(figsize=[10, 5])
 
 n_splits = sss.n_splits
@@ -606,7 +641,7 @@ Let us look at the data in state space to check that the classification task is 
 
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(8, 8))
 
 for train_index, test_index in sss.split(X, y):
@@ -621,7 +656,7 @@ show()
 These are the scatter plots of the training (magenta) and testing (blue) data. Here are their distributions:
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(8, 8))
 
 for train_index, test_index in sss.split(X, y):
@@ -641,7 +676,7 @@ We now train our classifiers on these different splits and obtain the respective
 </p>
 
 
-```python
+``` python
 X, y = make_circles(n_samples=1000, factor=.3, noise=.4, random_state=RANDOM_STATE)
 
 split_data_indices = sss.split(X=X, y=y)
@@ -684,7 +719,7 @@ print(["{0:0.2f}".format(ind) for ind in score_mean])
 ```
 <img src="fig/02-improvement-rendered-unnamed-chunk-17-21.png" width="672" style="display: block; margin: auto;" />
 
-```{.output}
+``` output
 dict_keys(['Random Forest', 'AdaBoost (Random Forest)', 'Extra Trees', 'AdaBoost (Extra Tree)', 'Decision Tree', 'SVC (RBF)', 'SVC (Linear)', 'Multi-layer Perceptron'])
 Average scores: 
 ['0.76', '0.76', '0.75', '0.75', '0.70', '0.79', '0.50', '0.78']
@@ -753,7 +788,7 @@ SciKit Learn includes specialist functions called `roc_curve` and `roc_auc_score
 - Probability: where classification models have a `predict_proba_` method that provides us with the probability associated with each prediction. In this case, however, the results are provided in the form of a two-dimensional array where columns represents different labels (as defined in  `.classes` property). Given that we only plot ROC curves for binary problems, we should only use one of these columns. Usually, the second column (the feature representing `True` or __1__) is the one to choose. However, if you notice that the results are unexpectedly bad, you may try the other column just be sure.
 
 
-```python
+``` python
 from sklearn.metrics import roc_curve, roc_auc_score
 
 fig, all_axes = subplots(figsize=[15, 10], ncols=4, nrows=2, sharey=True, sharex=True)
@@ -835,7 +870,7 @@ Pick any of the provided (or other) data sets with labels to repeat the above. F
 ## Please check these solutions only after submitting the assignments.
 
 
-```python
+``` python
 from numpy import mgrid, linspace, arange, mean, array
 from numpy.random import uniform, seed
 
@@ -845,7 +880,7 @@ from matplotlib.pyplot import subplots, axes, scatter, xticks, show
 ```
 
 
-```python
+``` python
 def make_torus_3D(n_samples=100, shuffle=True, noise=None, random_state=None,
                  factor=.8):
     """Make a large torus containing a smaller torus in 3d.
@@ -922,7 +957,7 @@ def make_torus_3D(n_samples=100, shuffle=True, noise=None, random_state=None,
 ```
 
 
-```python
+``` python
 from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier, AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC, LinearSVC
@@ -951,7 +986,7 @@ classifiers = {
 ### Q1 and Q2
 
 
-```python
+``` python
 seed(RANDOM_STATE)
 
 X, y = make_torus_3D(n_samples=2000, factor=.5, noise=.3, random_state=RANDOM_STATE)
@@ -979,7 +1014,7 @@ show()
 
 ### Q3
 
-```python
+``` python
 sss = StratifiedShuffleSplit(random_state=RANDOM_STATE, n_splits=10, test_size=0.3)
 
 split_data_indices = sss.split(X=X, y=y)
@@ -1020,14 +1055,14 @@ print(["{0:0.2f}".format(ind) for ind in score_mean])
 ```
 <img src="fig/02-improvement-rendered-unnamed-chunk-23-27.png" width="672" style="display: block; margin: auto;" />
 
-```{.output}
+``` output
 dict_keys(['Random Forest', 'AdaBoost (Random Forest)', 'Extra Trees', 'AdaBoost (Extra Tree)', 'Decision Tree', 'SVC (RBF)', 'SVC (Linear)', 'Multi-layer Perceptron'])
 Average scores: 
 ['0.87', '0.88', '0.87', '0.87', '0.83', '0.89', '0.49', '0.88']
 ```
 
 
-```python
+``` python
 clf_RF = RandomForestClassifier(random_state=RANDOM_STATE)
 
 clf_RF.fit(X_s, y_s)
@@ -1043,13 +1078,13 @@ print('Random Forest score:', score_RF)
 <style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(random_state=123)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestClassifier</label><div class="sk-toggleable__content"><pre>RandomForestClassifier(random_state=123)</pre></div></div></div></div></div>
 ```
 
-```{.output}
+``` output
 Random Forest score: 0.88
 ```
 
 ### Q4
 
-```python
+``` python
 importances = clf_RF.feature_importances_
 
 template = 'Feature 1: {:.1f}%; Feature 2: {:.1f}%; Feature 3: {:.1f}%'
@@ -1068,7 +1103,7 @@ xticks(bins, ('Feature 1', 'Feature 2', 'Feature 3'), fontsize=16);
 show()
 ```
 
-```{.output}
+``` output
 Feature 1: 31.4%; Feature 2: 33.9%; Feature 3: 34.7%
 ```
 

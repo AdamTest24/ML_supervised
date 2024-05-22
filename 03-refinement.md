@@ -39,7 +39,7 @@ exercises: 2
 
 ### **Import functions**
 
-```python
+``` python
 from numpy import mgrid, linspace, c_, arange, mean, array
 from numpy.random import uniform, seed
 from sklearn.datasets import make_circles
@@ -73,7 +73,7 @@ For our classification problem, we will use the `make_circles` function. See the
 The parameters for noise level and relative size of the two circles are such that the task becomes difficult.
 
 
-```python
+``` python
 seed(RANDOM_STATE)
 
 X, y = make_circles(n_samples=500, factor=0.5, noise=.3, random_state=RANDOM_STATE)
@@ -95,7 +95,7 @@ ax[1].set_ylabel('Count')
 show()
 ```
 
-```{.output}
+``` output
 Shape of X: (500, 2)
 ```
 
@@ -104,7 +104,7 @@ Shape of X: (500, 2)
 For training, we use the same classifiers as in the previous Lesson. We train on the whole data set and then use a meshgrid of the state space for prediction.
 
 
-```python
+``` python
 ft_min, ft_max = -1.5, 1.5
 
 # Constructing (2 grids x 300 rows x 300 cols):
@@ -119,7 +119,7 @@ new_obs = c_[grid_1.ravel(), grid_2.ravel()]
 
 
 
-```python
+``` python
 contour_levels = linspace(0, 1, 6)
 
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
@@ -143,7 +143,6 @@ for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
 
 show()
 ```
-
 
 
 
@@ -208,7 +207,7 @@ Wikipedia has a [nice summary of the measures and connections between them](http
 In Scikit-learn, these measures can be used in a standardised fashion. Here is an example using the `recall_score`.
 
 
-```python
+``` python
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.5, random_state=RANDOM_STATE, shuffle=True)
@@ -216,12 +215,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.5, random_s
 print(X_train.shape, X_test.shape)
 ```
 
-```{.output}
+``` output
 (250, 2) (250, 2)
 ```
 
 
-```python
+``` python
 from sklearn.metrics import recall_score
 
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
@@ -271,7 +270,6 @@ show()
 
 
 
-
 <img src="fig/03-refinement-rendered-unnamed-chunk-6-5.png" width="1440" style="display: block; margin: auto;" />
 
 ### **Reducing Bias on Test Data**
@@ -303,7 +301,7 @@ The keyword argument `n_permutations` is set to 100 by default. You can speed th
 
 
 
-```python
+``` python
 from sklearn.model_selection import permutation_test_score
 
 n_classes = 2
@@ -345,7 +343,7 @@ Another useful method to evaluate a model and demonstrate its integrity is to pr
 Scikit-learn provides a [function to create a confusion matrix](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html). Here is an expanded function to simplify the visualisation of this matrix.
 
 
-```python
+``` python
 def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
     """
     This function prints and plots the confusion matrix.
@@ -398,7 +396,7 @@ def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
 ```
 
 
-```python
+``` python
 class_names = ('False (0)', 'True (1)')
 
 fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
@@ -431,7 +429,7 @@ As always in machine learning, it is of great importance that we avoid overfitti
 We start by creating a classification problem with 3 features and 2 labels using the `make_classification` function. Data are now displayed in pseudo-3D.
 
 
-```python
+``` python
 from sklearn.datasets import make_classification
 
 X, y = make_classification(
@@ -460,7 +458,7 @@ show()
 
 
 
-```python
+``` python
 from mpl_toolkits.mplot3d import Axes3D
 
 fig, ax = subplots(figsize=(10, 8), subplot_kw=dict(projection='3d'))
@@ -471,7 +469,7 @@ show()
 
 <img src="fig/03-refinement-rendered-unnamed-chunk-11-13.png" width="960" style="display: block; margin: auto;" />
 
-```python
+``` python
 fig, axes = subplots(figsize=(12, 3), ncols=3, sharex=True, sharey=True)
 
 axes[0].scatter(X[:, 0], X[:, 1], c=y, s=2, cmap='bwr')
@@ -491,7 +489,7 @@ __Code__: Note the setting up of 3D axis. Some examples with code to learn 3D pl
 We can now go ahead and use our classifier dictionary – which contains the classifiers with their default settings – to train and evaluate the models. We use the train-test split to evaluate the performance.
 
 
-```python
+``` python
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.8, random_state=RANDOM_STATE, shuffle=True)
 
 for name, clf in classifiers.items():
@@ -514,7 +512,7 @@ Normalisation can be done in various ways. One common way to normalise data is t
 Let us first see an example: some data points are spread between 1 and 4.
 
 
-```python
+``` python
 from sklearn.preprocessing import Normalizer
 
 some_data = array([[1, 4], [3, 1], [4, 4], [2, 3]])
@@ -543,7 +541,7 @@ ax[1].set_xlabel('Normalised data')
 show()
 ```
 
-```{.output}
+``` output
 Normalised data: 
  [[0.24253563 0.9701425 ]
  [0.9486833  0.31622777]
@@ -563,7 +561,7 @@ Effectively, all normalised data are positioned on a circle around the origin wi
 Let us now apply this normalisation to our artificial data set.
 
 
-```python
+``` python
 norm = Normalizer()
 
 X_normed = norm.fit_transform(X)
@@ -577,7 +575,7 @@ show()
 
 <img src="fig/03-refinement-rendered-unnamed-chunk-14-19.png" width="768" style="display: block; margin: auto;" />
 
-```python
+``` python
 fig, axes = subplots(figsize=(10, 3), ncols=3, sharex=True, sharey=True)
 
 axes[0].scatter(X_normed[:, 0], X_normed[:, 1], c=y, s=2, cmap='bwr')
@@ -592,7 +590,7 @@ show()
 The normalisation projects the data on the unit sphere. And now we can do the training on the normalised data:
 
 
-```python
+``` python
 X_train, X_test, y_train, y_test = train_test_split(X_normed, y, test_size=.8, random_state=RANDOM_STATE, shuffle=True)
 
 for name, clf in classifiers.items():
@@ -629,7 +627,7 @@ Note that this process can be lengthy, and may need to be refined several times,
 </p>
 
 
-```python
+``` python
 clf = SVC(kernel='rbf', C=1, gamma=100, tol=0.0001)
 
 clf.fit(X_train, y_train)
@@ -643,7 +641,7 @@ print('{:<30} Score: {:.2f}'.format('SVC (RBF)', score))
 <style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVC(C=1, gamma=100, tol=0.0001)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">SVC</label><div class="sk-toggleable__content"><pre>SVC(C=1, gamma=100, tol=0.0001)</pre></div></div></div></div></div>
 ```
 
-```{.output}
+``` output
 SVC (RBF)                      Score: 0.68
 ```
 
@@ -652,7 +650,7 @@ Progressive adjustment of some of the parameters may lead to an improved model.
 [Check the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html) for the meaning and the default values of regularisation parameters `C`, kernel coeffcient `gamma`, and tolerance setting `tol`.
 
 
-```python
+``` python
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import GridSearchCV
 
@@ -684,7 +682,7 @@ In this case, while both optimised scores are better than the original one, ther
 </p>
 
 
-```python
+``` python
 clf = RandomForestClassifier(random_state=RANDOM_STATE)
 
 clf.fit(X_train, y_train)
@@ -698,7 +696,7 @@ print('{:<30} Score: {:.2f}'.format('Random Forest', score))
 <style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(random_state=111)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestClassifier</label><div class="sk-toggleable__content"><pre>RandomForestClassifier(random_state=111)</pre></div></div></div></div></div>
 ```
 
-```{.output}
+``` output
 Random Forest                  Score: 0.77
 ```
 
@@ -707,7 +705,7 @@ And now a grid over [some of its parameters](https://scikit-learn.org/stable/mod
 
 
 
-```python
+``` python
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import GridSearchCV
 
@@ -778,7 +776,7 @@ As a suggestion, take the [breast cancer dataset](https://scikit-learn.org/stabl
 The breast cancer data can be imported from the `scikit-learn`.
 
 
-```python
+``` python
 from sklearn.datasets import load_breast_cancer
 
 data = load_breast_cancer()
@@ -796,7 +794,7 @@ Feel free to try and do any other testing or plotting that you find important. T
 ## Please check these solutions only after submitting the assignments.
 
 
-```python
+``` python
 from numpy import mgrid, linspace, c_, arange, mean, array
 from numpy.random import uniform, seed
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
@@ -838,7 +836,7 @@ Notice that the linear Support Vector classifier is imported with the keyword ar
 ## Q1
 
 
-```python
+``` python
 data = load_breast_cancer()
 
 X = data.data
@@ -850,11 +848,11 @@ print(X.shape, y.shape)
 To get the feature names, you can access them as follows:
 
 
-```python
+``` python
 data.feature_names
 ```
 
-```{.output}
+``` output
 array(['mean radius', 'mean texture', 'mean perimeter', 'mean area',
        'mean smoothness', 'mean compactness', 'mean concavity',
        'mean concave points', 'mean symmetry', 'mean fractal dimension',
@@ -868,7 +866,7 @@ array(['mean radius', 'mean texture', 'mean perimeter', 'mean area',
 ```
 
 
-```python
+``` python
 from pandas import DataFrame
 
 df = DataFrame(X)
@@ -876,20 +874,22 @@ df = DataFrame(X)
 df.boxplot();
 ```
 
+<img src="fig/03-refinement-rendered-unnamed-chunk-24-23.png" width="672" style="display: block; margin: auto;" />
+
 Data are differently distributed. Features with indices 3 and 23 have largest medians and variances.
 
 ## Q2 Train-test split and classification of original data
 
 Only a small training set is used.
 
-```python
+``` python
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.9, random_state=RANDOM_STATE, shuffle=True)
 
 print(X_train.shape, X_test.shape)
 ```
 
 
-```python
+``` python
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
@@ -913,7 +913,7 @@ show()
 
 ## Q3 Confusion Matrix
 
-```python
+``` python
 def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
     """
     This function prints and plots the confusion matrix.
@@ -967,7 +967,7 @@ def plot_confusion_matrix(y_test, y_pred, classes, normalize=False, ax=None):
 ```
 
 
-```python
+``` python
 class_names = ('False (0)', 'True (1)')
 
 fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
@@ -987,7 +987,7 @@ show()
 
 ## Q4 Permutation Test Score
 
-```python
+``` python
 n_classes = 2
 chance = 1 / n_classes
 
@@ -1021,7 +1021,7 @@ The classification result is good in that the green score for the data is separa
 The code for three common scalers is shown below. Figures were obtained with the `Normaliser`. Note that this changes the y-scale of the data, but does not affect the skewness of the distribution.
 
 
-```python
+``` python
 from sklearn.preprocessing import Normalizer
 
 norm_skl       = Normalizer()
@@ -1038,14 +1038,14 @@ df.boxplot();
 
 ## Train-test split and classification of normalised data
 
-```python
+``` python
 X_normed_train, X_normed_test, y_train, y_test = train_test_split(X_normed, y, test_size=.9, random_state=RANDOM_STATE, shuffle=True)
 
 print(X_normed_train.shape, X_normed_test.shape)
 ```
 
 
-```python
+``` python
 fig, all_axes = subplots(figsize=[15, 5], ncols=4, nrows=2, sharey=True, sharex=True)
 
 for ax, (name, clf) in zip(all_axes.ravel(), classifiers.items()):
@@ -1070,7 +1070,7 @@ In the normalised data, the recall score is high. The SVCs even achieve scores o
 
 ## Confusion Matrix
 
-```python
+``` python
 class_names = ('False (0)', 'True (1)')
 
 fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
@@ -1093,7 +1093,7 @@ Notice how both SVC perform badly! All true positive were found (see above) but 
 If instead of the Normaliser, we apply the Standard Scaler, yielding mean 0 and variance 1 for all features, the results look a bit better.
 
 
-```python
+``` python
 from sklearn.preprocessing import StandardScaler
 
 std_skl       = StandardScaler()
@@ -1108,7 +1108,7 @@ X_normed.shape
 ```
 
 
-```python
+``` python
 X_normed_train, X_normed_test, y_train, y_test = train_test_split(X_normed, y, test_size=.9, random_state=RANDOM_STATE, shuffle=True)
 
 print(X_normed_train.shape, X_normed_test.shape)
@@ -1135,7 +1135,7 @@ show()
 ```
 
 
-```python
+``` python
 class_names = ('False (0)', 'True (1)')
 
 fig, axes = subplots(figsize=(17, 12), ncols=4, nrows=2, sharey=True, sharex=True)
@@ -1155,7 +1155,7 @@ show()
 
 ## Q6 Hyperparameter Tuning
 
-```python
+``` python
 clf = RandomForestClassifier(random_state=RANDOM_STATE)
 
 clf.fit(X_train, y_train)
@@ -1166,7 +1166,7 @@ print('Score: {:.2f}'.format(score))
 ```
 
 
-```python
+``` python
 param_grid = dict(
     n_estimators=[30, 50, 70, 90],
     max_features=[None, 'auto', 'sqrt', 'log2'],
@@ -1190,7 +1190,7 @@ print("NORMED data:   Best parameters {}    Score {:.2f}".format(grid.best_param
 ```
 
 
-```python
+``` python
 clf = RandomForestClassifier(max_depth=4,
                              max_features=None,
                              min_samples_split=2,
@@ -1208,7 +1208,7 @@ Arbitrary parameter searches do not necessarily lead to improved performance. Th
 
 ## Feature Importances
 
-```python
+``` python
 importances = clf.feature_importances_
 
 bins = arange(importances.shape[0])
@@ -1222,7 +1222,7 @@ show()
 ```
 
 
-```python
+``` python
 # Most important features
 threshold = 0.1
 
