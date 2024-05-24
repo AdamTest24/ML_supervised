@@ -17,7 +17,7 @@
     ]
   },
   "Python": {
-    "Version": "3.10.9",
+    "Version": "3.10.12",
     "Type": "virtualenv",
     "Name": "./renv/profiles/lesson-requirements/renv/python/virtualenvs/renv-python-3.10"
   },
@@ -332,7 +332,7 @@
     },
     "reticulate": {
       "Package": "reticulate",
-      "Version": "1.36.1",
+      "Version": "1.37.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -350,7 +350,7 @@
         "utils",
         "withr"
       ],
-      "Hash": "e037fb5dc364efdaf616eb6bc05aaca2"
+      "Hash": "9465d3bc6ec44eeaa52527ac2cba4020"
     },
     "rlang": {
       "Package": "rlang",
