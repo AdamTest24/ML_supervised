@@ -43,13 +43,16 @@ jobs:
       - name: "Set up Pandoc"
         uses: r-lib/actions/setup-pandoc@v2
 
+      - name: "Set up Chrome" # for PDF rendering
+        uses: browser-actions/setup-chrome@v1.2.0
+
       - name: "Setup Lesson Engine"
-        uses: carpentries/actions/setup-sandpaper@main
+        uses: LearnToDiscover/actions/setup-sandpaper@main
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
       - name: "Setup Package Cache"
-        uses: carpentries/actions/setup-lesson-deps@main
+        uses: LearnToDiscover/actions/setup-lesson-deps@main
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
