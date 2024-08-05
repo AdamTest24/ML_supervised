@@ -47,12 +47,12 @@ jobs:
         uses: browser-actions/setup-chrome@v1.2.0
 
       - name: "Setup Lesson Engine"
-        uses: LearnToDiscover/actions/setup-sandpaper@main
+        uses: LearnToDiscover/actions/setup-sandpaper@l2d
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
       - name: "Setup Package Cache"
-        uses: LearnToDiscover/actions/setup-lesson-deps@main
+        uses: LearnToDiscover/actions/setup-lesson-deps@l2d
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
