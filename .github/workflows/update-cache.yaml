@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Who triggered this build (enter github username to tag yourself)?'
+        description: "Who triggered this build (enter github username to tag yourself)?"
         required: true
-        default: 'monthly run'
+        default: "monthly run"
   schedule:
     # Run every tuesday
-    - cron: '0 0 * * 2'
+    - cron: "0 0 * * 2"
 
 jobs:
   preflight:
@@ -61,7 +61,7 @@ jobs:
     steps:
       - name: "validate token"
         id: validate
-        uses: carpentries/actions/check-valid-credentials@main
+        uses: LearnToDiscover/actions/check-valid-credentials@l2d
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
 
@@ -74,7 +74,6 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       RENV_PATHS_ROOT: ~/.local/share/renv/
     steps:
-
       - name: "Checkout Lesson"
         uses: actions/checkout@v3
 
@@ -86,14 +85,14 @@ jobs:
 
       - name: "Update {renv} deps and determine if a PR is needed"
         id: update
-        uses: carpentries/actions/update-lockfile@main
+        uses: LearnToDiscover/actions/update-lockfile@l2d
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
       - name: Create Pull Request
         id: cpr
         if: ${{ steps.update.outputs.n > 0 }}
-        uses: carpentries/create-pull-request@main
+        uses: LearnToDiscover/create-pull-request@l2d
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
           delete-branch: true

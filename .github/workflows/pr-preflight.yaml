@@ -2,10 +2,8 @@ name: "Pull Request Preflight Check"
 
 on:
   pull_request_target:
-    branches:
-      ["main"]
-    types:
-      ["opened", "synchronize", "reopened"]
+    branches: ["main"]
+    types: ["opened", "synchronize", "reopened"]
 
 jobs:
   test-pr:
@@ -25,7 +23,7 @@ jobs:
           EOF" >> $GITHUB_OUTPUT
       - name: "Check PR"
         id: check-pr
-        uses: carpentries/actions/check-valid-pr@main
+        uses: LearnToDiscover/actions/check-valid-pr@l2d
         with:
           pr: ${{ github.event.number }}
           invalid: ${{ fromJSON(steps.hash.outputs.json)[github.repository] }}
@@ -33,7 +31,7 @@ jobs:
       - name: "Comment result of validation"
         id: comment-diff
         if: ${{ always() }}
-        uses: carpentries/actions/comment-diff@main
+        uses: LearnToDiscover/actions/comment-diff@l2d
         with:
           pr: ${{ github.event.number }}
           body: ${{ steps.check-pr.outputs.MSG }}

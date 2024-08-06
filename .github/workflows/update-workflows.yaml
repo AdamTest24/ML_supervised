@@ -4,16 +4,16 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Who triggered this build (enter github username to tag yourself)?'
+        description: "Who triggered this build (enter github username to tag yourself)?"
         required: true
-        default: 'weekly run'
+        default: "weekly run"
       clean:
         description: 'Workflow files/file extensions to clean (no wildcards, enter "" for none)'
         required: false
-        default: '.yaml'
+        default: ".yaml"
   schedule:
     # Run every Tuesday
-    - cron: '0 0 * * 2'
+    - cron: "0 0 * * 2"
 
 jobs:
   check_token:
@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: "validate token"
         id: validate
-        uses: carpentries/actions/check-valid-credentials@main
+        uses: LearnToDiscover/actions/check-valid-credentials@l2d
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
 
@@ -40,14 +40,14 @@ jobs:
 
       - name: Update Workflows
         id: update
-        uses: carpentries/actions/update-workflows@main
+        uses: LearnToDiscover/actions/update-workflows@l2d
         with:
           clean: ${{ github.event.inputs.clean }}
 
       - name: Create Pull Request
         id: cpr
         if: "${{ steps.update.outputs.new }}"
-        uses: carpentries/create-pull-request@main
+        uses: LearnToDiscover/create-pull-request@l2d
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
           delete-branch: true

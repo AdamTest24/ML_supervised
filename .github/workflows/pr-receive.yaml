@@ -2,8 +2,7 @@ name: "Receive Pull Request"
 
 on:
   pull_request:
-    types:
-      [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened]
 
 concurrency:
   group: ${{ github.ref }}
@@ -40,7 +39,7 @@ jobs:
           echo "${{ steps.hash.outputs.json }}"
       - name: "Check PR"
         id: check-pr
-        uses: carpentries/actions/check-valid-pr@main
+        uses: LearnToDiscover/actions/check-valid-pr@l2d
         with:
           pr: ${{ github.event.number }}
           invalid: ${{ fromJSON(steps.hash.outputs.json)[github.repository] }}
@@ -76,12 +75,12 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
 
       - name: "Setup Lesson Engine"
-        uses: carpentries/actions/setup-sandpaper@main
+        uses: LearnToDiscover/actions/setup-sandpaper@l2d
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
       - name: "Setup Package Cache"
-        uses: carpentries/actions/setup-lesson-deps@main
+        uses: LearnToDiscover/actions/setup-lesson-deps@l2d
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
