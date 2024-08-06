@@ -409,30 +409,15 @@ ax[0, 0].scatter(X_train[:, feature_1], X_train[:, feature_2], c=y_train, s=4, c
 ax[0, 1].scatter(X_test[:, feature_1], X_test[:, feature_2], c=y_test, s=4, cmap='bwr')
 
 ax[1, 0].hist(X_train)
-```
-
-``` python
 ax[1, 1].hist(X_test)
-```
-
-``` python
 
 ax[0, 0].set_title('Training data')
 ax[0, 1].set_title('Test data')
 
 ax[0, 0].set_ylim(ft_min, ft_max)
-```
-
-``` python
 ax[0, 1].set_ylim(ft_min, ft_max)
-```
-
-``` python
 
 ax[1, 0].set_ylim(0, 100)
-```
-
-``` python
 ax[1, 1].set_ylim(0, 100);
 
 show()
@@ -501,31 +486,16 @@ ax[0, 1].scatter(X_test[:, feature_1], X_test[:, feature_2], c=y_test, s=4, cmap
 
 
 ax[1, 0].hist(X_train)
-```
-
-``` python
 
 ax[1, 1].hist(X_test)
-```
-
-``` python
 
 ax[0, 0].set_title('Training data')
 ax[0, 1].set_title('Test data')
 
 ax[0, 0].set_ylim(-3, 3)
-```
-
-``` python
 ax[0, 1].set_ylim(-3, 3)
-```
-
-``` python
 
 ax[1, 0].set_ylim(0, 200)
-```
-
-``` python
 ax[1, 1].set_ylim(0, 200);
 
 show()

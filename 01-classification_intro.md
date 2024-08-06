@@ -570,9 +570,6 @@ fig, ax = subplots(figsize=(6, 5))
 
 cax = ax.contourf(grid_a, grid_b, proba_grid, cmap='Greys', levels=contour_levels)
 fig.colorbar(cax)
-```
-
-``` python
 
 ax.scatter(test_sample[0][0], test_sample[0][1], c='r', marker='o', s=100)
 
