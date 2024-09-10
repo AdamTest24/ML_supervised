@@ -359,8 +359,7 @@ results?</li>
 <span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>}</span></code></pre>
 </div>
 </div>
-<section><h2 class="section-heading" id="revision-example-with-circular-test-data">Revision Example with Circular Test Data<a class="anchor" aria-label="anchor" href="#revision-example-with-circular-test-data"></a>
-<a class="anchor" aria-label="anchor" href="#revision-example-with-circular-test-data"></a></h2>
+<section><h2 class="section-heading" id="revision-example-with-circular-test-data">Revision Example with Circular Test Data<a class="anchor" aria-label="anchor" href="#revision-example-with-circular-test-data"></a></h2>
 <hr class="half-width"><p>For our classification problem, we will use the
 <code>make_circles</code> function. See the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html" class="external-link">documentation</a></p>
 <p>The parameters for noise level and relative size of the two circles
@@ -450,8 +449,7 @@ in this case is impossible.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
-</h3>
+<h3 class="callout-title">Note</h3>
 <div class="callout-content">
 <p><strong>Code</strong>: Note how the keyword argument
 <code>sharey</code> is used in the call of <code>subplots</code> to have
@@ -461,8 +459,7 @@ panel.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="metrics">Metrics<a class="anchor" aria-label="anchor" href="#metrics"></a>
-<a class="anchor" aria-label="anchor" href="#metrics"></a></h2>
+</section><section><h2 class="section-heading" id="metrics">Metrics<a class="anchor" aria-label="anchor" href="#metrics"></a></h2>
 <hr class="half-width"><p>We already used the score to evaluate the model performance. Here are
 some further metrics used in machine learning.</p>
 <p style="text-align: justify;">
@@ -498,8 +495,7 @@ with being the outcome. The metric obtains this value by weighing:
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="average-precision-vs-auc" class="callout-inner">
-<h3 class="callout-title">Average precision vs AUC<a class="anchor" aria-label="anchor" href="#average-precision-vs-auc"></a>
-</h3>
+<h3 class="callout-title">Average precision vs AUC</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 As you may have noticed, the AUC metric also evaluates the area under
@@ -591,8 +587,7 @@ the samples in the original dataset repeatedly to minimise the
 likelihood of bias.
 </p>
 </div>
-</section><section><h2 class="section-heading" id="permutation-score">Permutation Score<a class="anchor" aria-label="anchor" href="#permutation-score"></a>
-<a class="anchor" aria-label="anchor" href="#permutation-score"></a></h2>
+</section><section><h2 class="section-heading" id="permutation-score">Permutation Score<a class="anchor" aria-label="anchor" href="#permutation-score"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 When dealing with biological and medical data, the results of machine
 learning often are not clear-cut. The question remains whether or not to
@@ -616,8 +611,7 @@ permuted labels. To facilitate this, Scikit-learn provides the function
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note-1" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-1"></a>
-</h3>
+<h3 class="callout-title">Note</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 The process of cross-validation is computationally expensive, as is the
@@ -679,8 +673,7 @@ data score (green line). Apart from SVC (linear), the p-values are below
 Here is a <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_permutation_tests_for_classification.html#sphx-glr-auto-examples-model-selection-plot-permutation-tests-for-classification-py" class="external-link">Scikit-learn
 example using permutations with the Iris data</a>.
 </p>
-</section><section><h2 class="section-heading" id="confusion-matrix">Confusion Matrix<a class="anchor" aria-label="anchor" href="#confusion-matrix"></a>
-<a class="anchor" aria-label="anchor" href="#confusion-matrix"></a></h2>
+</section><section><h2 class="section-heading" id="confusion-matrix">Confusion Matrix<a class="anchor" aria-label="anchor" href="#confusion-matrix"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 Another useful method to evaluate a model and demonstrate its integrity
 is to produce a <a href="https://en.wikipedia.org/wiki/Confusion_matrix" class="external-link">confusion
@@ -767,8 +760,7 @@ simplify the visualisation of this matrix.</p>
 </div>
 <figure><img src="fig/03-refinement-rendered-unnamed-chunk-9-9.png" width="1632" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Ideally, the diagonal fields are both white and the off-diagonal
 fields maximally dark.</p>
-</section><section><h2 class="section-heading" id="further-refinements">Further Refinements<a class="anchor" aria-label="anchor" href="#further-refinements"></a>
-<a class="anchor" aria-label="anchor" href="#further-refinements"></a></h2>
+</section><section><h2 class="section-heading" id="further-refinements">Further Refinements<a class="anchor" aria-label="anchor" href="#further-refinements"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 Once we decide what algorithm to use, we start by training that
 algorithm with its default settings and evaluate the results. If not
@@ -833,8 +825,7 @@ displayed in pseudo-3D.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note-2" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-2"></a>
-</h3>
+<h3 class="callout-title">Note</h3>
 <div class="callout-content">
 <p><strong>Code</strong>: Note the setting up of 3D axis. Some examples
 with code to learn 3D plotting are <a href="https://matplotlib.org/2.0.2/mpl_toolkits/mplot3d/tutorial.html" class="external-link">provided
@@ -1182,15 +1173,13 @@ on predictive modelling for brain stimulation</a>. The above leaking is
 there referred to as “snooping”.</p>
 <p><br></p>
 </div>
-</section><section><h2 class="section-heading" id="exercises">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a>
-<a class="anchor" aria-label="anchor" href="#exercises"></a></h2>
+</section><section><h2 class="section-heading" id="exercises">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a></h2>
 <hr class="half-width"><div id="end-of-chapter-exercises" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="end-of-chapter-exercises" class="callout-inner">
-<h3 class="callout-title">End of chapter Exercises<a class="anchor" aria-label="anchor" href="#end-of-chapter-exercises"></a>
-</h3>
+<h3 class="callout-title">End of chapter Exercises</h3>
 <div class="callout-content">
 <p>As a suggestion, take the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer" class="external-link">breast
 cancer dataset</a>.</p>
@@ -1237,7 +1226,7 @@ learning problem.</p>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1722,8 +1711,7 @@ dominated by a single feature.</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
+<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul><li>The function <code>permutation_test_score</code> evaluates the
 significance of a cross-validated score with permutations.</li>
@@ -1765,7 +1753,7 @@ any links that you are not going to use.
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.5.90000.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/ad2542f7f7b9c3f90cc871b355ff81ec14a09ca9" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/ef687d476fd8ae2bb8eb288a25e69130004f4f7b" class="external-link">varnish (1.0.3.9000.1)</a></p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.6.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/ad2542f7f7b9c3f90cc871b355ff81ec14a09ca9" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/ef687d476fd8ae2bb8eb288a25e69130004f4f7b" class="external-link">varnish (1.0.3.9000.1)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1788,7 +1776,7 @@ any links that you are not going to use.
   "identifier": "https://carpentries.github.io/workbench-template-md/03-refinement.html",
   "dateCreated": "2024-08-06",
   "dateModified": "2024-08-06",
-  "datePublished": "2024-09-03"
+  "datePublished": "2024-09-10"
 }
 
   </script><script>

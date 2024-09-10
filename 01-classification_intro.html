@@ -333,8 +333,7 @@ Survey</strong></span></a></p>
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Prerequisite<a class="anchor" aria-label="anchor" href="#prereq1"></a>
-</h3>
+<h3 class="callout-title">Prerequisite</h3>
 <div class="callout-content">
 <ul><li><a href="https://learntodiscover.github.io/Data_Handling/" class="external-link">Data
 Handling</a></li>
@@ -371,8 +370,7 @@ tutorial)</a></li>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, scatter, xlabel, ylabel, xticks, show</span></code></pre>
 </div>
 </div>
-<section><h2 class="section-heading" id="example-visual-classification">Example: Visual Classification<a class="anchor" aria-label="anchor" href="#example-visual-classification"></a>
-<a class="anchor" aria-label="anchor" href="#example-visual-classification"></a></h2>
+<section><h2 class="section-heading" id="example-visual-classification">Example: Visual Classification<a class="anchor" aria-label="anchor" href="#example-visual-classification"></a></h2>
 <hr class="half-width"><p>Import the ‘patients_data’ toy dataset and scatter the data for
 Height and Weight.</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -416,8 +414,7 @@ strings for ‘male/female’. Both can be used for classification.
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="the-classification-challenge" class="callout-inner">
-<h3 class="callout-title">The classification challenge<a class="anchor" aria-label="anchor" href="#the-classification-challenge"></a>
-</h3>
+<h3 class="callout-title">The classification challenge</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 I am given a set of data from a single subject and feed them to a
@@ -494,8 +491,7 @@ possible to distinguish smokers from non-smokers. Red dots and blue dots
 are scattered throughout the graph. The conclusion is that height and
 weight cannot be used to predict whether a subject is a smoker.
 </p>
-</section><section><h2 class="section-heading" id="supervised-learning-training-a-model">Supervised Learning: Training a Model<a class="anchor" aria-label="anchor" href="#supervised-learning-training-a-model"></a>
-<a class="anchor" aria-label="anchor" href="#supervised-learning-training-a-model"></a></h2>
+</section><section><h2 class="section-heading" id="supervised-learning-training-a-model">Supervised Learning: Training a Model<a class="anchor" aria-label="anchor" href="#supervised-learning-training-a-model"></a></h2>
 <hr class="half-width"><p style="text-align: justify;">
 This lesson deals with labelled data. Labelled data are numerical data
 with an extra column of a <strong>label</strong> for each sample. A
@@ -540,16 +536,14 @@ more important than height for gender prediction, the feature importance
 informs to which degree each of the data columns actually contributes to
 the predictions.
 </p>
-</section><section><h2 class="section-heading" id="scikit-learn">Scikit Learn<a class="anchor" aria-label="anchor" href="#scikit-learn"></a>
-<a class="anchor" aria-label="anchor" href="#scikit-learn"></a></h2>
+</section><section><h2 class="section-heading" id="scikit-learn">Scikit Learn<a class="anchor" aria-label="anchor" href="#scikit-learn"></a></h2>
 <hr class="half-width"><p>We will import our machine learning functionality from the <a href="https://scikit-learn.org/stable/" class="external-link">SciKit Learn library</a>.</p>
 <div id="scikit-learn-1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="scikit-learn-1" class="callout-inner">
-<h3 class="callout-title">SciKit Learn<a class="anchor" aria-label="anchor" href="#scikit-learn-1"></a>
-</h3>
+<h3 class="callout-title">SciKit Learn</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 SciKit Learn is a renowned open source application programming interface
@@ -577,8 +571,7 @@ with camel-case characters; e.g. <code>RandomForestClassifier</code>. In
 contrast, functions should be implemented using lower-case characters
 only; e.g. <code>min</code> or <code>round</code>.
 </p>
-</section><section><h2 class="section-heading" id="classification">Classification<a class="anchor" aria-label="anchor" href="#classification"></a>
-<a class="anchor" aria-label="anchor" href="#classification"></a></h2>
+</section><section><h2 class="section-heading" id="classification">Classification<a class="anchor" aria-label="anchor" href="#classification"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="prepare-data-with-labels"><strong>Prepare data with labels</strong><a class="anchor" aria-label="anchor" href="#prepare-data-with-labels"></a></h3>
 <p style="text-align: justify;">
@@ -634,8 +627,7 @@ Number of features:  2</code></pre>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="note" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
-</h3>
+<h3 class="callout-title">Note</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 This code uses a <strong>random number generator</strong>. The output of
@@ -1082,8 +1074,7 @@ Feature 1: 61.6%; Feature 2: 38.4%</code></pre>
 <figure><img src="fig/01-classification_intro-rendered-unnamed-chunk-21-11.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In this case, the predictions are based on a 61% contribution from
 feature 1 and a 38% contribution from feature 2.</p>
 </div>
-</section><section><h2 class="section-heading" id="application">Application<a class="anchor" aria-label="anchor" href="#application"></a>
-<a class="anchor" aria-label="anchor" href="#application"></a></h2>
+</section><section><h2 class="section-heading" id="application">Application<a class="anchor" aria-label="anchor" href="#application"></a></h2>
 <hr class="half-width"><p>Now we pick the ‘Height’ and ‘Weight’ columns from the patients data
 to predict the gender labels. We use a split of 4/5 of the data for
 training and 1/5 for testing.</p>
@@ -1395,15 +1386,13 @@ quantify their performance to improve the outcome of the
 classification.</p>
 <p><br></p>
 </div>
-</section><section><h2 class="section-heading" id="exercises">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a>
-<a class="anchor" aria-label="anchor" href="#exercises"></a></h2>
+</section><section><h2 class="section-heading" id="exercises">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a></h2>
 <hr class="half-width"><div id="end-of-chapter-exercises" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="end-of-chapter-exercises" class="callout-inner">
-<h3 class="callout-title">End of chapter Exercises<a class="anchor" aria-label="anchor" href="#end-of-chapter-exercises"></a>
-</h3>
+<h3 class="callout-title">End of chapter Exercises</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 Repeat the training and prediction workflow as above for two other
@@ -1430,7 +1419,7 @@ diastolic values contributed to the predictions.</p></li>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="q1">Q1<a class="anchor" aria-label="anchor" href="#q1"></a></h3>
@@ -1683,8 +1672,7 @@ had only 70 samples and is thus small.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="further-practice-iris-data" class="callout-inner">
-<h3 class="callout-title">Further Practice: Iris data<a class="anchor" aria-label="anchor" href="#further-practice-iris-data"></a>
-</h3>
+<h3 class="callout-title">Further Practice: Iris data</h3>
 <div class="callout-content">
 <p>You can try to use the Random Forest classifier on the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" class="external-link">Iris
 data</a>:</p>
@@ -1721,8 +1709,7 @@ as:</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
+<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul><li>Classification is to assign labels to unlabeled data.</li>
 <li>
@@ -1766,7 +1753,7 @@ any links that you are not going to use.
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.5.90000.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/ad2542f7f7b9c3f90cc871b355ff81ec14a09ca9" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/ef687d476fd8ae2bb8eb288a25e69130004f4f7b" class="external-link">varnish (1.0.3.9000.1)</a></p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.6.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/ad2542f7f7b9c3f90cc871b355ff81ec14a09ca9" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/ef687d476fd8ae2bb8eb288a25e69130004f4f7b" class="external-link">varnish (1.0.3.9000.1)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1789,7 +1776,7 @@ any links that you are not going to use.
   "identifier": "https://carpentries.github.io/workbench-template-md/01-classification_intro.html",
   "dateCreated": "2024-08-06",
   "dateModified": "2024-08-06",
-  "datePublished": "2024-09-03"
+  "datePublished": "2024-09-10"
 }
 
   </script><script>
