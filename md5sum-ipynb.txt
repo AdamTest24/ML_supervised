@@ -1,4 +1,4 @@
 "file" "checksum" "built" "date"
-"episodes/01-classification_intro.Rmd" "ddc6cc486dd53e35daac1e95c1770850" "site/built/01-classification_intro.ipynb" "2024-09-10"
-"episodes/02-improvement.Rmd" "6f23c73e36310bdf781babc9b1acd9de" "site/built/02-improvement.ipynb" "2024-09-10"
-"episodes/03-refinement.Rmd" "92c1b4c5b63af4535c8c81a50fbef53d" "site/built/03-refinement.ipynb" "2024-09-10"
+"episodes/01-classification_intro.Rmd" "ddc6cc486dd53e35daac1e95c1770850" "site/built/01-classification_intro.ipynb" "2024-09-17"
+"episodes/02-improvement.Rmd" "6f23c73e36310bdf781babc9b1acd9de" "site/built/02-improvement.ipynb" "2024-09-17"
+"episodes/03-refinement.Rmd" "92c1b4c5b63af4535c8c81a50fbef53d" "site/built/03-refinement.ipynb" "2024-09-17"
